@@ -1,6 +1,9 @@
 <template>
-    <div>
-        my-button.vue
+    <div class="by-btn">
+        <span class="by-btn__text">
+            mybutton
+            <slot></slot>
+        </span>
     </div>
 </template>
 <script lang="ts">
