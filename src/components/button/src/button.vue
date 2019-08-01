@@ -1,5 +1,7 @@
 <template>
-    <div class="button">button</div>
+    <div>
+        my-button.vue
+    </div>
 </template>
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";

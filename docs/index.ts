@@ -4,6 +4,7 @@ import App from './app.vue';
 
 
 /******** 公共包 ********/
+import '../src/components'
 
 /******** 公共UI及样式 ********/
 import '../_intermediate/iconfonts/by-icon.scss';
