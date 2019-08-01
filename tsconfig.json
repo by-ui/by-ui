@@ -1,0 +1,11 @@
+{
+    "include": ["@declaration", "src", "docs"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "jsx": "preserve",
+        "jsxFactory": "h",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+    }
+}

@@ -1,0 +1,21 @@
+guide:
+      - title: 品牌
+        name: guide
+        items:
+              - title: 色彩
+                name: Color
+              - title: 字体
+                name: Typography
+components:
+      - title: 综述
+        name: components
+        items:
+              - title: 介绍
+                name: introduction
+      - title: 组件
+        name: Components
+        groups:
+              - title: 基础组件
+                items:
+                      - title: 按钮
+                        name: Button

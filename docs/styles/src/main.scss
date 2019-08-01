@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'alrightsans';
+    src: url('~@docs/assets/fonts/alrightsans.woff2') format('woff2'),
+        url('~@docs/assets/fonts/alrightsans.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-family: 'alrightsans', Arial, Helvetica, '微软雅黑', '宋体';
+        overflow: hidden;
+    }
+}
+
+* {
+    box-sizing: border-box;
+
+    &::before {
+        box-sizing: border-box;
+    }
+
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none !important;
+}
+
+input,
+textarea {
+    border: none;
+    background: none;
+    outline: none !important;
+    font-family: Arial, Helvetica, '微软雅黑', '宋体';
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+        padding: 0;
+        outline: none;
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    //box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(#000, 0.12);
+
+    &:hover {
+        background: rgba(#000, 0.28);
+    }
+}
+
+*::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    //box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(#000, 0.05);
+    border-radius: 5px;
+    // background: #EDEDED;
+}

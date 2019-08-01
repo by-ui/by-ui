@@ -1,0 +1,4 @@
+# Browsers that we support
+
+ie >= 10
+chrome >= 42
