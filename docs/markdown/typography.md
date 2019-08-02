@@ -18,7 +18,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "Pi
 <div class="row">
   <div class="by-component__container col-sm-24 col-md-8">
     <div class="by-component-typo typo-pingfang">
-      <div class="by-component-typo__show">BY实验室</div>
+      <div class="by-component-typo__show">新仁类实验室</div>
       <div class="by-component-typo__detail">
         <p>苹方 / PingFang SC</p>
         <p class="note">MacOS, IOS 优选字体</p>
@@ -28,7 +28,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "Pi
 
   <div class="by-component__container col-sm-24 col-md-8">
     <div class="by-component-typo typo-dongqing">
-      <div class="by-component-typo__show">BY实验室</div>
+      <div class="by-component-typo__show">新仁类实验室</div>
       <div class="by-component-typo__detail">
         <p>冬青黑体 / Hiragino Sans GB</p>
         <p class="note">MacOS 备选字体</p>
@@ -38,7 +38,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "Pi
 
   <div class="by-component__container col-sm-24 col-md-8">
     <div class="by-component-typo typo-yahei">
-      <div class="by-component-typo__show">BY实验室</div>
+      <div class="by-component-typo__show">新仁类实验室</div>
       <div class="by-component-typo__detail">
         <p>微软雅黑 / Microsoft YaHei</p>
         <p class="note">次级备选字体</p>
@@ -50,15 +50,15 @@ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "Pi
 <div class="type-demo-container">
   <div class="row flex-middle typo-pingfang">
     <div class="col-md-5 type">苹方 / PingFang SC</div>
-    <div class=" content">BY实验室(Aotu.io，英文简称O2) 始建于2015年10月，是一个年轻基情的技术团队</div>
+    <div class=" content">新仁类实验室(xrl.io 英文简称XRL) 始建于2015年10月，是一个年轻基情的技术团队</div>
   </div>
   <div class="row flex-middle typo-dongqing">
     <div class="col-md-5 type">冬青黑体 / Hiragino Sans GB</div>
-    <div class=" content">BY实验室(Aotu.io，英文简称O2) 始建于2015年10月，是一个年轻基情的技术团队</div>
+    <div class=" content">新仁类实验室(xrl.io 英文简称XRL) 始建于2015年10月，是一个年轻基情的技术团队</div>
   </div>
   <div class="row flex-middle typo-yahei">
     <div class="col-md-5 type">微软雅黑 / Microsoft YaHei</div>
-    <div class=" content">BY实验室(Aotu.io，英文简称O2) 始建于2015年10月，是一个年轻基情的技术团队</div>
+    <div class=" content">新仁类实验室(xrl.io 英文简称XRL) 始建于2015年10月，是一个年轻基情的技术团队</div>
   </div>
 </div>
 
