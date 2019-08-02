@@ -5,10 +5,8 @@
         <div class="nav-container">
             <div class="nav-left">
                 <div class="logo">
-                    <router-link :to="'/guide'">
-                        <i class="icon-logo"></i>
-                        <span>y - UI</span>
-                    </router-link>
+                    <router-link :to="'/guide'"
+                                 id="by-ui-logo"></router-link>
                 </div>
                 <i class="icon icon-menu nav-icon"></i>
             </div>
@@ -30,10 +28,20 @@
 </template>
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
+    import Vivus from "Vivus";
 
     @Component
     export default class Header extends Vue {
         collapse = true;
+
+        mounted() {
+            new Vivus('by-ui-logo', {
+                type: 'delayed',
+                file: "/docs/assets/image/logo.svg",
+                duration: 300,
+                animTimingFunction: Vivus.EASE
+            });
+        }
     }
 </script>
 <style lang="scss" scoped>
@@ -76,16 +84,19 @@
                 line-height: $header-height;
                 a {
                     display: flex;
+                    height: 100%;
                     align-items: center;
-                }
-                .icon-logo {
-                    font-size: 40px;
-                }
-                span {
                     margin-left: 5px;
-                    color: #3473e7;
+                    color: linear-gradient(to right, #61C1FE, #3776E9);
                     font-weight: bold;
                     font-size: 16px;
+                    /deep/ svg {
+                        width: 150px;
+                        * {
+                            fill: none;
+                            stroke: currentColor;
+                        }
+                    }
                 }
             }
             .nav-icon {
