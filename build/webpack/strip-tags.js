@@ -11,12 +11,12 @@ module.exports = (str, tags) => {
     return str
   }
 
+
   tags = !Array.isArray(tags) ? [tags] : tags
   let len = tags.length
 
   while (len--) {
     $(tags[len]).remove()
   }
-
-  return $.html()
+  return $("body").html()
 }

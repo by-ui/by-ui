@@ -1,7 +1,7 @@
 /**
- * Button Style
- */
-@import '../variables/index.scss';
+* Button Style
+*/
+@import "../variables/index.scss";
 
 $btn-hover-tint-percent: 15%;
 $btn-active-shade-percent: 10%;
@@ -20,7 +20,7 @@ $btn-active-shade-percent: 10%;
   }
 }
 
-@mixin button-hollow-status($text-color, $border-color) {
+@mixin button-plain-status($text-color, $border-color) {
   background: none;
   color: $text-color;
 
@@ -59,7 +59,7 @@ $btn-active-shade-percent: 10%;
   }
   &:disabled,
   &:disabled:hover,
-  &:disabled:active, {
+  &:disabled:active {
     cursor: not-allowed;
     color: $btn-disabled-color;
     border-color: $btn-disabled-border;
@@ -75,53 +75,53 @@ $btn-active-shade-percent: 10%;
     color: $color-white;
   }
   &--default {
-    &--hollow {
-      @include button-hollow-status($text-color, $btn-default-border);
+    &--plain {
+      @include button-plain-status($text-color, $btn-default-border);
     }
   }
   &--primary {
     @include button-status($btn-primary-border, $btn-primary-bg);
 
-    &--hollow {
-      @include button-hollow-status($color-primary, $btn-primary-border);
+    &--plain {
+      @include button-plain-status($color-primary, $btn-primary-border);
     }
   }
   &--success {
     @include button-status($btn-success-border, $btn-success-bg);
 
-    &--hollow {
-      @include button-hollow-status($color-success, $btn-success-border);
+    &--plain {
+      @include button-plain-status($color-success, $btn-success-border);
     }
   }
   &--error {
     @include button-status($btn-error-border, $btn-error-bg);
 
-    &--hollow {
-      @include button-hollow-status($color-error, $btn-error-border);
+    &--plain {
+      @include button-plain-status($color-error, $btn-error-border);
     }
   }
   &--warning {
     @include button-status($btn-warning-border, $btn-warning-bg);
 
-    &--hollow {
-      @include button-hollow-status($color-warning, $btn-warning-border);
+    &--plain {
+      @include button-plain-status($color-warning, $btn-warning-border);
     }
   }
   &--info {
     @include button-status($btn-info-border, $btn-info-bg);
 
-    &--hollow {
-      @include button-hollow-status($color-info, $btn-info-border);
+    &--plain {
+      @include button-plain-status($color-info, $btn-info-border);
     }
   }
   &--text {
-    @include button-hollow-status($btn-text-border, transparent);
+    @include button-plain-status($btn-text-border, transparent);
     color: $text-color;
     border: none;
 
     &:disabled,
     &:disabled:hover,
-    &:disabled:active, {
+    &:disabled:active {
       background: none;
     }
   }
@@ -132,10 +132,10 @@ $btn-active-shade-percent: 10%;
   &--warning,
   &--info,
   &--text {
-    &--hollow {
+    &--plain {
       &:disabled,
       &:disabled:hover,
-      &:disabled:active, {
+      &:disabled:active {
         background: none;
       }
     }
@@ -187,6 +187,9 @@ $btn-active-shade-percent: 10%;
     .by-btn__text {
       font-size: $btn-font-size-smer;
     }
+  }
+  &.is-round {
+    border-radius: 20px;
   }
   &--circle {
     width: $btn-circle-size;
