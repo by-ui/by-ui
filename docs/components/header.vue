@@ -5,10 +5,8 @@
         <div class="nav-container">
             <div class="nav-left">
                 <div class="logo">
-                    <router-link :to="'/guide'">
-                        <i class="icon-logo"></i>
-                        <span>y - UI</span>
-                    </router-link>
+                    <router-link :to="'/guide'"
+                                 id="by-ui-logo"></router-link>
                 </div>
                 <i class="icon icon-menu nav-icon"></i>
             </div>
@@ -39,12 +37,19 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import Vivus from "Vivus";
 
 @Component
 export default class Header extends Vue {
     collapse = true;
+
     mounted() {
-        console.log(this.$i18n);
+        new Vivus('by-ui-logo', {
+            type: 'delayed',
+            file: "/docs/assets/image/logo.svg",
+            duration: 300,
+            animTimingFunction: Vivus.EASE
+        });
     }
     switchLang(lang) {
         this.$i18n.locale = lang;
@@ -86,13 +91,26 @@ $header-height: 80px;
     .nav-left {
         float: left;
 
-        .logo {
-            position: relative;
-            height: $header-height;
-            line-height: $header-height;
-            a {
-                display: flex;
-                align-items: center;
+            .logo {
+                position: relative;
+                height: $header-height;
+                line-height: $header-height;
+                a {
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    margin-left: 5px;
+                    color: linear-gradient(to right, #61C1FE, #3776E9);
+                    font-weight: bold;
+                    font-size: 16px;
+                    /deep/ svg {
+                        width: 150px;
+                        * {
+                            fill: none;
+                            stroke: currentColor;
+                        }
+                    }
+                }
             }
             .icon-logo {
                 font-size: 40px;
@@ -181,7 +199,6 @@ $header-height: 80px;
                 border-color: $brand-blue-500;
             }
         }
-    }
 }
 
 @media screen and (max-width: $screen-sm-max) {

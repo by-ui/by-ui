@@ -1,8 +1,8 @@
 @font-face {font-family: "by-icon";
-  src: url("by-icon.woff2?t=1564735136879") format("woff2"),
-  url("by-icon.woff?t=1564735136879") format("woff"),
-  url('by-icon.ttf?t=1564735136879') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('by-icon.svg?t=1564735136879#by-icon') format('svg'); /* iOS 4.1- */
+  src: url("by-icon.woff2?t=1564712351727") format("woff2"),
+  url("by-icon.woff?t=1564712351727") format("woff"),
+  url('by-icon.ttf?t=1564712351727') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('by-icon.svg?t=1564712351727#by-icon') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-logo:before { content: "\ea01"; }
+.icon-logo-b:before { content: "\ea01"; }
+.icon-logo:before { content: "\ea02"; }
 
 

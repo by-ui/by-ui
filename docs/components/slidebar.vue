@@ -25,6 +25,7 @@
                                         v-for="(navItem,index) in group.items"
                                         :key="index">
                                         <router-link class="by-nav__component"
+                                                     :to="linkUrl(item.name,navItem.name)">{{ $t('by.nav.'+navItem.title) }}</router-link>
                                     </li>
                                 </ul>
                             </li>
