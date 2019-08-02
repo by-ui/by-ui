@@ -9,7 +9,7 @@
 :::demo
 
 ```html
-<by-button>主要按钮</by-button>
+<by-button>默认按钮</by-button>
 <by-button type="success">主要按钮</by-button>
 <by-button type="error">主要按钮</by-button>
 <by-button type="warning">主要按钮</by-button>
