@@ -7,6 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MarkdownItContainer = require('markdown-it-container');
 
+process.stdout.write('我来了'+'\n');
 
 module.exports = {
     entry: {

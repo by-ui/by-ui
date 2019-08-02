@@ -3,7 +3,7 @@
         <nav class="by-nav">
             <div v-for="(item,index) in treeData"
                  :key="index">
-                <h2 class="by-nav__title">{{ item.title }}</h2>
+                <h2 class="by-nav__title">{{ $t('by.nav.'+item.title) }}</h2>
                 <!-- 没有组的情况 -->
                 <ul class="by-nav__items">
                     <div v-if="item.items">
@@ -11,7 +11,7 @@
                             v-for="(navItem,index) in item.items"
                             :key="index">
                             <router-link class="by-nav__page"
-                                         :to="linkUrl(item.name,navItem.name)">{{ navItem.title }}</router-link>
+                                         :to="linkUrl(item.name,navItem.name)">{{ $t('by.nav.'+navItem.title) }}</router-link>
                         </li>
                     </div>
                     <div v-else>
@@ -19,13 +19,12 @@
                             <li class="by-nav__item"
                                 v-for="(group,index) in item.groups"
                                 :key="index">
-                                <a class="by-nav__group">{{ group.title }} </a>
+                                <a class="by-nav__group">{{ $t('by.nav.'+group.title) }} </a>
                                 <ul class="at-nav__child-items">
                                     <li class="by-nav__child-item"
                                         v-for="(navItem,index) in group.items"
                                         :key="index">
                                         <router-link class="by-nav__component"
-                                                     :to="linkUrl(item.name,navItem.name)">{{navItem.name}} {{ navItem.title }}</router-link>
                                     </li>
                                 </ul>
                             </li>

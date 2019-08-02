@@ -1,13 +1,14 @@
 
-# Color 颜色
+# {{$t('by.color.colorTitle')}}
 
 -----
 
-统一的色彩搭配可以提高品牌的识别度，色彩的运用除了需要考虑品牌的统一性之外，还需要达到信息传递，交互反馈等目的。`BY-UI` 是BY实验室出品，品牌颜色为【BY蓝】，因此 `BY-UI` 的整体配色风格也是基于【BY蓝】展开的。
+{{$t('by.color.colorDesc')}}
 
-## 主色
+## {{$t('by.color.themeColor')}}
 
-用于标识品牌颜色
+{{$t('by.color.themeColorDesc')}}
+
 
 <div class="row no-gutter">
   <div class="col-sm-12 col-md-6 col-lg-5">
