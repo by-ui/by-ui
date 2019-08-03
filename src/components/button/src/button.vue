@@ -80,13 +80,10 @@
         circle?: boolean;
 
         /**
-         * 图标
+         * 图标 类名
          */
-        @Prop({
-            default: false,
-            type: Boolean
-        })
-        icon?: boolean;
+        @Prop()
+        icon?: string;
 
         /**
          * 加载图标
