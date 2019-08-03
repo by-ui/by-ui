@@ -19,6 +19,117 @@
     </div>
 </div>
 
+## 辅助色
+
+用于标识状态的按钮等
+
+<div class="row no-gutter">
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #13CE66;">
+      <p class="color-name">Green - Positive</p>
+      <p class="color-value">#13CE66</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #FF4949;">
+      <p class="color-name">Red - Negative</p>
+      <p class="color-value">#FF4949</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #FFC82C;">
+      <p class="color-name c-dark">Yellow - Warning</p>
+      <p class="color-value c-dark">#FFC82C</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #78A4FA;">
+      <p class="color-name">Blue - Info</p>
+      <p class="color-value">#78A4FA</p>
+    </div>
+  </div>
+</div>
+
+## 次辅助色
+
+用于不那么重要的信息等
+
+<div class="row no-gutter">
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #C2ABC7;">
+      <p class="color-name">Roof</p>
+      <p class="color-value">#C2ABC7</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #F0D0D5;">
+      <p class="color-name c-dark">Curtain</p>
+      <p class="color-value c-dark">#F0D0D5</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #F1E4ED;">
+      <p class="color-name c-dark">Door</p>
+      <p class="color-value c-dark">#F1E4ED</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #EEF0F0;">
+      <p class="color-name c-dark">Wall</p>
+      <p class="color-value c-dark">#EEF0F0</p>
+    </div>
+  </div>
+</div>
+
+## 中性色
+
+用于文本、背景和边框
+
+<div class="row no-gutter">
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #2C405A;">
+      <p class="color-name">Header 标题</p>
+      <p class="color-value">#2C405A</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #3F536E;">
+      <p class="color-name">正文字体 - 黑</p>
+      <p class="color-value">#3F536E</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #8DABC4;">
+      <p class="color-name">正文字体 - 灰</p>
+      <p class="color-value">#8DABC4</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #A8C6DF;">
+      <p class="color-name">图标</p>
+      <p class="color-value">#A8C6DF</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #C5D9E8;">
+      <p class="color-name">边框</p>
+      <p class="color-value">#C5D9E8</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #ECF5FD;">
+      <p class="color-name c-dark">背景色 - 浅蓝</p>
+      <p class="color-value c-dark">#ECF5FD</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-5">
+    <div class="at-color-container" style="background-color: #FAFBFC;">
+      <p class="color-name c-dark">背景色 - 米白</p>
+      <p class="color-value c-dark">#FAFBFC</p>
+    </div>
+  </div>
+</div>
+
 ## 调色板
 
 为了更灵活的进行颜色搭配，我们参考了 [Material Design Color Palette](https://material.io/guidelines/style/color.html#color-color-palette) ，使用上述提到的 `品牌色` 和 `辅助色` 作为主色，形成一条条完整的渐变色板。主色使用 `500` 色号
