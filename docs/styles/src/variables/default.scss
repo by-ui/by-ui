@@ -7,13 +7,13 @@
 $css-prefix: at;
 
 /* The Color of O2Team Brand */
-$brand-color                : #6190E8;
+$brand-color                : #207dff;
 $brand-color-light          : #78A4F4;
 $brand-color-dark           : #346FC2;
 
 /* Color */
-$color-normal               : #6190E8;
-$color-primary              : #6190E8;
+$color-normal               : #207dff;
+$color-primary              : #207dff;
 $color-success              : #13CE66;
 $color-error                : #FF4949;
 $color-warning              : #FFC82C;
@@ -21,16 +21,16 @@ $color-info                 : #78A4FA;
 $color-white                : #FFF;
 
 /* Color PalettC */
-$brand-blue-50              : #ECF2FC;
-$brand-blue-100             : #D0DEF8;
-$brand-blue-200             : #B0C8F4;
-$brand-blue-300             : #90B1EF;
-$brand-blue-400             : #79A1EB;
-$brand-blue-500             : #6190E8;
-$brand-blue-600             : #5988E5;
-$brand-blue-700             : #4F7DE2;
-$brand-blue-800             : #4573DE;
-$brand-blue-900             : #3361D8;
+$brand-blue-50              : #E4EFFF;
+$brand-blue-100             : #BCD8FF;
+$brand-blue-200             : #90BEFF;
+$brand-blue-300             : #63A4FF;
+$brand-blue-400             : #4191FF;
+$brand-blue-500             : #207DFF;
+$brand-blue-600             : #1C75FF;
+$brand-blue-700             : #186AFF;
+$brand-blue-800             : #1360FF;
+$brand-blue-900             : #0B4DFF;
 
 $green-50                   : #E3F9ED;
 $green-100                  : #B8F0D1;
@@ -175,8 +175,8 @@ $btn-error-border           : $red-500;
 $btn-warning-bg             : $yellow-500;
 $btn-warning-border         : $yellow-500;
 
-$btn-info-bg                : $blue-500;
-$btn-info-border            : $blue-500;
+$btn-info-bg                : $blue-400;
+$btn-info-border            : $blue-400;
 
 $btn-text-border            : $brand-blue-500;
 
