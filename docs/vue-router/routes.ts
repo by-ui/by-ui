@@ -2,16 +2,18 @@ import { RouteConfig } from 'vue-router';
 import NavConfig from './nav.config.yml';
 
 class Route {
-    name: string = '';
-    component: any = '';
-    path: string = '';
+    name: string;
+    component: any;
+    path: string;
     children?: Route[] = new Array();
+    redirect?: any;
 
-    constructor(name: string, component: any, path: string, children?: Route[]) {
+    constructor(name: string, component: any, path: string, children?: Route[], redirect?: any) {
         this.name = name;
         this.component = component;
         this.path = path;
         this.children ? new Array() : children;
+        redirect && (this.redirect = redirect);
     }
 }
 
@@ -22,11 +24,15 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
     // 制定父级路由
     const _name = parent.toLowerCase();
     currentIndex = index;
+
     routes.push(
         new Route(
             parent,
             () => import(/* webpackChunkName: "modules/${_name}" */ `../views/${_name}/${_name}.vue`),
-            `/${_name}`
+            `/${_name}`,
+            undefined,
+            // 重定向到第一个子路由
+            { name: NavConfig[parent][0].items[0].name.toLowerCase() }
         )
     );
 
