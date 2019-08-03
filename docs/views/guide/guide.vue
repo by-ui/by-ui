@@ -26,6 +26,5 @@
     export default class Guide extends Vue {
 
         navs = navsConfig.guide;
-
     }
 </script>

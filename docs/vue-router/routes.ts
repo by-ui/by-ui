@@ -37,6 +37,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
         if (item.groups) {
             item.groups.forEach(group => {
                 group.items.forEach(item => {
+
                     const _name = item.name.toLowerCase();
                     routes[currentIndex].children.push(
                         new Route(
@@ -66,5 +67,4 @@ routes.push({
     path: '/',
     redirect: { name: 'guide' }
 })
-
 export default routes;

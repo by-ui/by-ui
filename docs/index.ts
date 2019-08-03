@@ -4,6 +4,7 @@ import App from './app.vue';
 
 
 /******** 公共包 ********/
+import {i18n} from  './packages/i18n';
 import '../src/components'
 import DemoBox from './components/demobox.vue'; // md文件代码块
 
@@ -13,11 +14,11 @@ import '../_intermediate/iconfonts/by-icon.scss';
 import './styles/src/index.scss';
 import '@docs/assets/style/docs.scss';
 
-
 Vue.component('demo-box', DemoBox);
 
 new Vue({
     el: '#by-ui',
+    i18n,
     router,
     render: h => h(App),
 });

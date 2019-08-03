@@ -26,6 +26,5 @@
     export default class Components extends Vue {
 
         navs = navsConfig.components;
-
     }
 </script>
