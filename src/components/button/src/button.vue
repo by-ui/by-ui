@@ -4,12 +4,17 @@
                 type && `by-btn--${type}`,
                 size && `by-btn--${size}`,
                 plain && `by-btn--${type}--plain`,
-                {
-                    'is-round': round
-                }
+                circle && 'by-btn--circle',
+                round && 'by-btn--round',
             ]"
             :disabled="disabled">
-        <span class="by-btn__text">
+        <i class="by-btn__icon icon"
+           :class="icon"
+           v-if="icon"></i>
+        <i class="by-btn__loading icon icon-loader"
+           v-if="loading"></i>
+        <span class="by-btn__text"
+              v-if="$slots.default">
             <slot></slot>
         </span>
     </button>
@@ -55,11 +60,48 @@
         })
         disabled?: boolean;
 
+        /**
+         * 是否圆角
+         * 可选值： true false
+         */
         @Prop({
             default: false,
             type: Boolean
         })
         round?: boolean;
+
+        /**
+         * 按钮是否圆形
+         */
+        @Prop({
+            default: false,
+            type: Boolean
+        })
+        circle?: boolean;
+
+        /**
+         * 图标
+         */
+        @Prop({
+            default: false,
+            type: Boolean
+        })
+        icon?: boolean;
+
+        /**
+         * 加载图标
+         */
+        @Prop({
+            default: false,
+            type: Boolean
+        })
+        loading?: boolean;
+
+        /**
+         * 尺寸
+         * 可选值
+         */
+
     }
 </script>
 <style lang="scss" scoped>

@@ -36,6 +36,44 @@
 ```
 :::
 
+## 不可用状态按钮
+
+添加属性 `disabled` 禁用按钮
+:::demo
+```html
+<div class="row">
+    <by-button type="primary" disabled>主要按钮</by-button>
+    <by-button hollow disabled>次要按钮</by-button>
+    <by-button type="text" disabled>文字按钮</by-button>
+</div>
+```
+:::
+
+
+## 图标按钮
+
+添加属性 `icon` 渲染图标按钮
+:::demo
+```html
+<div class="row">
+    <by-button icon="icon-edit" circle></by-button>
+    <by-button type="primary" icon="icon-edit" circle></by-button>
+    <by-button type="success" icon="icon-edit" circle></by-button>
+    <by-button type="error" icon="icon-edit" circle></by-button>
+    <by-button type="warning" icon="icon-edit" circle></by-button>
+    <by-button type="info" icon="icon-edit" circle></by-button>
+</div>
+```
+:::
+
+`loading` 按钮
+:::demo
+```html
+    <by-button loading circle></by-button>
+```
+:::
+
+
 
 <style lang="scss" scoped>
     .row {
