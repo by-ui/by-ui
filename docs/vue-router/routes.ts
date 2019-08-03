@@ -12,7 +12,7 @@ class Route {
         this.name = name;
         this.component = component;
         this.path = path;
-        this.children ? new Array() : children;
+        children && (this.children = children);
         redirect && (this.redirect = redirect);
     }
 }
