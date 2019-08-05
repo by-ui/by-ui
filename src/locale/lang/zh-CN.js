@@ -17,6 +17,7 @@ export default {
             brand:'品牌',
             introduce:'介绍',
             button:'按钮',
+            tag:'标签',
             component:'组件',
             summarize:'综述',
             baseComponent:'基础组件',

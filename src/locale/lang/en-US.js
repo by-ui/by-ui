@@ -17,6 +17,7 @@ export default {
             brand:'Brand',
             introduce:'Introduce',
             button:'Button',
+            tag:'Tag',
             component:'Component',
             summarize:'Summarize',
             baseComponent:'BaseComponent',

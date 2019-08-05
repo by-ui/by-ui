@@ -19,3 +19,5 @@ components:
                 items:
                       - title: button
                         name: Button
+                      - title: tag
+                        name: Tag
