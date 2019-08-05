@@ -3,6 +3,17 @@
 
 使用webpack打包，typescript语法搭建的管理系统后台
 
+```
+npm install
+```
+
+```
+npm run icon
+```
+
+```
+npm run dev
+```
 
 鸣谢：凹凸实验室
 https://at-ui.github.io/at-ui/#/zh

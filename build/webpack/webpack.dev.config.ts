@@ -8,6 +8,8 @@ const baseConfig = require('./webpack.base.config.ts');
 const os = require("os");
 const networkInterfaces = os.networkInterfaces();
 
+const byui = require('./by-ui');
+
 let ip = "";
 const port = '11111';
 for (var key in networkInterfaces) {
@@ -35,6 +37,9 @@ module.exports = merge(baseConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsWebpackPlugin({
             compilationSuccessInfo: {
+                messages: [
+                    ...byui,
+                ],
                 notes: [
                     `start at: http://${ip}:${port}`,
                 ],
