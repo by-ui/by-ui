@@ -1,7 +1,7 @@
 export default {
     by: {
         index:{
-            h4: 'Focus on a better user experience with a modular UI component library',
+            h4: 'Focus on a better user experience with a modular UI component library.',
             button: 'GET STARTED',
             btnGroup: [
                 {
