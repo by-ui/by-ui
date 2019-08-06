@@ -1,12 +1,20 @@
 /// <reference path="../@types/vue-loader/index.d.ts" />
 
+import * as webpack from 'webpack';
 import * as path from 'path';
 import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 import * as MarkdownItContainer from 'markdown-it-container';
 import * as HtmlPlugin from 'html-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+import env from './env';
 
 const striptags = require('./strip-tags');
 const utils = require('./utils');
+
+const mode = process.env.ENV;
+console.log(mode);
+const isProduction = (mode === "production");
 
 module.exports = {
     entry: {
@@ -101,49 +109,24 @@ module.exports = {
                 ]
             },
             {
-                test: /\.css$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
-                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: !isProduction,
+                        },
+                    },
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true
+                            sourceMap: !isProduction
                         }
                     },
                     {
                         loader: "sass-loader",
                         options: {
-                            sourceMap: true
-                        }
-                    },
-                ]
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: "less-loader",
-                        options: {
-                            sourceMap: true
+                            sourceMap: !isProduction
                         }
                     },
                 ]
@@ -200,20 +183,21 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        // new MiniCssExtractPlugin({
-        //     filename: '[name].[contenthash].css'
-        // }),
+        new MiniCssExtractPlugin({
+            filename: isProduction ? '[name].[contenthash].css' : '[name].css',
+            chunkFilename: isProduction ? '[name].[contenthash].css' : '[name].css'
+        }),
         new HtmlPlugin({
             filename: "index.html",
             title: "By-ui",
             template: path.resolve("docs/index.html"),
             showErrors: true,
         }),
-        // new webpack.DefinePlugin({
-        //     'process.env': {
-        //         domain: JSON.stringify(domain),
-        //         host: JSON.stringify(host),
-        //     },
-        // }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                domain: JSON.stringify(env.domain),
+                host: JSON.stringify(env.host),
+            },
+        }),
     ],
 }

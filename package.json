@@ -5,7 +5,7 @@
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
         "dev": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='development' webpack-dev-server --config build/webpack/webpack.dev.config.ts",
-        "build": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='development' webpack --config build/webpack/webpack.prod.config.ts --progress"
+        "build": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.prod.config.ts --progress"
     },
     "author": "",
     "license": "ISC",
