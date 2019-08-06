@@ -167,6 +167,37 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+            maxInitialRequests: 30,
+            maxAsyncRequests: 30,
+            minSize: 2048,
+            cacheGroups: {
+                default: {
+                    priority: -20,
+                    reuseExistingChunk: true,
+                    minChunks: 20,
+                },
+                'vendors/library': {
+                    name: 'vendors/library',
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                },
+                'vendors/vue-bucket': {
+                    name: 'vendors/vue-bucket',
+                    test: /[\\/]node_modules[\\/](vue|vue-router|vuex|vue-class-component)[\\/]/,
+                    priority: -1
+                },
+            }
+        },
+        runtimeChunk: {
+            name: 'vendors/manifest',
+        }
+    },
+    performance: {
+        hints: false
+    },
     plugins: [
         new VueLoaderPlugin(),
         // new MiniCssExtractPlugin({
