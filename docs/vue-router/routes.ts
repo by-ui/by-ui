@@ -28,7 +28,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
     routes.push(
         new Route(
             parent,
-            () => import(/* webpackChunkName: "modules/${_name}" */ `../views/${_name}/${_name}.vue`),
+            () => import(/* webpackChunkName: "modules/[request]" */ `../views/${_name}/${_name}.vue`),
             `/${_name}`,
             undefined,
             // 重定向到第一个子路由
@@ -48,7 +48,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
                     routes[currentIndex].children.push(
                         new Route(
                             _name,
-                            () => import(/* webpackChunkName: "modules/${_name}" */ `../markdown/${_name}.md`),
+                            () => import(/* webpackChunkName: "modules/[request]" */ `../markdown/${_name}.md`),
                             `${_name}`
                         )
                     )
@@ -60,7 +60,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
                 routes[currentIndex].children.push(
                     new Route(
                         _name,
-                        () => import(/* webpackChunkName: "modules/${_name}" */ `../markdown/${_name}.md`),
+                        () => import(/* webpackChunkName: "modules/[request]" */ `../markdown/${_name}.md`),
                         `${_name}`
                     )
                 )

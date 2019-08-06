@@ -1,11 +1,44 @@
 {
-    "include": ["@declaration", "src", "docs"],
+    "compileOnSave": false,
+    "include": ["@declaration", "src"],
     "exclude": ["node_modules"],
     "compilerOptions": {
-        "jsx": "preserve",
-        "jsxFactory": "h",
+        "target": "es5",
         "module": "esnext",
         "moduleResolution": "node",
-        "experimentalDecorators": true,
-    }
+
+        // 启用：
+        // --noImplicitAny：报告使用隐含any类型提高表达式和声明的错误
+        // --noImplicitThis：报告this使用隐含any类型时的错误
+        // --alwaysStrict：
+        // --strictNullChecks：在严格的空检查模式中，null和undefined值不在每种类型的域中，并且只能分配给它们any（undefined可以分配的一个例外void）
+        // --strictFunctionTypes：禁用功能类型的双变量参数检查
+        // --strictPropertyInitialization： 确保在构造函数中初始化非未定义的类属性
+        "strict": true,
+
+        "suppressImplicitAnyIndexErrors": true, // 抑制--noImplicitAny索引缺少索引签名的对象的错误。
+        // "noUnusedLocals": true, // 报告未使用的局部变量的错误
+        "forceConsistentCasingInFileNames": true, //禁止对同一文件的不一致引用
+
+        "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入
+        "experimentalDecorators": true, // 为ES6的装饰器启用实验支持
+        "downlevelIteration": true, // 提供迭代器全面支持
+
+        "allowJs": true,
+        "resolveJsonModule": true,
+
+        "lib": ["dom", "es5", "es6", "es7", "esnext", "es2015.promise"],
+
+        "jsx": "preserve",
+        "jsxFactory": "h",
+
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./src/*"],
+            "mixins/*": ["./src/resources/mixins/*"],
+            "utils/*": ["./src/utils/*"]
+        },
+
+        "sourceMap": true
+    },
 }

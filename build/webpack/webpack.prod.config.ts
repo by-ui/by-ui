@@ -1,24 +1,25 @@
 import * as path from 'path';
 import * as merge from 'webpack-merge';
-import * as TerserPlugin  from 'terser-webpack-plugin';
+import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import * as OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import * as FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
-
-const baseConfig = require('./webpack.base.config.ts');
-
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-const byui = require('./by-ui');
-let notes = new Array();
+import * as baseConfig from './webpack.base.config';
 
-const timeReverse = new Date().getTime().toString().split('').reverse().join('');
+import byui from './by-ui';
+
+let notes = [
+    `Compile Successful!`
+];
 
 module.exports = merge(baseConfig, {
     mode: 'production',
     output: {
         path: path.resolve('dist'),
-        filename: `[name].[contenthash].${timeReverse}.js`,
-        chunkFilename: `[name].[contenthash].${timeReverse}.js`
+        filename: `[name].[contenthash].js`,
+        chunkFilename: `[name].[contenthash].js`,
+        publicPath: './',
     },
     devtool: false,
     stats: false,
@@ -37,7 +38,11 @@ module.exports = merge(baseConfig, {
     ],
     optimization: {
         minimizer: [
-            new TerserPlugin(),
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false
+            }),
             new OptimizeCSSAssetsPlugin({
                 cssProcessorOptions: {
                     safe: true,

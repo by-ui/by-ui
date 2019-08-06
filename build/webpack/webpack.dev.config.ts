@@ -8,7 +8,7 @@ const baseConfig = require('./webpack.base.config.ts');
 const os = require("os");
 const networkInterfaces = os.networkInterfaces();
 
-const byui = require('./by-ui');
+import byui from './by-ui';
 
 let ip = "";
 const port = '11111';

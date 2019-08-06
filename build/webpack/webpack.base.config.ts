@@ -1,15 +1,12 @@
-const path = require('path');
+/// <reference path="../@types/vue-loader/index.d.ts" />
 
-const HtmlPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MarkdownItContainer = require('markdown-it-container');
+import * as path from 'path';
+import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
+import * as MarkdownItContainer from 'markdown-it-container';
+import * as HtmlPlugin from 'html-webpack-plugin';
 
 const striptags = require('./strip-tags');
 const utils = require('./utils');
-
 
 module.exports = {
     entry: {
@@ -17,7 +14,6 @@ module.exports = {
     },
     output: {
         path: path.resolve('dist'),
-        publicPath: "/",
     },
     resolve: {
         alias: {

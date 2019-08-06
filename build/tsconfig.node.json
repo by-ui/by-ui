@@ -1,14 +1,14 @@
 /**
  * config for node-ts
  */
-{
+ {
     "compilerOptions": {
         "module": "commonjs",
         "noImplicitAny": true,
         "sourceMap": true,
         "moduleResolution": "node",
         "isolatedModules": true,
-        "target": "es5",
+        "target": "es6",
         "strictNullChecks": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
