@@ -100,7 +100,6 @@ $header-height: 80px;
                     height: 100%;
                     align-items: center;
                     margin-left: 5px;
-                    color: linear-gradient(to right, #61C1FE, #3776E9);
                     font-weight: bold;
                     font-size: 16px;
                     /deep/ svg {

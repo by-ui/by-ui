@@ -71,12 +71,12 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
 
 routes.push({
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "modules/${_name}" */ `../views/index.vue`)
+    name: 'home',
+    component: () => import(/* webpackChunkName: "modules/home" */ `../views/index/index.vue`)
 })
 routes.push({
     path: '/',
-    redirect: { name: 'guide' }
+    redirect: { name: 'home' }
 })
 
 export default routes

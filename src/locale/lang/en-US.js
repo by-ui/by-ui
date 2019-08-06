@@ -1,5 +1,21 @@
 export default {
     by: {
+        index:{
+            h4: 'Focus on a better user experience with a modular UI component library',
+            button: 'GET STARTED',
+            btnGroup: [
+                {
+                    title: 'Guide',
+                    content: 'Understand design guidelines and design with uniform specifications to help product designers and front-end engineers build quickly.'
+                },{
+                    title: 'Component',
+                    content: 'Experience the interaction details through the demo of the component, the development can be referenced separately, or the component can be introduced globally.'
+                },{
+                    title: 'Resource',
+                    content: 'Products can quickly build high-fidelity prototypes with sketch tools, reducing communication costs.'
+                }
+            ]
+        },
         header: {
             adminSystem: 'Admin',
             component: 'Component',
