@@ -2,7 +2,7 @@
     <div class="index">
         <by-header class="by-header"></by-header>
         <div class="index-container">
-            <span id="index-logo"></span>
+            <span id="index-logo" @click="replay"></span>
             <p class="desc">{{$t('by.index.h4')}}</p>
             <by-button round
                        class="start-button"
@@ -40,17 +40,23 @@
 
     export default class Guide extends Vue {
 
+        logo:any = '';
+
         list = [
             { imgUrl: require('../../assets/image/icon_zhinan.svg'), name: 'guide' },
             { imgUrl: require('../../assets/image/icon_zujian.svg'), name: 'components' },
             { imgUrl: require('../../assets/image/icon_ziyuan.svg'), name: 'home' },
         ]
 
+        replay(){
+            this.logo.reset().play()
+        }
+
         mounted() {
-            new Vivus('index-logo', {
-                type: 'delayed',
+            this.logo = new Vivus('index-logo', {
+                type: 'oneByOne',
                 file: "/docs/assets/image/logo.svg",
-                duration: 300,
+                duration: 600,
                 animTimingFunction: Vivus.EASE
             });
         }
