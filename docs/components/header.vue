@@ -46,7 +46,7 @@ export default class Header extends Vue {
     mounted() {
         new Vivus('by-ui-logo', {
             type: 'delayed',
-            file: "/docs/assets/image/logo.svg",
+            file: '//pic-share.oss-cn-beijing.aliyuncs.com/logo.svg',
             duration: 300,
             animTimingFunction: Vivus.EASE
         });
