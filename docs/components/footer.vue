@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-logo"></div>
       <div class="footer-desc">
-        <div class="footer-copyright">© 2019 Created by<a href="//aotu.io" target="_blank"> 新仁类前端</a></div>
+        <div class="footer-copyright">© 2019 Created by<a href="//aotu.io" target="_blank"> 新仁类实验室</a></div>
       </div>
       <div class="github-logo"><a href="https://github.com/by-ui" target="_blank">Github</a></div>
     </div>

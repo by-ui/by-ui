@@ -79,5 +79,4 @@ routes.push({
     redirect: { name: 'guide' }
 })
 
-console.log(routes)
-export default routes;
+export default routes
