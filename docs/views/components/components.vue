@@ -1,8 +1,8 @@
 <template>
     <div class="components">
-        <b-header></b-header>
+        <by-header></by-header>
         <div class="by-container row">
-            <b-slider :tree-data="navs"></b-slider>
+            <by-slider :tree-data="navs"></by-slider>
             <div class="by-markdown col-sm-24 col-md-18 col-lg-20">
                 <transition name="fade"
                             mode="out-in">
@@ -10,6 +10,7 @@
                 </transition>
             </div>
         </div>
+        <by-footer></by-footer>
     </div>
 </template>
 <script lang="ts">
@@ -17,11 +18,12 @@
 
     import navsConfig from '@docs/vue-router/nav.config.yml'
 
-    import BHeader from '@docs/components/header.vue';
-    import BSlider from '@docs/components/slidebar.vue'
+    import ByHeader from '@docs/components/header.vue';
+    import BySlider from '@docs/components/slidebar.vue'
+    import ByFooter from '@docs/components/footer.vue'
 
     @Component({
-        components: { BHeader, BSlider }
+        components: { ByHeader, BySlider, ByFooter }
     })
     export default class Components extends Vue {
 

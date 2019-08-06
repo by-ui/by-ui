@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="124px" height="124px" viewBox="0 0 124 124" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icon_ziyuan</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="52" cy="52" r="52"></circle>
+        <filter x="-15.4%" y="-13.5%" width="130.8%" height="130.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0883140297 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="23.1133644%" y1="8.63946144%" x2="74.1356383%" y2="94.0492021%" id="linearGradient-3">
+            <stop stop-color="#FA6A76" offset="0%"></stop>
+            <stop stop-color="#FA849D" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-4" cx="47" cy="47" r="47"></circle>
+        <linearGradient x1="56.5389649%" y1="12.7986402%" x2="56.5389649%" y2="80.8586987%" id="linearGradient-6">
+            <stop stop-color="#FFFFFF" stop-opacity="0.259588068" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="56.5389649%" y1="12.7986402%" x2="56.5389649%" y2="80.8586987%" id="linearGradient-7">
+            <stop stop-color="#FFFFFF" stop-opacity="0.578698645" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="56.5389649%" y1="12.7986402%" x2="56.5389649%" y2="80.8586987%" id="linearGradient-8">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-1282.000000, -803.000000)">
+            <g id="icon_ziyuan" transform="translate(1292.000000, 811.000000)">
+                <g id="椭圆形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="路径-4" transform="translate(5.000000, 5.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <use id="蒙版" fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                    <path d="M-11,31.6035156 L0.79044128,34.729387 C9.28843199,36.9823669 18.3381485,34.408612 24.3786965,28.0208468 L28.1013544,24.0842067 C32.6346002,19.290385 38.9414239,16.5742187 45.5392299,16.5742187 L56.3680774,16.5742187 C63.2872427,16.5742187 69.8697598,13.5880099 74.4270175,8.38164361 L74.5097656,8.28710937 C79.0068586,3.1494773 85.8791562,0.762899339 92.5926017,2.00739033 L97.9472656,3 L97.9472656,38.0839844 L79.7636719,65.0488281 L2.76171875,62.0195312 L-11,31.6035156 Z" fill="url(#linearGradient-6)" mask="url(#mask-5)"></path>
+                    <path d="M-3,54.6035156 L18.4317954,51.7968088 C20.4939093,51.5267545 22.4504378,50.7254062 24.109525,49.4713437 L33.9921931,42.0012819 C36.0757727,40.4263562 38.6162992,39.5742188 41.2281367,39.5742188 L68.5173302,39.5742188 C71.5619613,39.5742188 74.4927629,38.4169114 76.7159869,36.3367543 L86.0336081,27.6187322 C87.1452201,26.5786537 88.6106209,26 90.1329365,26 L105.947266,26 L105.947266,61.0839844 L87.7636719,88.0488281 L10.7617188,85.0195312 L-3,54.6035156 Z" fill="url(#linearGradient-7)" mask="url(#mask-5)"></path>
+                    <path d="M-3,75.6035156 L20.0049602,72.5907872 C21.0360172,72.45576 22.0142814,72.0550859 22.843825,71.4280547 L35.597659,61.7877503 C36.6394488,61.0002875 37.9097121,60.5742188 39.2156309,60.5742188 L70.8865948,60.5742188 C72.4089104,60.5742187 73.8743111,59.9955651 74.9859231,58.9554865 L86.0336081,48.6187322 C87.1452201,47.5786537 88.6106209,47 90.1329365,47 L105.947266,47 L105.947266,82.0839844 L87.7636719,109.048828 L10.7617188,106.019531 L-3,75.6035156 Z" fill="url(#linearGradient-8)" mask="url(#mask-5)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
