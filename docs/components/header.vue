@@ -5,7 +5,7 @@
         <div class="nav-container">
             <div class="nav-left">
                 <div class="logo">
-                    <router-link :to="'/guide'"
+                    <router-link :to="'/'"
                                  id="by-ui-logo"></router-link>
                 </div>
                 <i class="icon icon-menu nav-icon"></i>
