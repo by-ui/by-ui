@@ -36,60 +36,60 @@
     </header>
 </template>
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import Vivus from "Vivus";
+    import { Vue, Component } from "vue-property-decorator";
+    import Vivus from "Vivus";
 
-@Component
-export default class Header extends Vue {
-    collapse = true;
+    @Component
+    export default class Header extends Vue {
+        collapse = true;
 
-    mounted() {
-        new Vivus('by-ui-logo', {
-            type: 'delayed',
-            file: '//pic-share.oss-cn-beijing.aliyuncs.com/logo.svg',
-            duration: 300,
-            animTimingFunction: Vivus.EASE
-        });
+        mounted() {
+            new Vivus('by-ui-logo', {
+                type: 'delayed',
+                file: require("../assets/image/logo.svg"),
+                duration: 300,
+                animTimingFunction: Vivus.EASE
+            });
+        }
+        switchLang(lang) {
+            this.$i18n.locale = lang;
+            this.$i18n.fallbackLocale
+        }
     }
-    switchLang(lang) {
-        this.$i18n.locale = lang;
-        this.$i18n.fallbackLocale
-    }
-}
 </script>
 <style lang="scss" scoped>
-@import "~@docs/styles/src/variables/index.scss";
+    @import "~@docs/styles/src/variables/index.scss";
 
-$header-height: 80px;
+    $header-height: 80px;
 
-.page-header {
-    @include clearfix();
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $header-height;
-    background-color: transparent;
-    transition: all 0.3s;
-    z-index: 100;
+    .page-header {
+        @include clearfix();
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $header-height;
+        background-color: transparent;
+        transition: all 0.3s;
+        z-index: 100;
 
-    &.collapse {
-        background-color: #fff;
-        box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
-        opacity: 0.98;
-        position: relative;
+        &.collapse {
+            background-color: #fff;
+            box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
+            opacity: 0.98;
+            position: relative;
+        }
+        &.open {
+            background-color: #fff;
+        }
     }
-    &.open {
-        background-color: #fff;
-    }
-}
-.nav-container {
-    margin: 0 auto;
-    width: 90%;
-    color: #1d1d1f;
+    .nav-container {
+        margin: 0 auto;
+        width: 90%;
+        color: #1d1d1f;
 
-    .nav-left {
-        float: left;
+        .nav-left {
+            float: left;
 
             .logo {
                 position: relative;
@@ -198,65 +198,65 @@ $header-height: 80px;
                 border-color: $brand-blue-500;
             }
         }
-}
-
-@media screen and (max-width: $screen-sm-max) {
-    .page-header {
-        height: 60px;
-
-        &.open {
-            .nav-right {
-                height: 220px;
-            }
-        }
     }
-    .nav-container {
-        width: initial;
 
-        .nav-left {
-            position: relative;
-            margin: 0 20px;
-            float: none;
-            text-align: center;
+    @media screen and (max-width: $screen-sm-max) {
+        .page-header {
+            height: 60px;
 
-            .logo {
-                display: inline-block;
-                height: 60px;
-                line-height: 60px;
-            }
-            .nav-icon {
-                display: inline-block;
+            &.open {
+                .nav-right {
+                    height: 220px;
+                }
             }
         }
-        .nav-right {
-            float: none;
-            height: 0;
-            text-align: center;
-            background-color: #fff;
-            box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
-            transition: all 0.3s;
-            overflow: hidden;
+        .nav-container {
+            width: initial;
 
-            .navbar {
-                display: block;
-                height: initial;
-                line-height: 50px;
+            .nav-left {
+                position: relative;
+                margin: 0 20px;
+                float: none;
+                text-align: center;
 
-                li {
-                    display: block;
+                .logo {
+                    display: inline-block;
+                    height: 60px;
+                    line-height: 60px;
                 }
-                a {
-                    width: 100%;
+                .nav-icon {
+                    display: inline-block;
+                }
+            }
+            .nav-right {
+                float: none;
+                height: 0;
+                text-align: center;
+                background-color: #fff;
+                box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
+                transition: all 0.3s;
+                overflow: hidden;
 
-                    &.router-link-active::after {
-                        display: none;
+                .navbar {
+                    display: block;
+                    height: initial;
+                    line-height: 50px;
+
+                    li {
+                        display: block;
+                    }
+                    a {
+                        width: 100%;
+
+                        &.router-link-active::after {
+                            display: none;
+                        }
                     }
                 }
-            }
-            .btn-language {
-                margin: 16px;
+                .btn-language {
+                    margin: 16px;
+                }
             }
         }
     }
-}
 </style>

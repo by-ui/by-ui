@@ -2,7 +2,8 @@
     <div class="index">
         <by-header class="by-header"></by-header>
         <div class="index-container">
-            <span id="index-logo" @click="replay"></span>
+            <span id="index-logo"
+                  @click="replay"></span>
             <p class="desc">{{$t('by.index.h4')}}</p>
             <by-button round
                        class="start-button"
@@ -40,7 +41,7 @@
 
     export default class Guide extends Vue {
 
-        logo:any = '';
+        logo: any = '';
 
         list = [
             { imgUrl: require('../../assets/image/icon_zhinan.svg'), name: 'guide' },
@@ -48,14 +49,14 @@
             { imgUrl: require('../../assets/image/icon_ziyuan.svg'), name: 'home' },
         ]
 
-        replay(){
+        replay() {
             this.logo.reset().play()
         }
 
         mounted() {
             this.logo = new Vivus('index-logo', {
                 type: 'oneByOne',
-                file: "/docs/assets/image/logo.svg",
+                file: require("../../assets/image/logo.svg"),
                 duration: 600,
                 animTimingFunction: Vivus.EASE
             });
@@ -97,22 +98,26 @@
                     rgba(96, 192, 254, 1) 0%,
                     rgba(55, 119, 233, 1) 100%
                 );
-                box-shadow: 0px 4px 6px 0px rgba(28, 141, 243, 0.32);
                 border-radius: 30px;
                 color: #fff;
                 font-size: 18px;
+                box-shadow: 0px 4px 6px 0px rgba(28, 141, 243, 0.32);
+                &:hover {
+                    cursor: pointer;
+                }
             }
             .block-dv {
                 width: 80%;
                 .inner {
                     background: #fff;
-                    box-shadow: 0px 10px 23px 0px #6696b7;
                     border-radius: 6px;
                     padding: 30px 53px 30px 33px;
                     text-align: center;
                     margin: 7% 0;
+                    transition: all 0.5s;
                     &:hover {
                         cursor: pointer;
+                        box-shadow: 0px 10px 23px 0px #6696b7;
                     }
                     h4 {
                         font-size: 18px;
