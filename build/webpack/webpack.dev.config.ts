@@ -1,6 +1,9 @@
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
+import * as HtmlPlugin from 'html-webpack-plugin';
+
 import * as path from 'path';
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
@@ -49,6 +52,12 @@ module.exports = merge(baseConfig, {
                     `start at: http://${ip}:${port}`,
                 ],
             }
+        }),
+        new HtmlPlugin({
+            filename: "index.html",
+            title: "By-ui",
+            template: path.resolve("docs/index.html"),
+            showErrors: true,
         }),
     ],
 
