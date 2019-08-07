@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'alrightsans';
-    src: url('~@docs/assets/fonts/alrightsans.woff2') format('woff2'),
-        url('~@docs/assets/fonts/alrightsans.woff') format('woff');
+    src: url('./fonts/alrightsans.woff2') format('woff2'),
+        url('./fonts/alrightsans.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }

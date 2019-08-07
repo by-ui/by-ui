@@ -1,7 +1,7 @@
 import Vue, { PluginObject } from 'vue';
 
-import Button from './button/src/button.vue'
-import Tag from './tag/src/tag.vue'
+import Button from './components/button/src/button.vue'
+import Tag from './components/tag/src/tag.vue'
 
 const Components: PluginObject<never> = {
     install(Vue) {
