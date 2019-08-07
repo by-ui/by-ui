@@ -43,13 +43,13 @@ module.exports = {
                         loader: 'vue-markdown-loader/lib/markdown-compiler',
                         options: {
                             raw: true,
-                            // preprocess: (MarkdownIt, source) => {
-                            //     MarkdownIt.renderer.rules.table_open = function () {
-                            //       return '<table class="table">'
-                            //     }
-                            //     MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
-                            //     return source
-                            //   },
+                            preprocess: (MarkdownIt, source) => {
+                                MarkdownIt.renderer.rules.table_open = function () {
+                                  return '<table class="table">'
+                                }
+                                MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
+                                return source
+                              },
                             use: [
                                 [MarkdownItContainer, 'demo', {
                                     validate: params => params.trim().match(/^demo\s*(.*)$/),

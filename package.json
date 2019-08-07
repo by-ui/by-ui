@@ -4,6 +4,7 @@
     "description": "",
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
+        "start":"npm run dev",
         "dev": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='development' webpack-dev-server --config build/webpack/webpack.dev.config.ts",
         "build:components": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.components.config.ts --progress",
         "build:docs": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.prod.config.ts --progress",
