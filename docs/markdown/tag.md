@@ -1,79 +1,62 @@
 # Tag 标签
 
------
+----
 
 ## 基本标签
 
 设置 `closable` 属性可给标签添加关闭按钮，点击关闭按钮触发 `on-close` 事件，按钮不包含逻辑，如需删除 `tag`，请自行添加关闭逻辑
 
 :::demo
-
 ```html
-<div class="row">
-    <by-tag>标签一</by-tag>
-    <by-tag>标签二</by-tag>
-    <by-tag>标签三</by-tag>
-    <by-tag name="标签四" closable v-if="show" @on-close="handleClose">标签四</by-tag>
-</div>
-
+<by-tag>标签一</by-tag>
+<by-tag>标签二</by-tag>
+<by-tag>标签三</by-tag>
+<by-tag name="标签四" closable v-if="show" @on-close="handleClose">标签四</by-tag>
 ```
 :::
 
-## 不可用状态按钮
+## 各种颜色的标签
 
-添加属性 `disabled` 禁用按钮
+内置六种颜色的标签，如需其他颜色的标签，可设置 `color` 属性的值为十六进制的色值，例如 `color="#6190E8"`
+
 :::demo
 ```html
-<div class="row">
-    <by-button type="primary" disabled>主要按钮</by-button>
-    <by-button hollow disabled>次要按钮</by-button>
-    <by-button type="text" disabled>文字按钮</by-button>
-</div>
+<by-tag color="default">标签一</by-tag>
+<by-tag color="primary">标签二</by-tag>
+<by-tag color="success">标签三</by-tag>
+<by-tag color="error">标签四</by-tag>
+<by-tag color="warning">标签五</by-tag>
+<by-tag color="info">标签六</by-tag>
+<by-tag color="#ecefce">#ecefce</by-tag>
 ```
 :::
 
+## API
 
-## 图标按钮
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| name | 用于触发关闭事件时的回调 | Boolean | — | false |
+| color | 类型 | String / Hex | 可传入十六进制颜色值，或者 `default`, `primary`, `success`, `error`, `warning`, `info` | default |
+| closable | 是否可关闭 | Boolean | — | false |
 
-添加属性 `icon` 渲染图标按钮
-:::demo
-```html
-<div class="row">
-    <by-button icon="icon-edit" circle></by-button>
-    <by-button type="primary" icon="icon-edit" circle></by-button>
-    <by-button type="success" icon="icon-edit" circle></by-button>
-    <by-button type="error" icon="icon-edit" circle></by-button>
-    <by-button type="warning" icon="icon-edit" circle></by-button>
-    <by-button type="info" icon="icon-edit" circle></by-button>
-</div>
-```
-:::
+## Tag 事件
 
-`loading` 按钮
-:::demo
-```html
-    <by-button loading circle></by-button>
-```
-:::
+| 事件名称      | 说明          | 返回值  |
+|---------- |-------------- |---------- |
+| on-close | 点击关闭按钮时触发 | event |
 
-
-
-<style lang="scss" scoped>
-    .row {
-        .by-btn + .by-btn {
-            margin-left: 8px;
-        }
-
-        & + .row {
-            margin-top: 20px;
-        }
-        .by-btn-group .by-btn {
-            margin-left: 0;
-        }
+<script>
+  export default {
+    data () {
+      return {
+        show: true
+      }
+    },
+    methods: {
+      handleClose (evt, name) {
+        // this.$Message.info(`关闭标签 - ${name}`)
+        this.show = false
+      }
     }
-
-    .by-btn-group {
-        margin-left: 8px;
-        margin-top: 16px;
-    }
-</style>
+  }
+</script>
