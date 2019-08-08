@@ -4,7 +4,7 @@ import App from './app.vue';
 
 
 /******** 公共包 ********/
-import {i18n} from  './packages/i18n';
+import { i18n } from './packages/i18n';
 /******** 全局组件 ********/
 import '../src'
 import DemoBox from './components/demobox.vue'; // md文件代码块
