@@ -32,11 +32,6 @@ module.exports = merge(baseConfig, {
         runtimeChunk: false
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            progress: true,
-            hide_modules: true
-        }),
         new webpack.BannerPlugin({
             banner: `/*! BY-UI v${require('../../package.json').version} | MIT License */`,
             raw: true,
