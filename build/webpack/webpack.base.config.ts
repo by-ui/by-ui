@@ -45,11 +45,12 @@ module.exports = {
                             raw: true,
                             preprocess: (MarkdownIt, source) => {
                                 MarkdownIt.renderer.rules.table_open = function () {
-                                  return '<table class="table">'
+                                    return '<table class="table">'
                                 }
+                                // 对于代码块去除v-pre,添加高亮样式
                                 MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
                                 return source
-                              },
+                            },
                             use: [
                                 [MarkdownItContainer, 'demo', {
                                     validate: params => params.trim().match(/^demo\s*(.*)$/),

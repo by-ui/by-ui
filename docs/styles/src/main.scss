@@ -2,67 +2,55 @@
     font-family: 'alrightsans';
     src: url('./fonts/alrightsans.woff2') format('woff2'),
         url('./fonts/alrightsans.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
 
     body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-size: 14px;
-        font-family: 'alrightsans', Arial, Helvetica, '微软雅黑', '宋体';
-        // overflow: hidden;
+        // font-family: 'alrightsans', Arial, Helvetica, '微软雅黑', '宋体';
     }
 }
 
-* {
-    box-sizing: border-box;
+// * {
+//     box-sizing: border-box;
 
-    &::before {
-        box-sizing: border-box;
-    }
+//     &::before {
+//         box-sizing: border-box;
+//     }
 
-    &::after {
-        box-sizing: border-box;
-    }
-}
+//     &::after {
+//         box-sizing: border-box;
+//     }
+// }
 
-* {
-    -webkit-tap-highlight-color: transparent;
-}
+// * {
+//     -webkit-tap-highlight-color: transparent;
+// }
 
-button {
-    border: none;
-    background: none;
-    padding: 0;
-    outline: none !important;
-}
+// button {
+//     border: none;
+//     background: none;
+//     padding: 0;
+//     outline: none !important;
+// }
 
-input,
-textarea {
-    border: none;
-    background: none;
-    outline: none !important;
-    font-family: Arial, Helvetica, '微软雅黑', '宋体';
-}
+// input,
+// textarea {
+//     border: none;
+//     background: none;
+//     outline: none !important;
+//     font-family: Arial, Helvetica, '微软雅黑', '宋体';
+// }
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li{
-        padding: 0;
-        outline: none;
-    }
-}
+// ul{
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+//     li{
+//         padding: 0;
+//         outline: none;
+//     }
+// }
 
 // *::-webkit-scrollbar {
 //     width: 8px;
