@@ -13,11 +13,11 @@
             <div class="nav-right">
                 <ul class="navbar">
                     <li>
-                        <router-link :to="{ name: 'guide' }"
+                        <router-link to="/guide"
                                      v-text="$t('by.header.guide')"></router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'components' }"
+                        <router-link to="/components"
                                      v-text="$t('by.header.component')"></router-link>
                     </li>
                     <li>
