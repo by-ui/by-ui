@@ -37,6 +37,7 @@ export default {
             component:'Component',
             summarize:'Summarize',
             baseComponent:'BaseComponent',
+            icon: 'icon',
         },
         select: {
             placeholder: 'Select',

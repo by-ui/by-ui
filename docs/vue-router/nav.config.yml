@@ -21,3 +21,5 @@ components:
                         name: Button
                       - title: tag
                         name: Tag
+                      - title: icon
+                        name: Icon
