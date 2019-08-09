@@ -46,7 +46,7 @@
         mounted() {
             new Vivus('by-ui-logo', {
                 type: 'delayed',
-                file: require("../assets/image/logo.svg"),
+                file: require("../../assets/image/logo.svg"),
                 duration: 300,
                 animTimingFunction: Vivus.EASE
             });

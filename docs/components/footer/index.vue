@@ -1,21 +1,23 @@
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo"></div>
-      <div class="footer-desc">
-        <div class="footer-copyright">© 2019 Created by<a href="javascript:void(0)" target="_blank"> 新仁类实验室</a></div>
-      </div>
-      <div class="github-logo"><a href="https://github.com/by-ui" target="_blank">Github</a></div>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo"></div>
+            <div class="footer-desc">
+                <div class="footer-copyright">© 2019 Created by<a href="javascript:void(0)"
+                       target="_blank"> 新仁类实验室</a></div>
+            </div>
+            <div class="github-logo"><a href="https://github.com/by-ui"
+                   target="_blank">Github</a></div>
+        </div>
+    </footer>
 </template>
 
 <style lang="scss" scoped>
     @import "~@docs/styles/src/variables/index.scss";
 
     /**
-     * Footer
-     */
+         * Footer
+         */
     .footer {
         padding: 30px 0 30px;
         color: #6190e8;
@@ -30,7 +32,7 @@
             margin: 10px 0 14px;
             width: 198px;
             height: 35px;
-            background-image: url("../assets/image/logo.svg");
+            background-image: url("../../assets/image/logo.svg");
             background-size: 100% auto;
         }
         &-desc {
@@ -53,7 +55,7 @@
             top: 20px;
             width: 41px;
             height: 41px;
-            background-image: url("../assets/image/github.png");
+            background-image: url("../../assets/image/github.png");
             transition: transform 0.3s;
 
             &:hover {

@@ -87,9 +87,6 @@
         z-index: 99;
     }
 
-    /**
-                                                                                         * Navigation
-                                                                                         */
     .by-nav {
         font-size: 14px;
 

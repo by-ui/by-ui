@@ -29,16 +29,9 @@
 </template>
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
-
-    import ByHeader from '@docs/components/header.vue';
-    import ByFooter from '@docs/components/footer.vue'
-
     import Vivus from "Vivus";
 
-    @Component({
-        components: { ByHeader, ByFooter }
-    })
-
+    @Component
     export default class Guide extends Vue {
 
         logo: any = '';
