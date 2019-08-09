@@ -4,7 +4,8 @@
     "description": "",
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
-        "start":"npm run dev",
+        "skeleton": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' webpack --config build/webpack/webpack.skeleton.config.ts && node docs/skeleton/skeleton.node.ts",
+        "start": "npm run dev",
         "dev": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='development' webpack-dev-server --config build/webpack/webpack.dev.config.ts",
         "build:components": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.components.config.ts --progress",
         "build:docs": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.prod.config.ts --progress",
@@ -70,12 +71,14 @@
         "vue-loader": "^15.7.1",
         "vue-markdown-loader": "^2.0.0",
         "vue-property-decorator": "^8.1.0",
+        "vue-server-renderer": "^2.6.10",
         "vue-template-compiler": "^2.6.10",
         "vue-tsx-support": "^2.3.0",
         "webpack": "^4.30.0",
         "webpack-cli": "^3.3.1",
         "webpack-dev-server": "^3.3.1",
         "webpack-merge": "^4.2.1",
+        "webpack-node-externals": "^1.7.2",
         "yaml-loader": "^0.5.0"
     }
 }
