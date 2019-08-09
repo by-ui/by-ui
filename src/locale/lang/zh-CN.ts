@@ -37,6 +37,7 @@ export default {
             component: '组件',
             summarize: '综述',
             baseComponent: '基础组件',
+            icon: '图标'
         },
         select: {
             placeholder: '请选择',
