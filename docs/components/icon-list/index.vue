@@ -22,12 +22,38 @@
         @Prop()
         type!: any;
 
-        get icons(){
+        get icons() {
             return IconData[this.type];
         }
     }
 </script>
-<style lang="scss" scoped>
-    .main-class {
+<style lang="scss">
+    .by-icon-list__item {
+        position: relative;
+        height: 100px;
+        text-align: center;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+        div {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            width: 100%;
+            padding: 20px 0;
+            i {
+                font-size: 26px;
+                padding: 0 24px;
+            }
+            p {
+                margin-top: 5px;
+                font-size: 12px;
+            }
+
+            &:hover {
+                i {
+                    transform: scale(1.2);
+                }
+            }
+        }
     }
 </style>
