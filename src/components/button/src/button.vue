@@ -7,7 +7,8 @@
                 circle && 'by-btn--circle',
                 round && 'by-btn--round',
             ]"
-            :disabled="disabled">
+            :disabled="disabled"
+            @click="handleClick">
         <i class="by-btn__icon icon"
            :class="icon"
            v-if="icon"></i>
@@ -93,6 +94,10 @@
             type: Boolean
         })
         loading?: boolean;
+
+        handleClick (evt: any) {
+            this.$emit('click', evt)
+        }
     }
 </script>
 <style lang="scss" scoped>
