@@ -131,7 +131,7 @@ export function removeClass(el, cls) {
     }
 }
 
-export function findComponentUpward(context, componentName, componentNames) {
+export function findComponentUpward(context: any, componentName: any, componentNames?: any) {
     if (typeof componentName === 'string') {
         componentNames = [componentName]
     } else {
