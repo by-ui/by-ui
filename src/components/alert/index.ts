@@ -1,7 +1,11 @@
+import Vue, { PluginObject } from 'vue';
 import Alert from './src/alert.vue'
 
-Alert.install = function (Vue) {
-  Vue.component(Alert.name, Alert)
+
+const AlertComponent: PluginObject<never> = {
+    install(Vue) {
+        Vue.component('by-alert', AlertComponent);
+    }
 }
 
-export default Alert
+export default AlertComponent
