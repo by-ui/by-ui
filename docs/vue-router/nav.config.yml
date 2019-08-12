@@ -57,8 +57,8 @@ components:
             #             name: LoadingBar
             #           - title: modal
             #             name: Modal
-            #           - title: message
-            #             name: Message
+                      - title: message
+                        name: Message
             #           - title: notification
             #             name: Notification
             #           - title: popover

@@ -8,6 +8,7 @@ import Textarea from './components/textarea/src/textarea.vue'
 import Alert from './components/alert/src/alert.vue'
 import Collapse from './components/collapse/src/collapse.vue'
 import CollapseItem from './components/collapse/src/collapse-item.vue'
+import Message from './components/message/'
 
 /********** 表单组件 **********/
 import ByCheckbox from './components/checkbox/src/checkbox.vue'
@@ -22,6 +23,8 @@ const Components: PluginObject<never> = {
         Vue.component('by-alert', Alert);
         Vue.component('by-collapse', Collapse);
         Vue.component('by-collapse-item', CollapseItem);
+
+        Vue.prototype.$Message = Message
 
     }
 }
