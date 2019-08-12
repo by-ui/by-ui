@@ -34,13 +34,11 @@
 </template>
 <script lang="ts">
     import { Vue, Component, Mixins, Prop, Watch } from "vue-property-decorator";
-    import TwoWay from "mixins/two-way";
 
     import { findComponentUpward } from '@docs/utils/util';
     import ByCheckboxGroup from './by-checkbox-group.vue';
 
     @Component
-    // export default class ByCheckbox extends Mixins(TwoWay) {
     export default class ByCheckbox extends Vue {
 
         @Prop({
