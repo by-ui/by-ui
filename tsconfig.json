@@ -35,6 +35,7 @@
         "baseUrl": "./",
         "paths": {
             "@/*": ["./src/*"],
+            "@docs/*": ["./docs/*"],
             "mixins/*": ["./docs/resources/mixins/*"],
             "utils/*": ["./src/utils/*"]
         },
