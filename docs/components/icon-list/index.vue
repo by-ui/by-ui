@@ -22,7 +22,7 @@
         @Prop()
         type!: any;
 
-        get icons(){
+        get icons() {
             return IconData[this.type];
         }
     }
