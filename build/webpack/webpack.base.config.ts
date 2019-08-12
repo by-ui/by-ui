@@ -20,6 +20,7 @@ module.exports = {
         alias: {
             "@": path.resolve("src"),
             "@docs": path.resolve("docs"),
+            "mixins": path.resolve("docs/resources/mixins"),
         },
         extensions: ['.ts', '.tsx', '.js']
     },

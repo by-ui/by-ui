@@ -87,7 +87,7 @@
         &__group {
             display: block;
             position: relative;
-            padding: 6px 0 6px 24px;
+            padding: 10px 0 10px 24px;
             color: #2c405a;
             font-weight: normal;
 
@@ -168,7 +168,7 @@
         &__component {
             display: block;
             position: relative;
-            padding: 6px 24px 6px 32px;
+            padding: 10px 24px 10px 32px;
             color: #616367;
             font-size: 14px;
 
