@@ -22,6 +22,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0)"
+                        @click="$Message.warning('To be developed, Comming Soon......')"
                            v-text="$t('by.header.adminSystem')"></a>
                     </li>
                 </ul>
