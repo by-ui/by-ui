@@ -69,7 +69,7 @@ export default class Alert extends Vue {
     })
     closeText?: string;
 
-    isShow = false;
+    isShow = true;
 
     get iconClass() {
         const classArr = {
