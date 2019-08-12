@@ -16,11 +16,12 @@
                     </div>
                     <div v-else>
                         <ul class="by-nav__items">
-                            <li class="by-nav__item"
+                            <li class="by-nav__item active"
                                 v-for="(group,index) in item.groups"
                                 :key="index">
-                                <a class="by-nav__group">{{ $t('by.nav.'+group.title) }} </a>
-                                <ul class="at-nav__child-items">
+                                <a class="by-nav__group"
+                                   @click="toggleMenu">{{ $t('by.nav.'+group.title) }} <i class="icon icon-chevron-down"></i></a>
+                                <ul class="by-nav__child-items">
                                     <li class="by-nav__child-item"
                                         v-for="(navItem,index) in group.items"
                                         :key="index">
@@ -32,23 +33,6 @@
                         </ul>
                     </div>
                 </ul>
-                <!-- 有group的情况 -->
-                <!-- <ul class="by-nav__items"
-                    v-else>
-                    <li class="by-nav__item"
-                        v-for="(group,index) in treeData.groups"
-                        :key="index">
-                        <a class="at-nav__group">{{ group.title }} {{group.items}}shadow <i class="icon icon-chevron-down"></i></a>
-                        <ul class="by-nav__items">
-                            <li class="by-nav__item"
-                                v-for="(item,index) in group.items"
-                                :key="index">
-                                <router-link class="by-nav__page"
-                                             :to="linkUrl(item.name.toLowerCase())">{{ item.title }}</router-link>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> -->
             </div>
         </nav>
     </div>
@@ -65,11 +49,13 @@
             return `/${parent}/${path}`.toLowerCase()
         }
 
-        @Watch('treeData', {
-            immediate: true
-        })
-        onChangeTreeData(val: any) {
-            console.log(val);
+        toggleMenu(event: any) {
+            const parentNode = event.target.parentNode
+            if (parentNode.classList.contains('active')) {
+                parentNode.classList.remove('active')
+            } else {
+                parentNode.classList.add('active')
+            }
         }
     }
 </script>
