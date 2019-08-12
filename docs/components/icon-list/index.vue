@@ -27,22 +27,29 @@
             return IconData[this.type];
         }
 
-        handleCopySuccess(evt:any) {
-            alert(`[ ${evt.text} ] Icon Name has copied.`);
-            // this.$Message.success(`[ ${evt.text} ] Icon Name has copied.`)
+        handleCopySuccess(evt: any) {
+            this.$Message.success(`[ ${evt.text} ] Icon Name has copied.`)
         }
     }
 </script>
 <style lang="scss" scoped>
     .at-icon-list {
-        div {
-            width: 100%;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-                0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            padding: 15px 0;
-            margin-bottom: 15px;
-            p {
-                margin-top: 10px;
+        li {
+            transition: all 0.2s;
+            background-color: #fff;
+            div {
+                width: 100%;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+                padding: 15px 0;
+                margin-bottom: 15px;
+                p {
+                    margin-top: 10px;
+                }
+            }
+            &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
             }
         }
     }
