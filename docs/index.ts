@@ -18,6 +18,9 @@ import '../_intermediate/iconfonts/by-icon.scss';
 import './styles/src/index.scss';
 import '@docs/assets/style/docs.scss';
 
+/******** 公共directives ********/
+import './directives'
+
 new Vue({
     el: '#by-ui',
     i18n,

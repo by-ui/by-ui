@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
-        "start":"npm run dev",
+        "start": "npm run dev",
         "dev": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='development' webpack-dev-server --config build/webpack/webpack.dev.config.ts",
         "build:components": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.components.config.ts --progress",
         "build:docs": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.prod.config.ts --progress",
@@ -28,6 +28,7 @@
         "@babel/plugin-proposal-class-properties": "^7.3.4",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "@babel/plugin-transform-runtime": "^7.3.4",
+        "clipboard": "^1.7.1",
         "@babel/preset-env": "^7.3.4",
         "@babel/runtime": "^7.4.5",
         "@types/html-webpack-plugin": "^3.2.0",

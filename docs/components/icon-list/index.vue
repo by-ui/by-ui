@@ -3,7 +3,8 @@
         <li v-for="(name, index) in icons"
             :key="index"
             class="by-icon-list__item col-sm-6 col-md-4 col-lg-3 flex flex-middle flex-center"
-            v-clipboard="name">
+            v-clipboard="name"
+            @success="handleCopySuccess">
             <div class="">
                 <i class="icon"
                    :class="name"></i>
@@ -25,17 +26,23 @@
         get icons() {
             return IconData[this.type];
         }
+
+        handleCopySuccess(evt:any) {
+            alert(`[ ${evt.text} ] Icon Name has copied.`);
+            // this.$Message.success(`[ ${evt.text} ] Icon Name has copied.`)
+        }
     }
 </script>
 <style lang="scss" scoped>
     .at-icon-list {
-        div{
+        div {
             width: 100%;
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                0 1px 2px 0 rgba(0, 0, 0, 0.06);
             padding: 15px 0;
-            margin-bottom:15px;
-            p{
-                margin-top:10px;
+            margin-bottom: 15px;
+            p {
+                margin-top: 10px;
             }
         }
     }
