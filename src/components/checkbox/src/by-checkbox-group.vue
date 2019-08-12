@@ -16,7 +16,7 @@
             default: [],
             type: Array
         })
-        value!: [];
+        value?: any[];
 
         childrens = [];
 
@@ -29,7 +29,7 @@
         }
 
         updateModel() {
-            const value = this.currentValue;
+            const value = this.currentValue || [];
             this.childrens = findComponentsDownward(this, 'ByCheckbox');
             if (Object.keys(this.childrens).length > 0) {
                 this.childrens.forEach((child: any) => {
