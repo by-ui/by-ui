@@ -20,6 +20,4 @@ const options: RouterOptions = {
 
 const router = new VueRouter(options);
 
-console.log(router)
-
 export default router;
