@@ -29,9 +29,10 @@ export default class ByTag extends Vue {
     color!: string;
 
     @Prop({
-        default: false
+        default: false,
+        type:Boolean
     })
-    closable!: boolean | null;
+    closable!: boolean;
 
     get colorClass() {
         return colorArr.indexOf(this.color) > -1 ? `by-tag--${this.color}` : "";

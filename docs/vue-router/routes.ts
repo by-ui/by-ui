@@ -23,7 +23,6 @@ let currentIndex: number;
 Object.keys(NavConfig).forEach((parent: string, index: number) => {
     // 制定父级路由
     const _name = parent.toLowerCase();
-    console.log(_name)
     currentIndex = index;
     routes.push(
         new Route(
@@ -74,5 +73,4 @@ routes.push({
     component: () => import(/* webpackChunkName: "modules/home" */ `../views/index/index.vue`)
 })
 
-console.log(routes)
 export default routes

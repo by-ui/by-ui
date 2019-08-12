@@ -25,63 +25,63 @@ components:
                         name: Icon
               - title: formComponent
                 items:
-                      - title: checkbox
-                        name: CheckBox
-                      - title: input
-                        name: Input
-                      - title: inputnumber
-                        name: InputNumber
-                      - title: radio
-                        name: Radio
-                      - title: rate
-                        name: Rate
-                      - title: select
-                        name: Select
-                      - title: switch
-                        name: Switch
-                      - title: slider
-                        name: Slider
+                    #   - title: checkbox
+                    #     name: CheckBox
+                    #   - title: input
+                    #     name: Input
+                    #   - title: inputnumber
+                    #     name: InputNumber
+                    #   - title: radio
+                    #     name: Radio
+                    #   - title: rate
+                    #     name: Rate
+                    #   - title: select
+                    #     name: Select
+                    #   - title: switch
+                    #     name: Switch
+                    #   - title: slider
+                    #     name: Slider
                       - title: textarea
                         name: Textarea
               - title: viewComponent
                 items:
                       - title: alert
                         name: Alert
-                      - title: badge
-                        name: Badge
-                      - title: card
-                        name: Card
-                      - title: collapse
-                        name: Collapse
-                      - title: loadingBar
-                        name: LoadingBar
-                      - title: modal
-                        name: Modal
-                      - title: message
-                        name: Message
-                      - title: notification
-                        name: Notification
-                      - title: popover
-                        name: Popover
-                      - title: progress
-                        name: Progress
-                      - title: timeline
-                        name: Timeline
-                      - title: tooltip
-                        name: Tooltip
-                      - title: table
-                        name: Table
-              - title: navComponent
-                items:
-                      - title: breadcrumb
-                        name: Breadcrumb
-                      - title: dropdown
-                        name: Dropdown
-                      - title: menu
-                        name: Menu
-                      - title: pagination
-                        name: Pagination
-                      - title: steps
-                        name: Steps
-                      - title: tabs
-                        name: Tabs
+            #           - title: badge
+            #             name: Badge
+            #           - title: card
+            #             name: Card
+            #           - title: collapse
+            #             name: Collapse
+            #           - title: loadingBar
+            #             name: LoadingBar
+            #           - title: modal
+            #             name: Modal
+            #           - title: message
+            #             name: Message
+            #           - title: notification
+            #             name: Notification
+            #           - title: popover
+            #             name: Popover
+            #           - title: progress
+            #             name: Progress
+            #           - title: timeline
+            #             name: Timeline
+            #           - title: tooltip
+            #             name: Tooltip
+            #           - title: table
+            #             name: Table
+            #   - title: navComponent
+            #     items:
+            #           - title: breadcrumb
+            #             name: Breadcrumb
+            #           - title: dropdown
+            #             name: Dropdown
+            #           - title: menu
+            #             name: Menu
+            #           - title: pagination
+            #             name: Pagination
+            #           - title: steps
+            #             name: Steps
+            #           - title: tabs
+            #             name: Tabs
