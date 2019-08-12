@@ -23,7 +23,35 @@
 
 <icon-list type="core"></icon-list>
 
-<style lang="scss" scoped>
+### 媒体控制
+
+<icon-list type="media"></icon-list>
+
+### 通信
+
+<icon-list type="communication"></icon-list>
+
+### 照片
+
+<icon-list type="photo"></icon-list>
+
+### 地理位置
+
+<icon-list type="location"></icon-list>
+
+### 天气
+
+<icon-list type="weather"></icon-list>
+
+### 箭头
+
+<icon-list type="arrows"></icon-list>
+
+### LOGO
+
+<icon-list type="logos"></icon-list>
+
+<style type="scss" scoped>
 .icon {
   font-size: 20px;
   margin-right: 10px;
