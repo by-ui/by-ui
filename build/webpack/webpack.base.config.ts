@@ -110,7 +110,7 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             hmr: !isProduction,
-                            publicPath: '../'
+                            // publicPath: '../'
                         },
                     },
                     {
