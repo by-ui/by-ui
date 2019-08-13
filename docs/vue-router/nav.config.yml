@@ -31,8 +31,8 @@ components:
                         name: Textarea
                     #   - title: input
                     #     name: Input
-                    #   - title: inputnumber
-                    #     name: InputNumber
+                      - title: inputnumber
+                        name: InputNumber
                     #   - title: radio
                     #     name: Radio
                     #   - title: rate

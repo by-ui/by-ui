@@ -13,6 +13,7 @@ import Message from './components/message/'
 /********** 表单组件 **********/
 import Checkbox from './components/checkbox/src/checkbox.vue'
 import CheckboxGroup from './components/checkbox/src/by-checkbox-group.vue'
+import InputNumber from './components/input-number/src/input-number.vue'
 
 const Components: PluginObject<never> = {
     install(Vue) {
@@ -21,6 +22,7 @@ const Components: PluginObject<never> = {
         Vue.component('by-icon', Icon);
         Vue.component('by-checkbox', Checkbox);
         Vue.component('by-checkbox-group', CheckboxGroup);
+        Vue.component('by-input-number', InputNumber);
         Vue.component('by-textarea', Textarea);
         Vue.component('by-alert', Alert);
         Vue.component('by-collapse', Collapse);
