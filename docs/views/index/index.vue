@@ -37,9 +37,9 @@
         logo: any = '';
 
         list = [
-            { imgUrl: require('../../assets/image/icon_zhinan.svg'), name: 'guide' },
-            { imgUrl: require('../../assets/image/icon_zujian.svg'), name: 'components' },
-            { imgUrl: require('../../assets/image/icon_ziyuan.svg'), name: 'home' },
+            { imgUrl: require('../../assets/image/icon_zhinan@2x.png'), name: 'guide' },
+            { imgUrl: require('../../assets/image/icon_zujian@2x.png'), name: 'components' },
+            { imgUrl: require('../../assets/image/icon_ziyuan@2x.png'), name: 'home' },
         ]
 
         replay() {
@@ -111,6 +111,9 @@
                     &:hover {
                         cursor: pointer;
                         box-shadow: 0px 10px 23px 0px #6696b7;
+                        img {
+                            transform: rotate(360deg);
+                        }
                     }
                     h4 {
                         font-size: 18px;
@@ -120,6 +123,12 @@
                         font-size: 16px;
                         color: #8994c6;
                         margin-top: 17px;
+                    }
+                    img {
+                        width: 60%;
+                        max-width: 120px;
+                        transition: all 0.7s;
+                        transform-origin: center;
                     }
                 }
             }
