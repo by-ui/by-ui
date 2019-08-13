@@ -97,18 +97,27 @@
             this.$emit('blur', evt)
         }
 
+        /**
+         * 判断是否可操作递加
+         */
         increaseNum() {
             const value = this.currentValue || 0;
-            if (value >= this.max || this.disabled) return
+            if ((this.max && value >= this.max) || this.disabled) return
             this.calculateStep('up')
         }
 
+        /**
+         * 判断是否可操作性递减
+         */
         decreaseNum() {
             const value = this.currentValue || 0
-            if (value <= this.min || this.disabled) return
+            if ((this.min && value <= this.min) || this.disabled) return
             this.calculateStep('down')
         }
 
+        /**
+         * 计算步数
+         */
         calculateStep(type: string) {
             if (this.disabled) return
 
@@ -116,18 +125,25 @@
             const stepNum = Number(this.step)
 
             if (type === 'up') {
-                value = this.calculateNumber(value, stepNum, '+')
+                value = this.calculateNumber(value, stepNum, '+') || 0
             } else if (type === 'down') {
-                value = this.calculateNumber(value, stepNum, '-')
+                value = this.calculateNumber(value, stepNum, '-') || 0
             }
 
-            if (value > this.max || value < this.min) return;
+            if ((this.max && value > this.max) || (this.min && value < this.min)) return;
 
-            this.currentValue = value
-            this.$emit('change', value)
+            this.currentValue = value;
+
+            this.$emit('change', value);
             // this.dispatch('AtFormItem', 'on-form-item-change', value)
         }
 
+        /**
+         * 计算操作后的值
+         * num currentvalue
+         * stepNum 步数
+         * symbol 类型
+         */
         calculateNumber(num: number, stepNum: number, symbol: string) {
             let decimal1, decimal2
 
