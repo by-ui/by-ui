@@ -27,7 +27,7 @@
     export default class ByButton extends Vue {
         /**
          * 类型
-         * 可选值：default primary success error warning info text
+         * 可选值：default primary success error warning info text;
          */
         @Prop({
             default: 'default'
