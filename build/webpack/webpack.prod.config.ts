@@ -44,6 +44,7 @@ module.exports = merge(baseConfig, {
             title: "By-ui",
             template: path.resolve("docs/index.html"),
             showErrors: true,
+            favicon: './favicon.ico'
         }),
     ],
     optimization: {
