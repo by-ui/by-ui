@@ -35,8 +35,8 @@ components:
                         name: InputNumber
                     #   - title: radio
                     #     name: Radio
-                    #   - title: rate
-                    #     name: Rate
+                      - title: rate
+                        name: Rate
                     #   - title: select
                     #     name: Select
                     #   - title: switch
