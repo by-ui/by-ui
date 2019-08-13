@@ -9,8 +9,6 @@ import { i18n } from './packages/i18n';
 /******** 文档全局组件 ********/
 import './components'
 
-/******** UI组件 ********/
-import '../src'
 
 /******** 公共UI及样式 ********/
 import '../_intermediate/iconfonts/by-icon.scss';
@@ -20,6 +18,11 @@ import '@docs/assets/style/docs.scss';
 
 /******** 公共directives ********/
 import './directives'
+
+/******** UI组件 ********/
+import ByUI from 'By-UI'
+
+Vue.use(ByUI)
 
 new Vue({
     el: '#by-ui',

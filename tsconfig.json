@@ -37,7 +37,8 @@
             "@/*": ["./src/*"],
             "@docs/*": ["./docs/*"],
             "mixins/*": ["./docs/resources/mixins/*"],
-            "utils/*": ["./src/utils/*"]
+            "utils/*": ["./src/utils/*"],
+            "By-UI/*": ["./src/*"]
         },
 
         "sourceMap": true

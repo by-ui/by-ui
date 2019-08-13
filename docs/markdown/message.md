@@ -8,14 +8,14 @@
 - 提供消息、成功、错误、警告等反馈提示
 - 在顶部居中显示，并自动消失，是一种不打断用户操作的轻量级提示
 
-我们在 `Vue.prototype` 中添加了全局对象 `$Message`，我们可以直接通过 `this.$Message` 操作实例
+我们在 `Vue.prototype` 中添加了全局对象 `$message`，我们可以直接通过 `this.$message` 操作实例
 
-- `this.$Message(config)`
-- `this.$Message.info(config)`
-- `this.$Message.success(config)`
-- `this.$Message.warning(config)`
-- `this.$Message.error(config)`
-- `this.$Message.loading(config)`
+- `this.$message(config)`
+- `this.$message.info(config)`
+- `this.$message.success(config)`
+- `this.$message.warning(config)`
+- `this.$message.error(config)`
+- `this.$message.loading(config)`
 
 ## 基础用法
 
@@ -33,13 +33,13 @@
     methods: {
       handleClick (type) {
         if (type === 'info') {
-          this.$Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
+          this.$message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
         } else if (type === 'success') {
-          this.$Message.success('这是一条成功信息')
+          this.$message.success('这是一条成功信息')
         } else if (type === 'warning') {
-          this.$Message.warning('这是一条警告信息')
+          this.$message.warning('这是一条警告信息')
         } else if (type === 'error') {
-          this.$Message.error('这是一条错误信息')
+          this.$message.error('这是一条错误信息')
         }
       }
     }
@@ -60,7 +60,7 @@
   export default {
     methods: {
       changeDuration () {
-        this.$Message.info({
+        this.$message.info({
           message: '这是一条提示信息，10s 后自动关闭',
           duration: 10000
         })
@@ -73,7 +73,7 @@
 
 ## 加载中
 
-`this.$Message.loading` 返回关闭方法，可用于手动关闭提示框
+`this.$message.loading` 返回关闭方法，可用于手动关闭提示框
 
 :::demo
 ```html
@@ -83,11 +83,43 @@
   export default {
     methods: {
       showLoading () {
-        const loading = this.$Message.loading({
+        const loading = this.$message.loading({
           message: '加载中...',
           duration: 0
         })
         setTimeout(loading, 3000)
+      }
+    }
+  }
+</script>
+```
+:::
+
+## 单独引用
+
+通过 `import` 方式引用
+
+:::demo
+```html
+<by-button @click="handleImportClick('info')">Info</by-button>
+<by-button @click="handleImportClick('success')">Success</by-button>
+<by-button @click="handleImportClick('warning')">Warning</by-button>
+<by-button @click="handleImportClick('error')">Error</by-button>
+
+<script>
+  import { Message } from 'By-UI'
+  export default {
+    methods: {
+      handleImportClick (type) {
+        if (type === 'info') {
+          Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
+        } else if (type === 'success') {
+          Message.success('这是一条成功信息')
+        } else if (type === 'warning') {
+          Message.warning('这是一条警告信息')
+        } else if (type === 'error') {
+          Message.error('这是一条错误信息')
+        }
       }
     }
   }
@@ -105,28 +137,41 @@
 | icon | 自定义类别ICON | String | - | `info` |
 | onClose | 关闭提示框时的回调函数 | Function | - | - |
 
-<script>
+<script lange="ts">
+  import { Message } from 'By-UI'
   export default {
     methods: {
       handleClick (type) {
         if (type === 'info') {
-          this.$Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
+          this.$message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
         } else if (type === 'success') {
-          this.$Message.success('这是一条成功信息')
+          this.$message.success('这是一条成功信息')
         } else if (type === 'warning') {
-          this.$Message.warning('这是一条警告信息')
+          this.$message.warning('这是一条警告信息')
         } else if (type === 'error') {
-          this.$Message.error('这是一条错误信息')
+          this.$message.error('这是一条错误信息')
+        }
+      },
+      handleImportClick (type) {
+          console.log(Message)
+        if (type === 'info') {
+          ByUI.Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
+        } else if (type === 'success') {
+          Message.success('这是一条成功信息')
+        } else if (type === 'warning') {
+          Message.warning('这是一条警告信息')
+        } else if (type === 'error') {
+          Message.error('这是一条错误信息')
         }
       },
       changeDuration () {
-        this.$Message.info({
+        this.$message.info({
           message: '这是一条提示信息，10s 后自动关闭',
           duration: 10000
         })
       },
       showLoading () {
-        const loading = this.$Message.loading({
+        const loading = this.$message.loading({
           message: '加载中...',
           duration: 0
         })

@@ -21,6 +21,7 @@ module.exports = {
             "@": path.resolve("src"),
             "@docs": path.resolve("docs"),
             "mixins": path.resolve("docs/resources/mixins"),
+            "By-UI": path.resolve("src")
         },
         extensions: ['.ts', '.tsx', '.js']
     },
