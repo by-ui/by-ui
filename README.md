@@ -15,5 +15,6 @@ npm run icon
 npm run dev
 ```
 
-鸣谢：凹凸实验室
-https://at-ui.github.io/at-ui/#/zh
+- vue-i18n              国际化
+- vivus                 svg动画
+- smooth-scrollbar      滚动条
