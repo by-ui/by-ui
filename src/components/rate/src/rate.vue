@@ -23,11 +23,16 @@
     </div>
 </template>
 <script lang="ts">
-    import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
-    import TwoWay from "mixins/two-way";
+    import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
     @Component
-    export default class ByRate extends Mixins(TwoWay) {
+    export default class ByRate extends Vue {
+
+        @Prop({
+            default: 0,
+            type: Number
+        })
+        val!: number;
 
         @Prop({
             default: false,
@@ -65,18 +70,21 @@
 
         isHoverRate = false;
 
+        currentValue = this.val;
+
+        isHalf = false;
+
         overRateHandle() {
-            if (this.disabled) return;
-            this.isHoverRate = true;
+            if (this.disabled) return
+            this.isHoverRate = true
         }
 
         leaveRateHandle() {
-            if (this.disabled) return;
-
-            this.isHoverRate = false;
-            this.hoverIndex = -1;
-            this.lastHoverIndex = -1;
-            // this.checkIsHalf(this.currentValue)
+            if (this.disabled) return
+            this.isHoverRate = false
+            this.hoverIndex = -1
+            this.lastHoverIndex = -1
+            this.checkIsHalf(this.currentValue)
         }
 
         moveStarHandle(index: number, event: any) {
@@ -84,15 +92,22 @@
             this.hoverIndex = index;
         }
 
-        clacClass(index: number) {
-            const STAR_ON_CLASS_NAME = 'by-rate__item--on';
-            const STAR_OFF_CLASS_NAME = 'by-rate__item--off';
-            const STAR_HALF_CLASS_NAME = 'by-rate__item--half';
+        confirmValue(index: number) {
+            if (this.disabled) return
+            this.currentValue = this.isHalf ? index - 0.5 : index;
+            this.$emit('on-change', this.currentValue)
+            this.$emit('input', this.currentValue)
+        }
 
-            const isHalf = this.allowHalf;
-            const isHoverStar = this.hoverIndex !== -1;
-            const currentIndex = isHoverStar ? this.hoverIndex : this.currentValue;
-            const lastItemIndex = Math.ceil(currentIndex);
+        clacClass(index: number) {
+            const STAR_ON_CLASS_NAME = 'by-rate__item--on'
+            const STAR_OFF_CLASS_NAME = 'by-rate__item--off'
+            const STAR_HALF_CLASS_NAME = 'by-rate__item--half'
+
+            const isHalf = this.isHalf
+            const isHoverStar = this.hoverIndex !== -1
+            const currentIndex: number = isHoverStar ? this.hoverIndex : this.currentValue || 0;
+            const lastItemIndex = Math.ceil(currentIndex)
 
             return {
                 [STAR_ON_CLASS_NAME]: isHalf ? index < lastItemIndex : index <= lastItemIndex,
@@ -101,8 +116,13 @@
             }
         }
 
-        confirmValue(index: number) {
+        checkIsHalf(val: number) {
+            this.isHalf = this.allowHalf && val.toString().indexOf('.') >= 0
+        }
 
+        @Watch('val')
+        onValChange(value: number) {
+            this.currentValue = value;
         }
     }
 </script>
