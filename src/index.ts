@@ -30,9 +30,10 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-collapse-item', CollapseItem);
     Vue.prototype.$message = Message
 }
-
-export default {
-    version:'0.0.1',
-    install,
-    Message,
-};
+// export default {
+//     version:'0.0.1',
+//     install,
+//     Message,
+// };
+const version = '0.0.1';
+export { version, install, Message }

@@ -20,8 +20,7 @@ import '@docs/assets/style/docs.scss';
 import './directives'
 
 /******** UI组件 ********/
-import ByUI from 'By-UI'
-
+import * as ByUI from 'By-UI/index';
 Vue.use(ByUI)
 
 new Vue({

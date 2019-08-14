@@ -107,7 +107,6 @@
 <by-button @click="handleImportClick('error')">Error</by-button>
 
 <script>
-  import { Message } from 'By-UI'
   export default {
     methods: {
       handleImportClick (type) {
@@ -137,10 +136,13 @@
 | icon | 自定义类别ICON | String | - | `info` |
 | onClose | 关闭提示框时的回调函数 | Function | - | - |
 
-<script lange="ts">
-  import { Message } from 'By-UI'
-  export default {
-    methods: {
+<script lang="ts">
+    import { Vue, Component } from "vue-property-decorator";
+    import { Message } from 'By-UI'
+
+ @Component
+ export default class MyComponent extends Vue {
+
       handleClick (type) {
         if (type === 'info') {
           this.$message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
@@ -151,11 +153,11 @@
         } else if (type === 'error') {
           this.$message.error('这是一条错误信息')
         }
-      },
+      }
+
       handleImportClick (type) {
-          console.log(Message)
         if (type === 'info') {
-          ByUI.Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
+          Message.info('这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息这是一条提示信息')
         } else if (type === 'success') {
           Message.success('这是一条成功信息')
         } else if (type === 'warning') {
@@ -163,13 +165,15 @@
         } else if (type === 'error') {
           Message.error('这是一条错误信息')
         }
-      },
+      }
+
       changeDuration () {
         this.$message.info({
           message: '这是一条提示信息，10s 后自动关闭',
           duration: 10000
         })
-      },
+      }
+
       showLoading () {
         const loading = this.$message.loading({
           message: '加载中...',
@@ -177,8 +181,11 @@
         })
         setTimeout(loading, 3000)
       }
+
+        mounted(){
+            console.log(Message);
+        }
     }
-  }
 </script>
 
 
