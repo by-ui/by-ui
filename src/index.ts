@@ -21,10 +21,13 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-button', Button);
     Vue.component('by-tag', Tag);
     Vue.component('by-icon', Icon);
+
     Vue.component('by-checkbox', Checkbox);
     Vue.component('by-checkbox-group', CheckboxGroup);
-    Vue.component('by-input-number', InputNumber);
     Vue.component('by-textarea', Textarea);
+    Vue.component('by-input-number', InputNumber);
+    Vue.component('by-rate', Rate);
+
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
     Vue.component('by-collapse-item', CollapseItem);
