@@ -15,6 +15,7 @@
 </template>
 <script lang="ts">
     import { Vue, Component, Prop } from "vue-property-decorator";
+
     import IconData from "./config.json";
 
     @Component
@@ -28,7 +29,7 @@
         }
 
         handleCopySuccess(evt: any) {
-            this.$Message.success(`[ ${evt.text} ] Icon Name has copied.`)
+            this.$message.success(`[ ${evt.text} ] Icon Name has copied.`)
         }
     }
 </script>

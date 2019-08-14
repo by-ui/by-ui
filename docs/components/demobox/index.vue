@@ -31,7 +31,7 @@
         isShow = false;
 
         handleCopySuccess(evt) {
-            // this.$Message.success(`Code copied.`)
+            // this.$message.success(`Code copied.`)
         }
     }
 </script>

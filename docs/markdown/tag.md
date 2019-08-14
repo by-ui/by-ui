@@ -54,7 +54,7 @@
     },
     methods: {
       handleClose (evt, name) {
-        // this.$Message.info(`关闭标签 - ${name}`)
+        this.$message.info(`关闭标签 - ${name}`)
         this.show = false
       }
     }

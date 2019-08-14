@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 declare module 'vue/types/vue' {
     interface Vue {
-        $Message: {
+        $message: {
             (option: any): void;
             info(option: any): void;
             success(option: any): void;
