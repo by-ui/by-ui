@@ -9,6 +9,7 @@
                 v-for="index in count"
                 :key="index">
                 <i :class="['icon', 'by-rate__icon', icon]"
+                   :style="getActivityColor(index)"
                    @mousemove="moveStarHandle(index, $event)"
                    @click="confirmValue(index)">
                     <span :class="['icon', 'by-rate__left', icon]"
@@ -32,7 +33,7 @@
             default: 0,
             type: Number
         })
-        val!: number;
+        value!: number;
 
         @Prop({
             default: false,
@@ -64,15 +65,25 @@
         })
         allowHalf!: boolean;
 
+        @Prop({
+            default: '#FFC82C',
+            type: String
+        })
+        activecolor!: string;
+
         hoverIndex = -1;
 
         lastHoverIndex = -1;
 
         isHoverRate = false;
 
-        currentValue = this.val;
+        currentValue = this.value;
 
         isHalf = false;
+
+        getActivityColor(index: number) {
+            return this.currentValue >= index ? { color: this.activecolor } : '';
+        }
 
         overRateHandle() {
             if (this.disabled) return
@@ -90,6 +101,21 @@
         moveStarHandle(index: number, event: any) {
             if (this.disabled) return;
             this.hoverIndex = index;
+
+
+            if (this.allowHalf && event.target.getAttribute('type') === 'half') {
+                this.isHalf = true
+            } else {
+                this.isHalf = false
+            }
+
+            // emit hover-change event
+            const exactlyHoverIndex = this.isHalf ? index - 0.5 : index
+            if (exactlyHoverIndex !== this.lastHoverIndex) {
+                this.$emit('on-hover-change', exactlyHoverIndex)
+            }
+
+            this.lastHoverIndex = exactlyHoverIndex;
         }
 
         confirmValue(index: number) {
@@ -106,7 +132,7 @@
 
             const isHalf = this.isHalf
             const isHoverStar = this.hoverIndex !== -1
-            const currentIndex: number = isHoverStar ? this.hoverIndex : this.currentValue || 0;
+            const currentIndex: number = isHoverStar ? this.hoverIndex : this.currentValue || -1;
             const lastItemIndex = Math.ceil(currentIndex)
 
             return {
@@ -120,13 +146,14 @@
             this.isHalf = this.allowHalf && val.toString().indexOf('.') >= 0
         }
 
-        @Watch('val')
+        @Watch('value')
         onValChange(value: number) {
             this.currentValue = value;
         }
+
+        @Watch('currentValue')
+        onCurrentValueChange(value: number) {
+            this.checkIsHalf(value);
+        }
     }
 </script>
-<style lang="scss" scoped>
-    .main-class {
-    }
-</style>
