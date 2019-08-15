@@ -29,8 +29,8 @@ components:
                         name: CheckBox
                       - title: textarea
                         name: Textarea
-                    #   - title: input
-                    #     name: Input
+                      - title: input
+                        name: Input
                       - title: inputnumber
                         name: InputNumber
                     #   - title: radio

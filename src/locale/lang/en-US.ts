@@ -37,7 +37,12 @@ export default {
             component:'Component',
             summarize:'Summarize',
             baseComponent:'BaseComponent',
-            icon: 'icon',
+            icon: 'Icon',
+            checkbox: 'Checkbox',
+            input: 'Input',
+            inputnumber: 'InputNumber',
+            radio: 'Radio',
+            rate: 'Rate',
         },
         select: {
             placeholder: 'Select',
