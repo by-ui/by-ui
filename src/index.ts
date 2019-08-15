@@ -10,6 +10,7 @@ import CheckboxGroup from './components/checkbox/src/by-checkbox-group.vue'
 import Textarea from './components/textarea/src/textarea.vue'
 import InputNumber from './components/input-number/src/input-number.vue'
 import Rate from './components/rate/src/rate.vue'
+import Input from './components/Input/src/input.vue'
 
 /********** 视图组件 **********/
 import Alert from './components/alert/src/alert.vue'
@@ -27,6 +28,7 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-textarea', Textarea);
     Vue.component('by-input-number', InputNumber);
     Vue.component('by-rate', Rate);
+    Vue.component('by-input', Input);
 
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
