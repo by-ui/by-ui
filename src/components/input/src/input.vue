@@ -61,10 +61,11 @@ import {
     Watch,
     Mixins
 } from "vue-property-decorator";
+import TwoWay from "mixins/two-way"
 // import Emitter from "@/mixins/emitter";
 
 @Component
-export default class ByInput extends Vue {
+export default class ByInput extends Mixins(TwoWay) {
     /**
      * 类型
      * 输入框类型，原生属性
@@ -74,14 +75,14 @@ export default class ByInput extends Vue {
     })
     type?: string;
 
-    /**
-     * 绑定的值
-     *
-     */
-    @Prop({
-        default: ""
-    })
-    value?: string | number;
+    // /**
+    //  * 绑定的值
+    //  *
+    //  */
+    // @Prop({
+    //     default: ""
+    // })
+    // value?: string | number;
 
     /**
      * 原生属性
@@ -203,14 +204,14 @@ export default class ByInput extends Vue {
     @Prop()
     min?: number;
 
-    currentValue = this.value;
+    // currentValue = this.value;
 
     get iconClass() {
         const name = this.icon || this.status;
         return name ? `icon-${name}` : "";
     }
 
-    @Watch("value")
+    @Watch("currentValue")
     watchValue(val: string | number) {
         this.setCurrentValue(val);
     }
