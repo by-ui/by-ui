@@ -65,7 +65,7 @@ import TwoWay from "mixins/two-way"
 // import Emitter from "@/mixins/emitter";
 
 @Component
-export default class ByInput extends Mixins(TwoWay) {
+export default class ByInput extends Vue {
     /**
      * 类型
      * 输入框类型，原生属性
@@ -75,14 +75,14 @@ export default class ByInput extends Mixins(TwoWay) {
     })
     type?: string;
 
-    // /**
-    //  * 绑定的值
-    //  *
-    //  */
-    // @Prop({
-    //     default: ""
-    // })
-    // value?: string | number;
+    /**
+     * 绑定的值
+     *
+     */
+    @Prop({
+        default: ""
+    })
+    value?: string | number;
 
     /**
      * 原生属性
@@ -136,7 +136,9 @@ export default class ByInput extends Mixins(TwoWay) {
      *
      */
     @Prop({
+        type: Boolean,
         default: false
+        
     })
     prependButton?: boolean;
 
@@ -145,6 +147,7 @@ export default class ByInput extends Mixins(TwoWay) {
      *
      */
     @Prop({
+        type: Boolean,
         default: false
     })
     appendButton?: boolean;
@@ -154,6 +157,7 @@ export default class ByInput extends Mixins(TwoWay) {
      *
      */
     @Prop({
+        type: Boolean,
         default: false
     })
     readonly?: boolean;
@@ -163,6 +167,7 @@ export default class ByInput extends Mixins(TwoWay) {
      *
      */
     @Prop({
+        type: Boolean,
         default: false
     })
     disabled?: boolean;
@@ -172,6 +177,7 @@ export default class ByInput extends Mixins(TwoWay) {
      *
      */
     @Prop({
+        type: Boolean,
         default: false
     })
     autofocus?: boolean;
@@ -204,14 +210,14 @@ export default class ByInput extends Mixins(TwoWay) {
     @Prop()
     min?: number;
 
-    // currentValue = this.value;
+    currentValue = this.value;
 
     get iconClass() {
         const name = this.icon || this.status;
         return name ? `icon-${name}` : "";
     }
 
-    @Watch("currentValue")
+    @Watch("value")
     watchValue(val: string | number) {
         this.setCurrentValue(val);
     }
