@@ -3,6 +3,8 @@
 
 使用webpack打包，typescript语法搭建的管理系统后台
 
+说明：https://www.yuque.com/okr2gd/ng0vwv/egrrzu
+
 ```
 npm install
 ```
