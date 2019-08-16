@@ -111,8 +111,11 @@
                 /deep/ span {
                     font-size: 18px;
                 }
+                transition: transform .3s ease-in-out;
                 &:hover {
                     cursor: pointer;
+                    box-shadow: 0 8px 24px rgba(55,56,60,.25);
+                    transform: translateY(-1px);
                 }
             }
             video {
@@ -148,9 +151,12 @@
                     padding: 30px 53px 30px 33px;
                     text-align: center;
                     margin: 7% 0;
+
+                    transition: transform .3s ease-in-out;
                     &:hover {
                         cursor: pointer;
-                        box-shadow: 0px 10px 23px 0px #6696b7;
+                        box-shadow: 0 8px 24px rgba(55,56,60,.25);
+                        transform: translateY(-1px);
                     }
                     h4 {
                         font-size: 18px;
