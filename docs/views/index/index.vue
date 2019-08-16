@@ -9,6 +9,7 @@
                        class="start-button"
                        @click.native="$router.push({name: 'components'})">{{$t('by.index.button')}}</by-button>
             <video src="https://onsite-mp.oss-cn-hangzhou.aliyuncs.com/index.mp4"
+                   muted
                    autoplay
                    loop></video>
             <div class="separate-panel"></div>
@@ -107,7 +108,7 @@
                 border-radius: 30px;
                 color: #fff;
                 box-shadow: 0px 4px 6px 0px rgba(28, 141, 243, 0.32);
-                /deep/ span{
+                /deep/ span {
                     font-size: 18px;
                 }
                 &:hover {
