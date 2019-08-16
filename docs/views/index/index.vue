@@ -111,10 +111,10 @@
                 /deep/ span {
                     font-size: 18px;
                 }
-                transition: transform .3s ease-in-out;
+                transition: transform 0.3s ease-in-out;
                 &:hover {
                     cursor: pointer;
-                    box-shadow: 0 8px 24px rgba(55,56,60,.25);
+                    box-shadow: 0 8px 24px rgba(55, 56, 60, 0.25);
                     transform: translateY(-1px);
                 }
             }
@@ -151,12 +151,12 @@
                     padding: 30px 53px 30px 33px;
                     text-align: center;
                     margin: 7% 0;
-
-                    transition: transform .3s ease-in-out;
+                    box-shadow: none;
+                    transition: 0.3s ease-in-out;
                     &:hover {
                         cursor: pointer;
-                        box-shadow: 0 8px 24px rgba(55,56,60,.25);
-                        transform: translateY(-1px);
+                        box-shadow: 0px 1px 20px 0px #d2d2d2;
+                        transform: translateY(-5px);
                     }
                     h4 {
                         font-size: 18px;
