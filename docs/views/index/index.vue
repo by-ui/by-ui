@@ -44,15 +44,15 @@
 
         list = [
             {
-                imgUrl: require("../../assets/image/icon_zhinan@2x.png"),
+                imgUrl: require("../../assets/image/zhinan.svg"),
                 name: "guide"
             },
             {
-                imgUrl: require("../../assets/image/icon_zujian@2x.png"),
+                imgUrl: require("../../assets/image/zhujian.svg"),
                 name: "components"
             },
             {
-                imgUrl: require("../../assets/image/icon_ziyuan@2x.png"),
+                imgUrl: require("../../assets/image/ziyuan.svg"),
                 name: "home"
             }
         ];
@@ -148,13 +148,9 @@
                     padding: 30px 53px 30px 33px;
                     text-align: center;
                     margin: 7% 0;
-                    transition: all 0.5s;
                     &:hover {
                         cursor: pointer;
                         box-shadow: 0px 10px 23px 0px #6696b7;
-                        img {
-                            transform: rotate(360deg);
-                        }
                     }
                     h4 {
                         font-size: 18px;
