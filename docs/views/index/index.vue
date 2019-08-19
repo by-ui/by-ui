@@ -71,7 +71,6 @@ export default class Guide extends Vue {
             animTimingFunction: Vivus.EASE
         });
         setTimeout(() => {
-            console.log('123123')
             this.active = true;
         },500)
     }
@@ -105,7 +104,7 @@ export default class Guide extends Vue {
             opacity: 0;
             -ms-transform: translateY(20px);
             transform: translateY(20px);
-            transition: all 0.3s;
+            transition: all 0.8s;
             &.active {
                 -ms-transform: matrix(1, 0, 0, 1, 0, 0);
                 transform: matrix(1, 0, 0, 1, 0, 0);
