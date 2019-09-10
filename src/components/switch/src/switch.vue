@@ -17,7 +17,7 @@
     import { Vue, Component, Prop } from "vue-property-decorator";
 
     @Component
-    export default class Switch extends Vue {
+    export default class BySwitch extends Vue {
         @Prop({
             default: false,
             type: Boolean
@@ -44,7 +44,3 @@
         }
     }
 </script>
-<style lang="scss" scoped>
-    .switch {
-    }
-</style>
