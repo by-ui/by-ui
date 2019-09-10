@@ -14,6 +14,7 @@ import Switch from './components/switch/src/switch.vue';
 import Input from './components/Input/src/input.vue';
 
 /********** 视图组件 **********/
+import Badge from './components/badge/src/badge.vue';
 import Alert from './components/alert/src/alert.vue';
 import Collapse from './components/collapse/src/collapse.vue';
 import CollapseItem from './components/collapse/src/collapse-item.vue';
@@ -35,6 +36,7 @@ const install = (Vue:any, options:any) => {
 
     Vue.component('by-input', Input);
 
+    Vue.component('by-badge',Badge);
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
     Vue.component('by-collapse-item', CollapseItem);

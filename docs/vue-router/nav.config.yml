@@ -47,8 +47,8 @@ components:
                 items:
                       - title: alert
                         name: Alert
-            #           - title: badge
-            #             name: Badge
+                      - title: badge
+                        name: Badge
             #           - title: card
             #             name: Card
                       - title: collapse
