@@ -39,8 +39,8 @@ components:
                         name: Rate
                     #   - title: select
                     #     name: Select
-                    #   - title: switch
-                    #     name: Switch
+                      - title: switch
+                        name: Switch
                     #   - title: slider
                     #     name: Slider
               - title: viewComponent
