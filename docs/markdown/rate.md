@@ -46,7 +46,9 @@
 ```html
 <by-rate :allow-half="true"
             :show-text="true"
-            :value="value1">
+            :value="valueHalfStar"
+            @on-change="onStarChange"
+            @on-hover-change="onHoverChange">
 </by-rate>
 ```
 :::
@@ -60,7 +62,7 @@
 ```html
 <by-rate :allow-half="true"
             :show-text="true"
-            :value="value1"
+            :value="valueReadonly"
             :disabled="true">
 </by-rate>
 ```
@@ -74,5 +76,44 @@
         value2 = 3;
 
         value1 = 2.5;
+
+        valueHalfStar = 1;
+
+        valueReadonly = 3;
+
+        onStarChange(val:number){
+            console.log(val);
+        }
+
+        onHoverChange(val:number){
+            console.log(val);
+        }
     }
 </script>
+
+
+
+## Rate 参数
+
+| 参数       | 说明               | 类型    | 可选值 | 默认值      |
+|------------|--------------------|---------|--------|-------------|
+| count      | star 总数          | Number  | -      | 5           |
+| value      | 当前值             | String  | -      | 0           |
+| allow-half | 是否允许选择半颗星 | Boolean | -      | `false`     |
+| disabled   | 只读，无法进行交互 | Boolean | -      | `false`     |
+| icon       | 指定图标           | String  | -      | `icon-star` |
+| show-text  | 实现显示辅助文案   | Boolean | -      | `false`     |
+
+## Rate 事件
+
+| 事件名称        | 说明                                 | 返回值     |
+|-----------------|--------------------------------------|------------|
+| on-change       | star 数目改变时触发                  | 改变后的值 |
+| on-hover-change | 鼠标在 star 上移动导致数值变化时触发 | 改变后的值 |
+
+
+## Rate slot
+
+| 名称 | 说明                 |
+|------|----------------------|
+| -    | 自定义展示文案的内容 |

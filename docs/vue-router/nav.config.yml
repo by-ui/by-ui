@@ -39,22 +39,22 @@ components:
                         name: Rate
                     #   - title: select
                     #     name: Select
-                    #   - title: switch
-                    #     name: Switch
+                      - title: switch
+                        name: Switch
                     #   - title: slider
                     #     name: Slider
               - title: viewComponent
                 items:
                       - title: alert
                         name: Alert
-            #           - title: badge
-            #             name: Badge
+                      - title: badge
+                        name: Badge
             #           - title: card
             #             name: Card
                       - title: collapse
                         name: Collapse
-            #           - title: loadingBar
-            #             name: LoadingBar
+                      - title: loadingBar
+                        name: LoadingBar
             #           - title: modal
             #             name: Modal
                       - title: message

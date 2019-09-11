@@ -148,6 +148,7 @@
 
         @Watch('value')
         onValChange(value: number) {
+            console.log(value);
             this.currentValue = value;
         }
 
