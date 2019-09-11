@@ -10,7 +10,10 @@ import CheckboxGroup from './components/checkbox/src/by-checkbox-group.vue'
 import Textarea from './components/textarea/src/textarea.vue'
 import InputNumber from './components/input-number/src/input-number.vue'
 import Rate from './components/rate/src/rate.vue'
-import Input from './components/Input/src/input.vue'
+import Input from './components/input/src/input.vue'
+import Radio from './components/radio/src/radio.vue'
+import RadioGroup from './components/radio/src/radio-group.vue'
+import RadioButton from './components/radio/src/radio-button.vue'
 
 /********** 视图组件 **********/
 import Alert from './components/alert/src/alert.vue'
@@ -29,6 +32,9 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-input-number', InputNumber);
     Vue.component('by-rate', Rate);
     Vue.component('by-input', Input);
+    Vue.component('by-radio', Radio);
+    Vue.component('by-radio-group', RadioGroup);
+    Vue.component('by-radio-button', RadioButton);
 
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);

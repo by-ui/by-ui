@@ -23,7 +23,7 @@
         <input class="by-input__original"
                :type="type"
                :name="name"
-               :value="currentValue"
+               v-model="currentValue"
                :placeholder="placeholder"
                :min="min"
                :max="max"
@@ -33,8 +33,7 @@
                :readonly="readonly"
                :autofocus="autofocus"
                @focus="handleFocus"
-               @blur="handleBlur"
-               @input="handleInput">
+               @blur="handleBlur" />
         <!-- E input -->
 
         <!-- S icon -->
@@ -61,11 +60,10 @@ import {
     Watch,
     Mixins
 } from "vue-property-decorator";
-import TwoWay from "mixins/two-way"
-// import Emitter from "@/mixins/emitter";
+import TwoWay from "mixins/two-way";
 
 @Component
-export default class ByInput extends Vue {
+export default class InputNumber extends Mixins(TwoWay) {
     /**
      * 类型
      * 输入框类型，原生属性
@@ -75,14 +73,6 @@ export default class ByInput extends Vue {
     })
     type?: string;
 
-    /**
-     * 绑定的值
-     *
-     */
-    @Prop({
-        default: ""
-    })
-    value?: string | number;
 
     /**
      * 原生属性
@@ -138,7 +128,6 @@ export default class ByInput extends Vue {
     @Prop({
         type: Boolean,
         default: false
-        
     })
     prependButton?: boolean;
 
@@ -210,34 +199,37 @@ export default class ByInput extends Vue {
     @Prop()
     min?: number;
 
-    currentValue = this.value;
+    /*
+     *   特殊类型
+     *
+     */
+    // @Prop()
+    // special?: string;
+
 
     get iconClass() {
         const name = this.icon || this.status;
         return name ? `icon-${name}` : "";
     }
 
-    @Watch("value")
-    watchValue(val: string | number) {
-        this.setCurrentValue(val);
-    }
 
     handleFocus(evt: any) {
         this.$emit("focus", evt);
     }
     handleBlur(evt: any) {
         this.$emit("blur", evt);
-        // this.dispatch('AtFormItem', 'on-form-item-blur', this.currentValue)
     }
-    handleInput(evt: any) {
-        const value = evt.target.value;
-        this.$emit("input", value);
-        this.$emit("change", value);
-    }
-    setCurrentValue(val: string | number) {
-        if (val === this.currentValue) return;
-        this.currentValue = val;
-        // this.dispatch('AtFormItem', 'on-form-item-change', this.currentValue)
+
+    toDiscontinuousMobile(mobile: string) {
+        let result = mobile;
+        result = result.replace(/[^(\d|\s)]/g, ""); //只保留数字和空格
+        result = result.replace(
+            /^(\d{1,3})\s?(\d{1,4})?\s?(\d{1,4})?$/,
+            "$1 $2 $3"
+        ); //添加空格
+        result = result.replace(/\s+$/, ""); //去除末尾不必要的空格
+
+        this.currentValue = result;
     }
 }
 </script>
