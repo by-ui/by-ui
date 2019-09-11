@@ -21,6 +21,7 @@ import CollapseItem from './components/collapse/src/collapse-item.vue';
 
 /********** 视图插件 **********/
 import Message from './components/message/';
+import LoadingBar from './components/loading-bar';
 
 const install = (Vue:any, options:any) => {
     Vue.component('by-button', Button);
@@ -40,7 +41,9 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
     Vue.component('by-collapse-item', CollapseItem);
-    Vue.prototype.$message = Message
+
+    Vue.prototype.$message = Message;
+    Vue.prototype.$loadingBar = LoadingBar;
 }
 
 const version = '0.0.1';
