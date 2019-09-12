@@ -37,13 +37,12 @@
 
     @Component
     export default class InputNumber extends Mixins(TwoWay) {
-
         @Prop()
         name?: string;
 
         @Prop({
             type: String,
-            default: 'normal'
+            default: "normal"
         })
         size?: string;
 
@@ -79,22 +78,26 @@
 
         get upDisabled() {
             // 没有最大值，可以无限递加
-            if (!this.max) { return false; }
+            if (!this.max) {
+                return false;
+            }
             return Number(this.currentValue) + Number(this.step) > this.max;
         }
 
         get downDisabled() {
             // 没有最小值，可以无限递减
-            if (!this.min) { return false; }
+            if (!this.min) {
+                return false;
+            }
             return Number(this.currentValue) - Number(this.step) < this.min;
         }
 
         handleFocus(evt: HTMLElement) {
-            this.$emit('focus', evt)
+            this.$emit("focus", evt);
         }
 
         handleBlur(evt: HTMLElement) {
-            this.$emit('blur', evt)
+            this.$emit("blur", evt);
         }
 
         /**
@@ -102,39 +105,40 @@
          */
         increaseNum() {
             const value = this.currentValue || 0;
-            if ((this.max && value >= this.max) || this.disabled) return
-            this.calculateStep('up')
+            if ((this.max && value >= this.max) || this.disabled) return;
+            this.calculateStep("up");
         }
 
         /**
          * 判断是否可操作性递减
          */
         decreaseNum() {
-            const value = this.currentValue || 0
-            if ((this.min && value <= this.min) || this.disabled) return
-            this.calculateStep('down')
+            const value = this.currentValue || 0;
+            if ((this.min && value <= this.min) || this.disabled) return;
+            this.calculateStep("down");
         }
 
         /**
          * 计算步数
          */
         calculateStep(type: string) {
-            if (this.disabled) return
+            if (this.disabled) return;
 
-            let value = Number(this.currentValue)
-            const stepNum = Number(this.step)
+            let value = Number(this.currentValue);
+            const stepNum = Number(this.step);
 
-            if (type === 'up') {
-                value = this.calculateNumber(value, stepNum, '+') || 0
-            } else if (type === 'down') {
-                value = this.calculateNumber(value, stepNum, '-') || 0
+            if (type === "up") {
+                value = this.calculateNumber(value, stepNum, "+") || 0;
+            } else if (type === "down") {
+                value = this.calculateNumber(value, stepNum, "-") || 0;
             }
 
-            if ((this.max && value > this.max) || (this.min && value < this.min)) return;
+            if ((this.max && value > this.max) || (this.min && value < this.min))
+                return;
 
             this.currentValue = value;
 
-            this.$emit('change', value);
+            this.$emit("change", value);
             // this.dispatch('AtFormItem', 'on-form-item-change', value)
         }
 
@@ -145,26 +149,26 @@
          * symbol 类型
          */
         calculateNumber(num: number, stepNum: number, symbol: string) {
-            let decimal1, decimal2
+            let decimal1, decimal2;
 
             try {
-                decimal1 = num.toString().split('.')[1].length
+                decimal1 = num.toString().split(".")[1].length;
             } catch (e) {
-                decimal1 = 0
+                decimal1 = 0;
             }
 
             try {
-                decimal2 = stepNum.toString().split('.')[1].length
+                decimal2 = stepNum.toString().split(".")[1].length;
             } catch (e) {
-                decimal2 = 0
+                decimal2 = 0;
             }
 
-            const quantity = Math.pow(10, Math.max(decimal1, decimal2))
+            const quantity = Math.pow(10, Math.max(decimal1, decimal2));
 
-            if (symbol === '+') {
-                return ((num * quantity) + (stepNum * quantity)) / quantity
-            } else if (symbol === '-') {
-                return ((num * quantity) - (stepNum * quantity)) / quantity
+            if (symbol === "+") {
+                return (num * quantity + stepNum * quantity) / quantity;
+            } else if (symbol === "-") {
+                return (num * quantity - stepNum * quantity) / quantity;
             }
         }
     }

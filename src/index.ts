@@ -32,7 +32,7 @@ import Progress from './components/progress';
 
 const install = (Vue:any, options:any) => {
     Vue.component('by-button', Button);
-    // Vue.component('by-button-group', ButtonGroup);
+    Vue.component('by-button-group', ButtonGroup);
 
     Vue.component('by-tag', Tag);
     Vue.component('by-icon', Icon);
@@ -61,4 +61,4 @@ const install = (Vue:any, options:any) => {
 }
 
 const version = '0.0.1';
-export { version, install, Message }
+export { version, install, Message, Progress }
