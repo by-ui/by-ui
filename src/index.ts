@@ -1,6 +1,7 @@
 
 /********** 基础组件 **********/
 import Button from './components/button/src/button.vue';
+import ButtonGroup from './components/button/src/button-group.vue';
 import Tag from './components/tag/src/tag.vue';
 import Icon from './components/icon/src/icon.vue';
 
@@ -25,11 +26,14 @@ import CollapseItem from './components/collapse/src/collapse-item.vue';
 /********** 视图插件 **********/
 import Message from './components/message/';
 import LoadingBar from './components/loading-bar';
+// import Notification from './components/notification';
 
 import Progress from './components/progress';
 
 const install = (Vue:any, options:any) => {
     Vue.component('by-button', Button);
+    // Vue.component('by-button-group', ButtonGroup);
+
     Vue.component('by-tag', Tag);
     Vue.component('by-icon', Icon);
 
@@ -53,6 +57,7 @@ const install = (Vue:any, options:any) => {
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
+    Vue.prototype.$notify = Notification;
 }
 
 const version = '0.0.1';
