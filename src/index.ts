@@ -26,6 +26,8 @@ import CollapseItem from './components/collapse/src/collapse-item.vue';
 import Message from './components/message/';
 import LoadingBar from './components/loading-bar';
 
+import Progress from './components/progress';
+
 const install = (Vue:any, options:any) => {
     Vue.component('by-button', Button);
     Vue.component('by-tag', Tag);
@@ -47,6 +49,7 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
     Vue.component('by-collapse-item', CollapseItem);
+    Vue.component('by-progress', Progress)
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

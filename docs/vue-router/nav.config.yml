@@ -63,8 +63,8 @@ components:
             #             name: Notification
             #           - title: popover
             #             name: Popover
-            #           - title: progress
-            #             name: Progress
+                      - title: progress
+                        name: Progress
             #           - title: timeline
             #             name: Timeline
             #           - title: tooltip

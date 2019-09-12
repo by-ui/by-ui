@@ -22,7 +22,7 @@
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 @Component
-export default class Alert extends Vue {
+export default class Message extends Vue {
     message = "";
     duration = 3000;
     type = "info";
