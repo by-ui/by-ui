@@ -71,10 +71,10 @@ components:
             #             name: Tooltip
             #           - title: table
             #             name: Table
-            #   - title: navComponent
-            #     items:
-            #           - title: breadcrumb
-            #             name: Breadcrumb
+              - title: navComponent
+                items:
+                      - title: breadcrumb
+                        name: Breadcrumb
             #           - title: dropdown
             #             name: Dropdown
             #           - title: menu
