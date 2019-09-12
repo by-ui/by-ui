@@ -59,8 +59,8 @@ components:
             #             name: Modal
                       - title: message
                         name: Message
-            #           - title: notification
-            #             name: Notification
+                      - title: notification
+                        name: Notification
             #           - title: popover
             #             name: Popover
             #           - title: progress
