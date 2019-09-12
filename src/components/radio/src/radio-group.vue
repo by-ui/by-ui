@@ -1,0 +1,63 @@
+<template>
+    <div class="by-radio-group">
+        <slot></slot>
+    </div>
+</template>
+
+<script lang="ts">
+import {
+    Vue,
+    Component,
+    Prop,
+    PropSync,
+    Watch,
+    Mixins
+} from "vue-property-decorator";
+
+import Emitter from "mixins/emitter";
+
+@Component
+export default class ByRadioGroup extends Mixins(Emitter) {
+    @Prop()
+    value?: string | number;
+
+    @Prop({
+        default:'normal'
+    })
+    size?: string;
+
+    @Prop()
+    fill?: string;
+
+    @Prop()
+    textColor?: string;
+
+    @Watch("value")
+    wathcValue(value: string | number) {
+        this.$emit("radio-group-change", value);
+        this.broadcast("by-radio", "init-data", value);
+    }
+
+    mounted(){
+        this.broadcast("by-radio", "init-data", this.value);
+    }
+}
+//   name: 'AtRadioGroup',
+//   props: {
+//     value: [String, Number],
+//     size: String,
+//     fill: String,
+//     textColor: String
+//   },
+//   mixins: [Emitter],
+//   watch: {
+//     value (value) {
+//       this.$emit('radio-group-change', value)
+//       this.broadcast('AtRadio', 'init-data', value)
+//     }
+//   },
+//   mounted () {
+//     this.broadcast('AtRadio', 'init-data', this.value)
+//   }
+// }
+</script>
