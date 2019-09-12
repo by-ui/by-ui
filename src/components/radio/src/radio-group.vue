@@ -14,12 +14,12 @@ import {
     Mixins
 } from "vue-property-decorator";
 
-import TwoWay from "mixins/two-way";
+import Emitter from "mixins/emitter";
 
 @Component
-export default class ByRadio extends Mixins(TwoWay)  {
-    // @Prop()
-    // value?: string | number;
+export default class ByRadioGroup extends Mixins(Emitter) {
+    @Prop()
+    value?: string | number;
 
     @Prop({
         default:'normal'
@@ -32,19 +32,16 @@ export default class ByRadio extends Mixins(TwoWay)  {
     @Prop()
     textColor?: string;
 
-    @Watch("currentValue")
-    watchValue(value: string | number) {
-        console.log(value);
+    @Watch("value")
+    wathcValue(value: string | number) {
         this.$emit("radio-group-change", value);
+        this.broadcast("by-radio", "init-data", value);
     }
 
-    mounted() {
-        // this.broadcast("AtRadio", "init-data", this.value);
+    mounted(){
+        this.broadcast("by-radio", "init-data", this.value);
     }
 }
-// import Emitter from 'at-ui/src/mixins/emitter'
-
-// export default {
 //   name: 'AtRadioGroup',
 //   props: {
 //     value: [String, Number],

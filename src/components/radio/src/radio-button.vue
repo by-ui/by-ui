@@ -27,10 +27,10 @@ import {
     Mixins
 } from "vue-property-decorator";
 
-import TwoWay from "mixins/two-way";
+import Emitter from "mixins/emitter";
 
 @Component
-export default class ByRadioButton extends Vue {
+export default class ByRadioButton extends Mixins(Emitter) {
     @Prop()
     name?: string;
 
@@ -48,6 +48,7 @@ export default class ByRadioButton extends Vue {
         return (this.$parent as any).value;
     }
     set store(newValue) {
+        console.log(newValue);
         this.$parent.$emit("input", newValue);
     }
 
@@ -70,7 +71,7 @@ export default class ByRadioButton extends Vue {
         return styles;
     }
     mounted(){
-        // console.log(this.$parent);
+        
     }
 }
 // export default {

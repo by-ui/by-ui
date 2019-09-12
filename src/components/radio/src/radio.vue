@@ -4,12 +4,12 @@
             <span class="by-radio__inner"
                   :class="{
           'by-radio--focus': focus,
-          'by-radio--checked': currentValue === label,
+          'by-radio--checked': store === label,
           'by-radio--disabled': disabled
         }"></span>
             <input type="radio"
                    class="by-radio__original"
-                   v-model="currentValue"
+                   v-model="store"
                    :name="name"
                    :value="label"
                    :disabled="disabled"
@@ -32,44 +32,52 @@ import {
     Mixins
 } from "vue-property-decorator";
 
-import TwoWay from "mixins/two-way";
+import Emitter from "mixins/emitter";
 
 @Component
-export default class ByRadio extends Mixins(TwoWay) {
-
-    /**
-     * 绑定的值
-     *
-     */
+export default class ByRadio extends Mixins(Emitter) {
     @Prop()
-    value?: string | number
+    value?: string | number;
 
     @Prop()
-    name?: string
+    name?: string;
 
     @Prop()
-    label!: string | number
-
+    label!: string | number;
 
     @Prop({
-        default:false
+        default: false
     })
-    disabled?: boolean
+    disabled?: boolean;
 
-    // store = this.value
-    focus = false
-    isGroup = false
+    store = this.value;
+    
+    
+    focus = false;
+    isGroup = false;
 
-    @Watch('value')
-    watchValue(val:string | number) {
-        this.currentValue = val
+    @Watch("store")
+    watchStore(store: string | number) {
+        this.$emit("input", store);
+        if (this.isGroup) {
+            this.dispatch("by-radio-group", "input", store);
+        }
+    }
+
+    @Watch("value")
+    watchValue(val: string | number) {
+        console.log(val);
+        this.store = val;
     }
 
     mounted() {
-        console.log(this.currentValue);
+        console.log(this.label);
+        this.$on("init-data", (data: string | number) => {
+            this.store = data;
+            this.isGroup = true;
+        });
     }
 }
-// export default {
 //   name: 'AtRadio',
 //   props: {
 //     value: [String, Number],
@@ -93,7 +101,7 @@ export default class ByRadio extends Mixins(TwoWay) {
 //       this.$emit('input', store)
 
 //       if (this.isGroup) {
-//         // this.dispatch('AtRadioGroup', 'input', store)
+//         this.dispatch('AtRadioGroup', 'input', store)
 //       }
 //     },
 //     value (val) {
