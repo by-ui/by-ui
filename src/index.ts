@@ -26,7 +26,7 @@ import CollapseItem from './components/collapse/src/collapse-item.vue';
 /********** 视图插件 **********/
 import Message from './components/message/';
 import LoadingBar from './components/loading-bar';
-// import Notification from './components/notification';
+import Notification from './components/notification';
 
 import Progress from './components/progress';
 
