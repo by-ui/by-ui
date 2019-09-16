@@ -65,8 +65,8 @@ components:
             #             name: Popover
                       - title: progress
                         name: Progress
-            #           - title: timeline
-            #             name: Timeline
+                      - title: timeline
+                        name: Timeline
             #           - title: tooltip
             #             name: Tooltip
             #           - title: table
