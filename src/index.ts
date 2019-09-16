@@ -28,6 +28,8 @@ import Notification from './components/notification';
 import Progress from './components/progress';
 import TimeLine from './components/timeline/src/timeline.vue';
 import TimeLineItem from './components/timeline/src/timeline-item.vue';
+import Step from './components/steps/src/step.vue';
+import StepItem from './components/steps/src/step-item.vue';
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -63,7 +65,8 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-time-line', TimeLine);
     Vue.component('by-timeline-item', TimeLineItem);
     Vue.component('by-pagination', Pagination);
-
+    Vue.component('by-step',Step);
+    Vue.component('by-step-item',StepItem);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

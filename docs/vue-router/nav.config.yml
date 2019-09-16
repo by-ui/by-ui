@@ -19,6 +19,8 @@ components:
                 items:
                       - title: button
                         name: Button
+                      - title: layout
+                        name: Layout
                       - title: tag
                         name: Tag
                       - title: icon
@@ -81,7 +83,7 @@ components:
             #             name: Menu
                       - title: pagination
                         name: Pagination
-            #           - title: steps
-            #             name: Steps
+                      - title: steps
+                        name: Steps
             #           - title: tabs
             #             name: Tabs
