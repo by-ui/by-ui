@@ -81,8 +81,8 @@ components:
             #             name: Dropdown
             #           - title: menu
             #             name: Menu
-            #           - title: pagination
-            #             name: Pagination
+                      - title: pagination
+                        name: Pagination
                       - title: steps
                         name: Steps
             #           - title: tabs
