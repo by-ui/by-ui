@@ -30,6 +30,10 @@ import TimeLine from './components/timeline/src/timeline.vue';
 import TimeLineItem from './components/timeline/src/timeline-item.vue';
 import Step from './components/steps/src/step.vue';
 import StepItem from './components/steps/src/step-item.vue';
+import Dropdown from './components/dropdown/src/dropdown.vue';
+import DropdownMenu from './components/dropdown/src/dropdown-menu.vue';
+import DropdownItem from './components/dropdown/src/dropdown-item.vue';
+
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -65,8 +69,11 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-time-line', TimeLine);
     Vue.component('by-timeline-item', TimeLineItem);
     Vue.component('by-pagination', Pagination);
-    Vue.component('by-step',Step);
-    Vue.component('by-step-item',StepItem);
+    Vue.component('by-step', Step);
+    Vue.component('by-step-item', StepItem);
+    Vue.component('by-dropdown', Dropdown);
+    Vue.component('by-dropdown-menu', DropdownMenu);
+    Vue.component('by-dropdown-item', DropdownItem);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
@@ -74,4 +81,4 @@ const install = (Vue: any, options: any) => {
 }
 
 const version = '0.0.1';
-export { version, install, Message, Progress,Pagination }
+export { version, install, Message, Progress, Pagination }

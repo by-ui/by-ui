@@ -77,8 +77,8 @@ components:
                 items:
                       - title: breadcrumb
                         name: Breadcrumb
-            #           - title: dropdown
-            #             name: Dropdown
+                      - title: dropdown
+                        name: Dropdown
             #           - title: menu
             #             name: Menu
                       - title: pagination
