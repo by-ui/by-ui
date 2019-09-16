@@ -1,10 +1,10 @@
-import Vue, { PluginObject } from 'vue';
 import Dropdown from './src/dropdown.vue'
 
-const DropdownComponent: PluginObject<never> = {
-    install(Vue) {
-        Vue.component('ByDropdowm', Dropdown);
+Object.defineProperty(Dropdown, 'install', {
+    writable: false,
+    value: (Vue: any) => {
+        Vue.component('by-dropdown', Dropdown);
     }
-}
+})
 
-export default DropdownComponent;
+export default Dropdown;

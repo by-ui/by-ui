@@ -26,14 +26,14 @@ import Message from './components/message';
 import LoadingBar from './components/loading-bar';
 import Notification from './components/notification';
 import Progress from './components/progress';
-import TimeLine from './components/timeline/src/timeline.vue';
-import TimeLineItem from './components/timeline/src/timeline-item.vue';
-import Step from './components/steps/src/step.vue';
-import StepItem from './components/steps/src/step-item.vue';
-import Dropdown from './components/dropdown/src/dropdown.vue';
-import DropdownMenu from './components/dropdown/src/dropdown-menu.vue';
-import DropdownItem from './components/dropdown/src/dropdown-item.vue';
+import TimeLine from './components/timeline';
+import TimeLineItem from './components/timeline-item';
+import Step from './components/step';
+import StepItem from './components/step-item';
 import Table from './components/table';
+import Dropdown from './components/dropdown';
+import DropdownMenu from './components/dropdown-menu';
+import DropdownItem from './components/dropdown-item';
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -69,12 +69,13 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-time-line', TimeLine);
     Vue.component('by-timeline-item', TimeLineItem);
     Vue.component('by-pagination', Pagination);
-    Vue.component('by-step', Step);
-    Vue.component('by-step-item', StepItem);
+    Vue.component('by-step',Step);
+    Vue.component('by-step-item',StepItem);
+    Vue.component('by-table',Table);
+
     Vue.component('by-dropdown', Dropdown);
     Vue.component('by-dropdown-menu', DropdownMenu);
     Vue.component('by-dropdown-item', DropdownItem);
-    Vue.component('by-table',Table);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
