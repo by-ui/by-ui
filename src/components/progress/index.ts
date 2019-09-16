@@ -1,6 +1,4 @@
-import Vue, { PluginObject } from 'vue';
 import Progress from './src/progress.vue'
-
 
 Object.defineProperty(Progress, 'install', {
     writable: false,

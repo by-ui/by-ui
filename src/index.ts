@@ -22,16 +22,17 @@ import Badge from './components/badge/src/badge.vue';
 import Alert from './components/alert/src/alert.vue';
 import Collapse from './components/collapse/src/collapse.vue';
 import CollapseItem from './components/collapse/src/collapse-item.vue';
-
-/********** 视图插件 **********/
 import Message from './components/message/';
 import LoadingBar from './components/loading-bar';
 import Notification from './components/notification';
 import Progress from './components/progress';
-import Breadcrumb from './components/breadcrumb';
-import BreadcrumbItem from './components/breadcrumb-item';
 import TimeLine from './components/timeline/src/timeline.vue';
 import TimeLineItem from './components/timeline/src/timeline-item.vue';
+
+/********** 导航组件 **********/
+import Breadcrumb from './components/breadcrumb';
+import BreadcrumbItem from './components/breadcrumb-item';
+import Pagination from './components/pagination';
 
 const install = (Vue: any, options: any) => {
     Vue.component('by-button', Button);
@@ -61,6 +62,8 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-breadcrumb-item', BreadcrumbItem)
     Vue.component('by-time-line', TimeLine);
     Vue.component('by-timeline-item', TimeLineItem);
+    Vue.component('by-pagination', Pagination);
+
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
@@ -68,4 +71,4 @@ const install = (Vue: any, options: any) => {
 }
 
 const version = '0.0.1';
-export { version, install, Message, Progress }
+export { version, install, Message, Progress,Pagination }
