@@ -39,6 +39,7 @@ export default {
             viewComponent: '视图组件',
             navComponent: '导航组件',
             button: 'Button 按钮',
+            layout: 'Layout 布局',
             tag: 'Tag 标签',
             icon: 'Icon 图标',
             checkbox: 'Checkbox 多选框',
