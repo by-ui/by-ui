@@ -1,6 +1,6 @@
 <template>
     <label class="by-radio">
-        {{value}}
+        {{}}
         <span class="by-radio__input">
             <span class="by-radio__inner"
                   :class="{
@@ -58,7 +58,7 @@
         watchStore(store: string | number) {
             this.$emit("input", store);
             if (this.isGroup) {
-                this.dispatch("by-radio-group", "input", store);
+                this.dispatch("ByRadioGroup", "input", store);
             }
         }
 
@@ -70,6 +70,7 @@
         mounted() {
             this.store = this.value
             this.$on("init-data", (data: [string, number]) => {
+                console.log(data)
                 this.store = data;
                 this.isGroup = true;
             });

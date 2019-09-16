@@ -15,7 +15,7 @@ import Input from './components/input'
 import Switch from './components/switch';
 import Radio from './components/radio'
 import RadioGroup from './components/radio-group'
-import RadioButton from './components/radio'
+import RadioButton from './components/radio-button'
 
 /********** 视图组件 **********/
 import Badge from './components/badge';
