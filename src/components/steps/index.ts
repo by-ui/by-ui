@@ -3,7 +3,7 @@ import Step from './src/step.vue'
 
 const StepComponent: PluginObject<never> = {
     install(Vue) {
-        Vue.component('Step', Step);
+        Vue.component('ByStep', Step);
     }
 }
 
