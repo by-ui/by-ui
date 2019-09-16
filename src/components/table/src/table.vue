@@ -17,6 +17,7 @@
                 <table>
                     <colgroup>
                         <col v-for="(column, index) in columnsData"
+                             :key="index"
                              :width="setCellWidth(column, index)">
                     </colgroup>
                     <thead class="by-table__thead"
@@ -42,9 +43,9 @@
                                 <template v-if="column.sortType">
                                     <div class="by-table__column-sorter"
                                          :class="{
-                      'sort-asc': column._sortType === 'asc',
-                      'sort-desc': column._sortType === 'desc'
-                    }">
+                                                'sort-asc': column._sortType === 'asc',
+                                                'sort-desc': column._sortType === 'desc'
+                                                }">
                                         <span class="by-table__column-sorter-up"
                                               @click.stop="handleSort(index, 'asc')"><i class="icon icon-chevron-up"></i></span>
                                         <span class="by-table__column-sorter-down"
@@ -65,6 +66,7 @@
                 <table>
                     <colgroup>
                         <col v-for="(column, index) in columnsData"
+                             :key="index"
                              :width="setCellWidth(column, index)">
                     </colgroup>
                     <thead class="by-table__thead"
@@ -109,7 +111,7 @@
                            v-if="sortData.length"
                            ref="body">
                         <template v-for="(item, index) in sortData">
-                            <tr>
+                            <tr :key="index">
                                 <td v-if="optional"
                                     class="by-table__cell by-table__column-selection">
                                     <by-checkbox v-model="objData[index].isChecked"
@@ -137,7 +139,7 @@
                         <tr>
                             <td class="by-table__cell by-table__cell--nodata"
                                 :colspan="optional ? columns.length + 1 : columns.length">
-                                <slot name="emptyText">{{ t('at.table.emptyText') }}</slot>
+                                <slot name="emptyText">{{ $t('at.table.emptyText') }}</slot>
                             </td>
                         </tr>
                     </tbody>
@@ -208,7 +210,7 @@
                 return []
             }
         })
-        columns?: Array<any>;
+        columns!: Array<any>;
 
         @Prop({
             default: false
@@ -252,6 +254,7 @@
         pageCurSize = this.pageSize;
         columnsWidth = {};
         currentPage = 1;
+        width = 0;
 
         @Watch("height")
         watchHeight() {
@@ -300,7 +303,7 @@
                 isAll = false
             }
             for (let i = 0, len = this.sortData.length; i < len; i++) {
-                if (!this.objData[this.sortData[i].index].isChecked) {
+                if (!this.objData[this.sortData[i]["index"]]["isChecked"]) {
                     isAll = false
                     break
                 }
@@ -343,7 +346,7 @@
 
         makeColumns() {
             const columns = deepCopy(this.columns)
-            columns.forEach((column, idx) => {
+            columns.forEach((column: any, idx: any) => {
                 column._index = idx
                 column._sortType = 'normal'
 
@@ -357,7 +360,7 @@
 
         makeData() {
             const data = deepCopy(this.data)
-            data.forEach((row, idx) => {
+            data.forEach((row: any, idx: any) => {
                 row.index = idx
             })
             return data
@@ -366,7 +369,7 @@
         makeObjData() {
             const rowData = {}
 
-            this.data.forEach((row, index) => {
+            this.data.forEach((row: any, index: any) => {
                 const newRow = deepCopy(row)
 
                 newRow.isChecked = !!newRow.isChecked
@@ -377,7 +380,7 @@
             return rowData
         }
 
-        makeDataWithSortAndPage(pageNum: any) {
+        makeDataWithSortAndPage(pageNum?: any) {
             let data = []
             let allData = []
 
@@ -388,7 +391,7 @@
             return data
         }
 
-        makeDataWithPaginate(page: any) {
+        makeDataWithPaginate(page?: any) {
             page = page || 1
             const pageStart = (page - 1) * this.pageCurSize
             const pageEnd = pageStart + this.pageCurSize
@@ -464,7 +467,7 @@
 
         sort(data: any, type: any, index: any) {
             const key = this.columnsData[index].key
-            data.sort((a, b) => {
+            data.sort((a: any, b: any) => {
                 if (this.columnsData[index].sortMethod) {
                     return this.columnsData[index].sortMethod(a[key], b[key], type)
                 } else if (type === 'asc') {
@@ -506,6 +509,8 @@
                 const columnsWidth = {}
 
                 if (this.data.length) {
+                    if(!this.$refs.body)
+                        return
                     const $td = this.$refs.body.querySelectorAll('tr')[0].querySelectorAll('td')
 
                     for (let i = 0; i < $td.length; i++) {

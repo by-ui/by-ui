@@ -42,22 +42,4 @@ export default class ByRadioGroup extends Mixins(Emitter) {
         this.broadcast("by-radio", "init-data", this.value);
     }
 }
-//   name: 'AtRadioGroup',
-//   props: {
-//     value: [String, Number],
-//     size: String,
-//     fill: String,
-//     textColor: String
-//   },
-//   mixins: [Emitter],
-//   watch: {
-//     value (value) {
-//       this.$emit('radio-group-change', value)
-//       this.broadcast('AtRadio', 'init-data', value)
-//     }
-//   },
-//   mounted () {
-//     this.broadcast('AtRadio', 'init-data', this.value)
-//   }
-// }
 </script>

@@ -112,7 +112,7 @@
   </by-radio-group>
 </div>
 ```
-::: 
+:::
 
 ## Radio 参数
 
