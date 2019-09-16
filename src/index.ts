@@ -6,8 +6,8 @@ import Tag from './components/tag/src/tag.vue';
 import Icon from './components/icon/src/icon.vue';
 
 /********** 表单组件 **********/
-import Checkbox from './components/checkbox/src/checkbox.vue'
-import CheckboxGroup from './components/checkbox/src/by-checkbox-group.vue'
+import Checkbox from './components/checkbox'
+import CheckboxGroup from './components/checkbox-group'
 import Textarea from './components/textarea/src/textarea.vue'
 import InputNumber from './components/input-number/src/input-number.vue'
 import Rate from './components/rate/src/rate.vue'
@@ -30,6 +30,7 @@ import TimeLine from './components/timeline/src/timeline.vue';
 import TimeLineItem from './components/timeline/src/timeline-item.vue';
 import Step from './components/steps/src/step.vue';
 import StepItem from './components/steps/src/step-item.vue';
+import Table from './components/table';
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -67,6 +68,7 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-pagination', Pagination);
     Vue.component('by-step',Step);
     Vue.component('by-step-item',StepItem);
+    Vue.component('by-table',Table);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

@@ -71,8 +71,8 @@ components:
                         name: Timeline
             #           - title: tooltip
             #             name: Tooltip
-            #           - title: table
-            #             name: Table
+                      - title: table
+                        name: Table
               - title: navComponent
                 items:
                       - title: breadcrumb
