@@ -1,9 +1,10 @@
-import Vue, { PluginObject } from 'vue';
 import Button from './src/button.vue'
 
-const ButtonComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Button, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-button', Button);
     }
-}
-export default ButtonComponent
+})
+
+export default Button

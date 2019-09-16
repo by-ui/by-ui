@@ -1,9 +1,12 @@
-import Vue, { PluginObject } from 'vue';
 import Radio from './src/radio.vue'
 
-const InputComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Radio, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-radio', Radio);
     }
-}
+})
+
 export default Radio
+
+

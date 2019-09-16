@@ -1,10 +1,11 @@
-import Vue, { PluginObject } from 'vue';
 import Textarea from './src/textarea.vue'
 
-const TextareaComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Textarea, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-textarea', Textarea);
     }
-}
+})
 
-export default TextareaComponent
+export default Textarea
+

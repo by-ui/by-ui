@@ -1,9 +1,13 @@
-import Vue, { PluginObject } from 'vue';
 import Badge from './src/badge.vue'
 
-const BadgeComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Badge, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-badge', Badge);
     }
-}
-export default BadgeComponent
+})
+
+export default Badge
+
+
+

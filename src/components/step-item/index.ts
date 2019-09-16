@@ -1,10 +1,10 @@
-import Vue, { PluginObject } from 'vue';
-import StepItem from '../steps/src/step-item.vue'
+import StepItem from '../step/src/step-item.vue'
 
-const StepItemComponent: PluginObject<never> = {
-    install(Vue) {
-        Vue.component('ByStepItem', StepItem);
+Object.defineProperty(StepItem, 'install', {
+    writable: false,
+    value: (Vue: any) => {
+        Vue.component('by-step-item', StepItem);
     }
-}
+})
 
-export default StepItemComponent;
+export default StepItem

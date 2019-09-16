@@ -31,11 +31,12 @@
                             <!-- E Checkbox -->
                             <!-- S Column th -->
                             <th v-for="(column, index) in columnsData"
+                                :key="index"
                                 class="by-table__cell by-table__column"
                                 :class="column.className"
                                 :style="{
-                  cursor: column.sortType ? 'pointer' : 'text'
-                }"
+                                            cursor: column.sortType ? 'pointer' : 'text'
+                                        }"
                                 @click="column.sortType && handleSort(index)">
                                 {{ column.title }}
                                 <template v-if="column.sortType">
@@ -170,167 +171,384 @@
     import Cell from './render'
     import Checkbox from 'By-UI/components/checkbox'
     import Pagination from 'By-UI/components/pagination'
+    import { getStyle, deepCopy } from 'By-UI/utils/util'
 
     @Component({
         components: {
             Checkbox,
-            Pagination
+            Pagination,
+            Cell
         }
     })
     export default class Table extends Vue {
         @Prop({
-            default: 1
+            default: 'normal'
         })
-        current?: number;
+        size?: string;
 
         @Prop({
-            default: 0,
-            required: true
+            default: false
         })
-        total!: number;
+        stripe?: boolean;
+
+        @Prop({
+            default: false
+        })
+        border?: boolean;
+
+        @Prop({
+            default: function () {
+                return []
+            }
+        })
+        data?: Array<any>;
+
+        @Prop({
+            default: function () {
+                return []
+            }
+        })
+        columns?: Array<any>;
+
+        @Prop({
+            default: false
+        })
+        optional?: boolean;
+
+        @Prop({
+            default: false
+        })
+        pagination?: boolean;
 
         @Prop({
             default: 10
         })
         pageSize?: number;
 
+        @Prop({
+            default: true
+        })
+        showPageTotal?: boolean;
+
+        @Prop({
+            default: false
+        })
+        showPageSizer?: boolean;
+
+        @Prop({
+            default: false
+        })
+        showPageQuickjump?: boolean;
+
         @Prop()
-        size?: string;
+        height?: [number, string];
 
-        @Prop({
-            default: false
-        })
-        simple?: boolean;
+        objData = this.makeObjData();
+        sortData = [];
+        allData = [];
+        columnsData = this.makeColumns();
+        total = 0;
+        bodyHeight = 0;
+        pageCurSize = this.pageSize;
+        columnsWidth = {};
+        currentPage = 1;
 
-        @Prop({
-            default: false
-        })
-        showTotal?: boolean;
-
-        @Prop({
-            default: false
-        })
-        showQuickjump?: boolean;
-
-        @Prop({
-            default: false
-        })
-        showSizer?: boolean;
-
-
-        @Prop({
-            default: function () {
-                return [10, 20, 30, 40]
-            }
-        })
-        pageSizeOpts?: Array<number>;
-
-        currentPage = this.current || 1;
-        currentPageSize = this.pageSize || 10;
-        jumpPageNum = this.current;
-
-        @Watch("current")
-        watchCurrent(val: number) {
-            this.currentPage = val
+        @Watch("height")
+        watchHeight() {
+            this.calculateBodyHeight()
         }
 
-        @Watch("pageSize")
-        watchPageSize(val: number) {
-            this.currentPageSize = val
+        @Watch("allData")
+        watchAllData() {
+            this.total = this.allData.length
         }
 
-        get totalPage() {
-            const num = Math.ceil(this.total / this.currentPageSize)
-            return (num === 0) ? 1 : num
+        @Watch("sortData")
+        watchSortData() {
+            this.handleResize()
         }
 
-        get visiblePage() {
-            return this.totalPage >= 5 ? 5 : this.totalPage
+        @Watch("pageCurSize")
+        watchPageCurSize() {
+            this.sortData = this.makeDataWithPaginate()
         }
 
-        get pageRange() {
-            const range = []
-            let start = 1
+        @Watch("data")
+        watchData() {
+            this.sortData = this.makeDataWithSortAndPage()
+        }
 
-            if (this.currentPage + (this.visiblePage / 2) > this.totalPage) {
-                start = this.totalPage - this.visiblePage + 1
-                start = start > 0 ? start : 1
-            } else if (this.currentPage - (this.visiblePage / 2) > 0) {
-                start = Math.ceil(this.currentPage - (this.visiblePage / 2))
+        get tableStyles() {
+            const styles = {
+                height: '',
+                width: ''
             }
 
-            for (let i = 0; i < this.visiblePage && i < this.totalPage; i++) {
-                range.push(start + i)
+            if (this.height) {
+                styles.height = `${this.height}px`
+            }
+            if (this.width) {
+                styles.width = `${this.width}px`
             }
 
-            return range
+            return styles
         }
 
-        changePage(page?: number) {
-            let num = (page || this.jumpPageNum || 1) | 0
-            num = num > this.totalPage ? this.totalPage : num
-            num = num < 1 ? 1 : num
-
-            if (this.currentPage !== num) {
-                this.jumpPageNum = num
-                this.currentPage = num
-                this.$emit('page-change', num)
+        get isSelectAll() {
+            let isAll = true
+            if (!this.sortData.length) {
+                isAll = false
             }
+            for (let i = 0, len = this.sortData.length; i < len; i++) {
+                if (!this.objData[this.sortData[i].index].isChecked) {
+                    isAll = false
+                    break
+                }
+            }
+
+            return isAll
         }
 
-        handlePrev() {
-            const page = this.currentPage
-            if (page <= 1) return false
-            this.changePage(page - 1)
+        get bodyStyle() {
+            const styles = {}
+            if (this.bodyHeight !== 0) {
+                const headerHeight = parseInt(getStyle(this.$refs.header, 'height')) || 0
+                styles.height = `${this.bodyHeight}px`
+                styles.marginTop = `${headerHeight}px`
+            }
+            return styles
         }
 
-        handleNext() {
-            const page = this.currentPage
-            if (page >= this.totalPage) return false
-            this.changePage(page + 1)
+        get contentStyle() {
+            const styles = {}
+            if (this.bodyHeight !== 0) {
+                const headerHeight = parseInt(getStyle(this.$refs.header, 'height')) || 0
+                styles.height = `${this.bodyHeight + headerHeight}px`
+            }
+            return styles
         }
 
-        handleJumpPrev() {
-            const page = this.currentPage - 5
-            page ? this.changePage(page) : this.changePage(1)
-        }
+        calculateBodyHeight() {
+            if (this.height) {
+                this.$nextTick(() => {
+                    const headerHeight = parseInt(getStyle(this.$refs.header, 'height')) || 0
+                    const footerHeight = parseInt(getStyle(this.$refs.footer, 'height')) || 0
 
-        handleJumpNext() {
-            const page = this.currentPage + 5
-            page > this.totalPage ? this.changePage(this.totalPage) : this.changePage(page)
-        }
-
-        handleKeydown(evt: any) {
-            const key = evt.keyCode
-
-            // 按键 0~9，空格，左右方向键
-            if (!((key >= 48 && key <= 57) || key === 8 || key === 37 || key === 39)) {
-                evt.preventDefault()
+                    this.bodyHeight = this.height - headerHeight - footerHeight
+                })
+            } else {
+                this.bodyHeight = 0
             }
         }
 
-        handleKeyup(evt: any) {
-            const key = evt.keyCode
-            const numVal = evt.target.value | 0
+        makeColumns() {
+            const columns = deepCopy(this.columns)
+            columns.forEach((column, idx) => {
+                column._index = idx
+                column._sortType = 'normal'
 
-            if (key === 40) { // Up Arrow
-                this.handlePrev()
-            } else if (key === 38) { // Down Arrow
-                this.handleNext()
-            } else if (key === 13) { // Return
-                let page = 1
-
-                page = (numVal > this.totalPage) ? this.totalPage : numVal
-                page = (numVal <= 0) ? 1 : numVal
-                evt.target.value = page
-                this.changePage(page)
-            }
+                if (column.sortType) {
+                    column._sortType = column.sortType
+                    column.sortType = column.sortType
+                }
+            })
+            return columns
         }
 
-        changeSize(size: number) {
-            this.currentPageSize = size
-            this.changePage(1)
-            this.$emit('pagesize-change', size)
+        makeData() {
+            const data = deepCopy(this.data)
+            data.forEach((row, idx) => {
+                row.index = idx
+            })
+            return data
+        }
+
+        makeObjData() {
+            const rowData = {}
+
+            this.data.forEach((row, index) => {
+                const newRow = deepCopy(row)
+
+                newRow.isChecked = !!newRow.isChecked
+
+                rowData[index] = newRow
+            })
+
+            return rowData
+        }
+
+        makeDataWithSortAndPage(pageNum: any) {
+            let data = []
+            let allData = []
+
+            allData = this.makeDataWithSort()
+            this.allData = allData
+
+            data = this.makeDataWithPaginate(pageNum)
+            return data
+        }
+
+        makeDataWithPaginate(page: any) {
+            page = page || 1
+            const pageStart = (page - 1) * this.pageCurSize
+            const pageEnd = pageStart + this.pageCurSize
+            let pageData = []
+
+            if (this.pagination) {
+                pageData = this.allData.slice(pageStart, pageEnd)
+            } else {
+                pageData = this.allData
+            }
+            return pageData
+        }
+
+        makeDataWithSort() {
+            let data = this.makeData()
+            let sortType = 'normal'
+            let sortIndex = -1
+
+            for (let i = 0, len = this.columnsData.length; i < len; i++) {
+                if (this.columnsData[i].sortType && this.columnsData[i].sortType !== 'normal') {
+                    sortType = this.columnsData[i].sortType
+                    sortIndex = i
+                    break
+                }
+            }
+
+            if (sortType !== 'normal') {
+                data = this.sort(data, sortType, sortIndex)
+            }
+
+            return data
+        }
+
+        handleSelectAll() {
+            const status = !this.isSelectAll
+
+            for (const data of this.sortData) {
+                this.objData[data.index].isChecked = status
+            }
+
+            const selection = this.getSelection()
+
+            status && this.$emit('on-select-all', selection)
+            this.$emit('on-selection-change', selection)
+        }
+
+        handleSort(index: any, type?: any) {
+            const key = this.columnsData[index].key
+            const sortType = this.columnsData[index]._sortType
+            const sortNameArr = ['normal', 'desc', 'asc']
+
+            if (this.columnsData[index].sortType) {
+                if (!type) {
+                    const tmpIdx = sortNameArr.indexOf(sortType)
+                    if (tmpIdx >= 0) {
+                        type = sortNameArr[(tmpIdx + 1) > 2 ? 0 : tmpIdx + 1]
+                    }
+                }
+                if (type === 'normal') {
+                    this.sortData = this.makeDataWithSortAndPage(this.currentPage)
+                } else {
+                    this.sortData = this.sort(this.sortData, type, index)
+                }
+            }
+            this.columnsData[index]._sortType = type
+
+            this.$emit('on-sort-change', {
+                column: JSON.parse(JSON.stringify(this.columns[this.columnsData[index]._index])),
+                order: type,
+                key
+            })
+        }
+
+        sort(data: any, type: any, index: any) {
+            const key = this.columnsData[index].key
+            data.sort((a, b) => {
+                if (this.columnsData[index].sortMethod) {
+                    return this.columnsData[index].sortMethod(a[key], b[key], type)
+                } else if (type === 'asc') {
+                    return a[key] > b[key] ? 1 : -1
+                }
+                return a[key] < b[key] ? 1 : -1
+            })
+            return data
+        }
+
+        getSelection() {
+            const selectionIndexArray = []
+            for (const i in this.objData) {
+                if (this.objData[i].isChecked) {
+                    selectionIndexArray.push(i | 0)
+                }
+            }
+            return JSON.parse(JSON.stringify(this.data.filter((data, index) => selectionIndexArray.indexOf(index) > -1)))
+        }
+
+        changeRowSelection() {
+            const selection = this.getSelection()
+            this.$emit('on-selection-change', selection)
+        }
+
+        pageChange(page: any) {
+            this.$emit('on-page-change', page)
+            this.currentPage = page
+            this.sortData = this.makeDataWithPaginate(page)
+        }
+
+        pageSizeChange(size: any) {
+            this.$emit('on-page-size-change', size)
+            this.pageCurSize = size
+        }
+
+        handleResize() {
+            this.$nextTick(() => {
+                const columnsWidth = {}
+
+                if (this.data.length) {
+                    const $td = this.$refs.body.querySelectorAll('tr')[0].querySelectorAll('td')
+
+                    for (let i = 0; i < $td.length; i++) {
+                        const column = this.columnsData[i]
+                        let width = parseInt(getStyle($td[i], 'width'))
+
+                        if (column) {
+                            if (column.width) {
+                                width = column.width
+                            }
+                            columnsWidth[column._index] = { width }
+                        }
+                    }
+                }
+
+                this.columnsWidth = columnsWidth
+            })
+        }
+
+        setCellWidth(column: any, index: any) {
+            let width = ''
+
+            if (column.width) {
+                width = column.width
+            } else if (this.columnsWidth[column._index]) {
+                width = this.columnsWidth[column._index].width
+            }
+
+            width = width === '0' ? '' : width
+            return width
+        }
+
+        created() {
+            this.sortData = this.makeDataWithSortAndPage()
+        }
+
+        mounted() {
+            this.calculateBodyHeight()
+            window.addEventListener('resize', this.handleResize)
+        }
+
+        beforeDestory() {
+            window.removeEventListener('resize', this.handleResize)
         }
     }
 </script>

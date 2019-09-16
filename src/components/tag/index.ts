@@ -1,9 +1,10 @@
-import Vue, { PluginObject } from 'vue';
 import Tag from './src/tag.vue'
 
-const TagComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Tag, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-tag', Tag);
     }
-}
-export default TagComponent
+})
+
+export default Tag

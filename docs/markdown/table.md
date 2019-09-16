@@ -468,7 +468,7 @@
             title: '操作',
             render: (h, params) => {
               return h('div', [
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
@@ -478,18 +478,18 @@
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.name)
+                      this.$message(params.item.name)
                     }
                   }
                 }, '查看姓名'),
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.address)
+                      this.$message(params.item.address)
                     }
                   }
                 }, '查看地址')
@@ -558,7 +558,7 @@
             title: '操作',
             render: (h, params) => {
               return h('div', [
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
@@ -568,18 +568,18 @@
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.name)
+                      this.$message(params.item.name)
                     }
                   }
                 }, '查看姓名'),
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.address)
+                      this.$message(params.item.address)
                     }
                   }
                 }, '查看地址')
@@ -605,7 +605,7 @@
             title: '操作',
             render: (h, params) => {
               return h('div', [
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'smaller',
                     hollow: true
@@ -615,18 +615,18 @@
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.name)
+                      this.$message(params.item.name)
                     }
                   }
                 }, '查看姓名'),
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'smaller',
                     hollow: true
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.address)
+                      this.$message(params.item.address)
                     }
                   }
                 }, '查看地址')
@@ -833,7 +833,7 @@
             title: '操作',
             render: (h, params) => {
               return h('div', [
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
@@ -843,18 +843,18 @@
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.name)
+                      this.$message(params.item.name)
                     }
                   }
                 }, '查看姓名'),
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'small',
                     hollow: true
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.address)
+                      this.$message(params.item.address)
                     }
                   }
                 }, '查看地址')
@@ -880,7 +880,7 @@
             title: '操作',
             render: (h, params) => {
               return h('div', [
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'smaller',
                     hollow: true
@@ -890,18 +890,18 @@
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.name)
+                      this.$message(params.item.name)
                     }
                   }
                 }, '查看姓名'),
-                h('AtButton', {
+                h('by-button', {
                   props: {
                     size: 'smaller',
                     hollow: true
                   },
                   on: {
                     click: () => {
-                      this.$Message(params.item.address)
+                      this.$message(params.item.address)
                     }
                   }
                 }, '查看地址')
