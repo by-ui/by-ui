@@ -21,15 +21,12 @@
             Scrollbar.use(OverscrollPlugin);
 
             Scrollbar.init(document.body, {
-                plugins: {
-                    overscroll: {
-                        enable: true,
-                        effect: 'glow',
-                        damping: 0.2,
-                        maxOverscroll: 150,
-                        glowColor: '#6190E8',
-                    }
-                }
+                // plugins: {
+                //     overscroll: {
+                        // effect: 'glow',
+                //         glowColor: '#6190E8',
+                //     }
+                // }
             });
 
         }
