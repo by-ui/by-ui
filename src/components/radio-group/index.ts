@@ -1,9 +1,13 @@
-import Vue, { PluginObject } from 'vue';
 import RadioGroup from '../radio/src/radio-group.vue'
 
-const InputComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(RadioGroup, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-radio-group', RadioGroup);
     }
-}
+})
+
 export default RadioGroup
+
+
+

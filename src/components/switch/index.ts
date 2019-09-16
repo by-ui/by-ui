@@ -1,9 +1,12 @@
-import Vue, { PluginObject } from 'vue';
 import Switch from './src/switch.vue'
 
-const SwitchComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Switch, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-switch', Switch);
     }
-}
-export default SwitchComponent
+})
+
+export default Switch
+
+

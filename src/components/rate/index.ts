@@ -1,10 +1,12 @@
-import Vue, { PluginObject } from 'vue';
 import Rate from './src/rate.vue'
 
-const RatereaComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Rate, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-rate', Rate);
     }
-}
+})
 
-export default RatereaComponent
+export default Rate
+
+

@@ -1,12 +1,14 @@
-
-import Vue, { PluginObject } from 'vue';
 import CollapseItem from '../collapse/src/collapse-item.vue'
 
-
-const CollapseItemComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(CollapseItem, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-collapse-item', CollapseItem);
     }
-}
+})
 
-export default CollapseItemComponent
+export default CollapseItem
+
+
+
+

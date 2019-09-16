@@ -1,9 +1,11 @@
-import Vue, { PluginObject } from 'vue';
 import Icon from './src/icon.vue'
 
-const IconComponent: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(Icon, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-icon', Icon);
     }
-}
-export default IconComponent
+})
+
+export default Icon
+

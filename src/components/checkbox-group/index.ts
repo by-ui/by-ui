@@ -1,9 +1,11 @@
-import Vue, { PluginObject } from 'vue';
 import CheckBoxGroup from '../checkbox/src/by-checkbox-group.vue'
 
-const ByCheckboxGroup: PluginObject<never> = {
-    install(Vue) {
+Object.defineProperty(CheckBoxGroup, 'install', {
+    writable: false,
+    value: (Vue: any) => {
         Vue.component('by-checkbox-group', CheckBoxGroup);
     }
-}
-export default ByCheckboxGroup
+})
+
+export default CheckBoxGroup
+

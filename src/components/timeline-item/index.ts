@@ -1,10 +1,10 @@
-import Vue, { PluginObject } from 'vue';
 import TimeLineItem from '../timeline/src/timeline-item.vue';
 
-const TimeLineItemComponent: PluginObject<never> = {
-    install(Vue) {
-        Vue.component('by-timeline-item', TimeLineItem);
+Object.defineProperty(TimeLineItem, 'install', {
+    writable: false,
+    value: (Vue: any) => {
+        Vue.component('by-time-line-item', TimeLineItem);
     }
-}
+})
 
-export default TimeLineItemComponent;
+export default TimeLineItem

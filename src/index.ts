@@ -1,28 +1,28 @@
 
 /********** 基础组件 **********/
-import Button from './components/button/src/button.vue';
-import ButtonGroup from './components/button/src/button-group.vue';
-import Tag from './components/tag/src/tag.vue';
-import Icon from './components/icon/src/icon.vue';
+import Button from './components/button';
+import ButtonGroup from './components/button-group';
+import Tag from './components/tag';
+import Icon from './components/icon';
 
 /********** 表单组件 **********/
-import Checkbox from './components/checkbox/src/checkbox.vue'
-import CheckboxGroup from './components/checkbox/src/by-checkbox-group.vue'
-import Textarea from './components/textarea/src/textarea.vue'
-import InputNumber from './components/input-number/src/input-number.vue'
-import Rate from './components/rate/src/rate.vue'
-import Input from './components/input/src/input.vue'
-import Switch from './components/switch/src/switch.vue';
-import Radio from './components/radio/src/radio.vue'
-import RadioGroup from './components/radio/src/radio-group.vue'
-import RadioButton from './components/radio/src/radio-button.vue'
+import Checkbox from './components/checkbox'
+import CheckboxGroup from './components/checkbox-group'
+import Textarea from './components/textarea'
+import InputNumber from './components/input-number'
+import Rate from './components/rate'
+import Input from './components/input'
+import Switch from './components/switch';
+import Radio from './components/radio'
+import RadioGroup from './components/radio-group'
+import RadioButton from './components/radio'
 
 /********** 视图组件 **********/
-import Badge from './components/badge/src/badge.vue';
-import Alert from './components/alert/src/alert.vue';
-import Collapse from './components/collapse/src/collapse.vue';
-import CollapseItem from './components/collapse/src/collapse-item.vue';
-import Message from './components/message/';
+import Badge from './components/badge';
+import Alert from './components/alert';
+import Collapse from './components/collapse';
+import CollapseItem from './components/collapse-Item';
+import Message from './components/message';
 import LoadingBar from './components/loading-bar';
 import Notification from './components/notification';
 import Progress from './components/progress';
@@ -33,7 +33,7 @@ import StepItem from './components/steps/src/step-item.vue';
 import Dropdown from './components/dropdown/src/dropdown.vue';
 import DropdownMenu from './components/dropdown/src/dropdown-menu.vue';
 import DropdownItem from './components/dropdown/src/dropdown-item.vue';
-
+import Table from './components/table';
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -74,6 +74,7 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-dropdown', Dropdown);
     Vue.component('by-dropdown-menu', DropdownMenu);
     Vue.component('by-dropdown-item', DropdownItem);
+    Vue.component('by-table',Table);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
