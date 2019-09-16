@@ -1,4 +1,4 @@
-import DropdownItem from '../dropdown/src/dropdown-menu.vue'
+import DropdownItem from '../dropdown/src/dropdown-item.vue'
 
 Object.defineProperty(DropdownItem, 'install', {
     writable: false,
