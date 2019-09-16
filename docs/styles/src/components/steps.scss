@@ -101,17 +101,17 @@
     border-radius: 50%;
     transition: all .3s ease-in-out;
 
-    @by-root.by-step--process &:not(.by-step__icon) {
+    .by-step--process &:not(.by-step__icon) {
       color: $step-color-active;
       border-color: $step-border-color-active;
       background-color: $step-bg-color-active;
     }
 
-    @by-root.by-step--process &.by-step__icon {
+    .by-step--process &.by-step__icon {
       color: $step-icon-color-active;
     }
 
-    @by-root.by-step--finish & {
+    .by-step--finish & {
       color: $step-icon-color-active;
       border-color: $step-border-color-active;
 
@@ -120,7 +120,7 @@
       }
     }
 
-    @by-root.by-step--error & {
+    .by-step--error & {
       color: $step-icon-color-error;
       border-color: $step-border-color-error;
     }
@@ -133,11 +133,11 @@
     margin: 0 10px;
     height: 1px;
 
-    @by-root.by-step--finish &::after {
+    .by-step--finish &::after {
       width: 100%;
     }
 
-    @by-root.by-step--next-error &::after {
+    .by-step--next-error &::after {
       width: 100%;
       background-color: $step-bg-color-error;
     }
@@ -179,11 +179,11 @@
     background-color: $step-bg-color;
     overflow: hidden;
 
-    @by-root.by-step--process & {
+    .by-step--process & {
       color: $step-color-process;
     }
 
-    @by-root.by-step--error & {
+    .by-step--error & {
       color: $step-color-error;
     }
   }
@@ -192,11 +192,11 @@
     font-size: $step-description-font-size;
     word-wrap: break-word;
 
-    @by-root.by-step--process & {
+    .by-step--process & {
       color: $step-color-process;
     }
 
-    @by-root.by-step--error & {
+    .by-step--error & {
       color: $step-color-error;
     }
   }
