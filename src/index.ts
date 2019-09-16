@@ -27,12 +27,13 @@ import CollapseItem from './components/collapse/src/collapse-item.vue';
 import Message from './components/message/';
 import LoadingBar from './components/loading-bar';
 import Notification from './components/notification';
-
 import Progress from './components/progress';
 import Breadcrumb from './components/breadcrumb';
 import BreadcrumbItem from './components/breadcrumb-item';
+import TimeLine from './components/timeline/src/timeline.vue';
+import TimeLineItem from './components/timeline/src/timeline-item.vue';
 
-const install = (Vue:any, options:any) => {
+const install = (Vue: any, options: any) => {
     Vue.component('by-button', Button);
     Vue.component('by-button-group', ButtonGroup);
 
@@ -51,13 +52,15 @@ const install = (Vue:any, options:any) => {
     Vue.component('by-radio-group', RadioGroup);
     Vue.component('by-radio-button', RadioButton);
 
-    Vue.component('by-badge',Badge);
+    Vue.component('by-badge', Badge);
     Vue.component('by-alert', Alert);
     Vue.component('by-collapse', Collapse);
     Vue.component('by-collapse-item', CollapseItem);
     Vue.component('by-progress', Progress);
     Vue.component('by-breadcrumb', Breadcrumb);
     Vue.component('by-breadcrumb-item', BreadcrumbItem)
+    Vue.component('by-time-line', TimeLine);
+    Vue.component('by-timeline-item', TimeLineItem);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

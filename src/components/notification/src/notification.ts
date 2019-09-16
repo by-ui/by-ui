@@ -41,7 +41,6 @@ const Notification = (options: any) => {
     topDist += 16
     instance.top = topDist;
     instances.push(instance);
-
     return instance.vm;
 }
 

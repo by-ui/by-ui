@@ -1,16 +1,16 @@
 export class notificationOption {
 
-    width: number | string;
-    color: string;
-    percent: number;
-    status: string;
+    title: string;
+    content: string;
+    duration: number;
+    type: string;
     show: boolean;
 
-    constructor(width: number | string = '', color: string = '', percent: number = 100, status: string = '', show: boolean = true) {
-        this.width = width;
-        this.color = color;
-        this.percent = percent;
-        this.status = status;
+    constructor(title: string, content: string, duration: number = 4000, type: string = '', show: boolean = true) {
+        this.title = title;
+        this.content = content;
+        this.duration = duration;
+        this.type = type;
         this.show = show;
     }
 }

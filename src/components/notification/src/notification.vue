@@ -77,7 +77,7 @@
         }
 
         handleClose() {
-            this.closed = true
+            this.closed = true;
             if (typeof this.onClose === 'function') {
                 this.onClose()
             }
@@ -103,7 +103,7 @@
 
         @Watch('closed')
         onWatchClosedChange(val: boolean) {
-            this.isShow = val;
+            val && (this.isShow = false);
         }
     }
 </script>
