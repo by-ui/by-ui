@@ -1,7 +1,7 @@
 {
-    "name": "webpack_share_demo",
-    "version": "1.0.0",
-    "description": "",
+    "name": "by-ui",
+    "version": "0.0.1",
+    "description": "A UI Component Library with Vue.js",
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
         "start": "npm run dev",
@@ -10,8 +10,18 @@
         "build:docs": "cross-env TS_NODE_PROJECT='build/tsconfig.node.json' ENV='production' webpack --config build/webpack/webpack.prod.config.ts --progress",
         "build": "node build/inquirer/index.ts && cross-env CUSTOMIZE=true"
     },
-    "author": "",
-    "license": "ISC",
+    "author": {
+        "name": "ZhouHengYi, XiaoKangZheng, LianjieXu, LiuCheng",
+        "email": "262767665@qq.com"
+    },
+    "repository":{
+        "type": "git",
+        "url":"git@github.com:by-ui/by-ui.git"
+    },
+    "bugs": {
+      "url": "https://github.com/by-ui/by-ui/issues"
+    },
+    "license": "MIT",
     "dependencies": {
         "colors-cli": "^1.0.23",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
