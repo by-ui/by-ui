@@ -19,7 +19,7 @@ import Emitter from "mixins/emitter";
 @Component
 export default class ByRadioGroup extends Mixins(Emitter) {
     @Prop()
-    value?: string | number;
+    value?: [string, number];
 
     @Prop({
         default:'normal'
@@ -33,7 +33,7 @@ export default class ByRadioGroup extends Mixins(Emitter) {
     textColor?: string;
 
     @Watch("value")
-    wathcValue(value: string | number) {
+    wathcValue(value: [string, number]) {
         this.$emit("radio-group-change", value);
         this.broadcast("by-radio", "init-data", value);
     }
@@ -42,22 +42,4 @@ export default class ByRadioGroup extends Mixins(Emitter) {
         this.broadcast("by-radio", "init-data", this.value);
     }
 }
-//   name: 'AtRadioGroup',
-//   props: {
-//     value: [String, Number],
-//     size: String,
-//     fill: String,
-//     textColor: String
-//   },
-//   mixins: [Emitter],
-//   watch: {
-//     value (value) {
-//       this.$emit('radio-group-change', value)
-//       this.broadcast('AtRadio', 'init-data', value)
-//     }
-//   },
-//   mounted () {
-//     this.broadcast('AtRadio', 'init-data', this.value)
-//   }
-// }
 </script>

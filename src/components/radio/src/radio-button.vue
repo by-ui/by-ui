@@ -18,102 +18,58 @@
 </template>
 
 <script lang="ts">
-import {
-    Vue,
-    Component,
-    Prop,
-    PropSync,
-    Watch,
-    Mixins
-} from "vue-property-decorator";
+    import {
+        Vue,
+        Component,
+        Prop,
+        PropSync,
+        Watch,
+        Mixins
+    } from "vue-property-decorator";
 
-import Emitter from "mixins/emitter";
+    import Emitter from "mixins/emitter";
 
-@Component
-export default class ByRadioButton extends Mixins(Emitter) {
-    @Prop()
-    name?: string;
+    @Component
+    export default class ByRadioButton extends Mixins(Emitter) {
+        @Prop()
+        name?: string;
 
-    @Prop()
-    label!: string | number;
+        @Prop()
+        label!: string | number;
 
-    @Prop({
-        default: false
-    })
-    disabled?: boolean;
+        @Prop({
+            default: false
+        })
+        disabled?: boolean;
 
-    size = (this.$parent as any).size;
+        size = (this.$parent as any).size;
 
-    get store() {
-        return (this.$parent as any).value;
-    }
-    set store(newValue) {
-        console.log(newValue);
-        this.$parent.$emit("input", newValue);
-    }
-
-
-    get activeStyle() {
-        const styles = {
-            backgroundColor: "",
-            borderColor: "",
-            color: ""
-        };
-
-        if ((this.$parent as any).fill) {
-            styles.backgroundColor = (this.$parent as any).fill;
-            styles.borderColor = (this.$parent as any).fill;
+        get store() {
+            return (this.$parent as any).value;
         }
-        if ((this.$parent as any).textColor) {
-            styles.color = (this.$parent as any).textColor;
+        set store(newValue) {
+            this.$parent.$emit("input", newValue);
         }
 
-        return styles;
-    }
-    mounted(){
-        
-    }
-}
-// export default {
-//   name: 'AtRadioButton',
-//   props: {
-//     name: String,
-//     label: {
-//       type: [String, Number],
-//       required: true
-//     },
-//     disabled: {
-//       type: Boolean,
-//       default: false
-//     }
-//   },
-//   data () {
-//     return {
-//       size: this.$parent.size
-//     }
-//   },
-//   computed: {
-//     store: {
-//       get () {
-//         return this.$parent.value
-//       },
-//       set (newValue) {
-//         this.$parent.$emit('input', newValue)
-//       }
-//     },
-//     activeStyle () {
-//       const styles = {}
+        get activeStyle() {
+            const styles = {
+                backgroundColor: "",
+                borderColor: "",
+                color: ""
+            };
 
-//       if (this.$parent.fill) {
-//         styles.backgroundColor = this.$parent.fill
-//         styles.borderColor = this.$parent.fill
-//       }
-//       if (this.$parent.textColor) {
-//         styles.color = this.$parent.textColor
-//       }
+            if ((this.$parent as any).fill) {
+                styles.backgroundColor = (this.$parent as any).fill;
+                styles.borderColor = (this.$parent as any).fill;
+            }
+            if ((this.$parent as any).textColor) {
+                styles.color = (this.$parent as any).textColor;
+            }
 
-//       return styles
-//     }
-//   }
-// }
+            return styles;
+        }
+        mounted() {
+
+        }
+    }
 </script>

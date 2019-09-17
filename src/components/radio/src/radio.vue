@@ -1,5 +1,6 @@
 <template>
     <label class="by-radio">
+        {{}}
         <span class="by-radio__input">
             <span class="by-radio__inner"
                   :class="{
@@ -23,96 +24,56 @@
 </template>
 
 <script lang="ts">
-import {
-    Vue,
-    Component,
-    Prop,
-    PropSync,
-    Watch,
-    Mixins
-} from "vue-property-decorator";
+    import {
+        Vue,
+        Component,
+        Prop,
+        PropSync,
+        Watch,
+        Mixins
+    } from "vue-property-decorator";
 
-import Emitter from "mixins/emitter";
+    import Emitter from "mixins/emitter";
 
-@Component
-export default class ByRadio extends Mixins(Emitter) {
-    @Prop()
-    value?: string | number;
+    @Component
+    export default class ByRadio extends Mixins(Emitter) {
+        @Prop()
+        value?: [string, number];
 
-    @Prop()
-    name?: string;
+        @Prop()
+        name?: string;
 
-    @Prop()
-    label!: string | number;
+        @Prop()
+        label!: [string, number];
 
-    @Prop({
-        default: false
-    })
-    disabled?: boolean;
+        @Prop({
+            default: false
+        })
+        disabled?: boolean;
+        store = '';
+        focus = false;
+        isGroup = false;
 
-    store = this.value;
-    
-    
-    focus = false;
-    isGroup = false;
+        @Watch("store")
+        watchStore(store: string | number) {
+            this.$emit("input", store);
+            if (this.isGroup) {
+                this.dispatch("ByRadioGroup", "input", store);
+            }
+        }
 
-    @Watch("store")
-    watchStore(store: string | number) {
-        this.$emit("input", store);
-        if (this.isGroup) {
-            this.dispatch("by-radio-group", "input", store);
+        @Watch("value")
+        watchValue(val: [string , number]) {
+            this.store = val;
+        }
+
+        mounted() {
+            this.store = this.value
+            this.$on("init-data", (data: [string, number]) => {
+                console.log(data)
+                this.store = data;
+                this.isGroup = true;
+            });
         }
     }
-
-    @Watch("value")
-    watchValue(val: string | number) {
-        console.log(val);
-        this.store = val;
-    }
-
-    mounted() {
-        console.log(this.label);
-        this.$on("init-data", (data: string | number) => {
-            this.store = data;
-            this.isGroup = true;
-        });
-    }
-}
-//   name: 'AtRadio',
-//   props: {
-//     value: [String, Number],
-//     name: String,
-//     label: {
-//       type: [String, Number],
-//       required: true
-//     },
-//     disabled: Boolean
-//   },
-//   mixins: [Emitter],
-//   data () {
-//     return {
-//       store: this.value,
-//       focus: false,
-//       isGroup: false
-//     }
-//   },
-//   watch: {
-//     store (store) {
-//       this.$emit('input', store)
-
-//       if (this.isGroup) {
-//         this.dispatch('AtRadioGroup', 'input', store)
-//       }
-//     },
-//     value (val) {
-//       this.store = val
-//     }
-//   },
-//   mounted () {
-//     this.$on('init-data', data => {
-//       this.store = data
-//       this.isGroup = true
-//     })
-//   }
-// }
 </script>

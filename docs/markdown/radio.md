@@ -31,9 +31,9 @@
 ::: demo
 ```html
 <by-radio-group v-model="radio3">
-  <by-radio v-model="radio3" label="1">选项一</by-radio>
-  <by-radio v-model="radio3" label="2">选项二</by-radio>
-  <by-radio v-model="radio3" label="3">选项三</by-radio>
+  <by-radio label="1">选项一</by-radio>
+  <by-radio label="2">选项二</by-radio>
+  <by-radio label="3">选项三</by-radio>
 </by-radio-group>
 ```
 :::
@@ -112,7 +112,7 @@
   </by-radio-group>
 </div>
 ```
-::: 
+:::
 
 ## Radio 参数
 
