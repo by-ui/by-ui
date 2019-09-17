@@ -16,8 +16,8 @@
   <by-dropdown-menu slot="menu">
     <by-dropdown-item>深圳</by-dropdown-item>
     <by-dropdown-item>广州</by-dropdown-item>
-    <by-dropdown-item disabled>上海</by-dropdown-item>
-    <by-dropdown-item divided>北京</by-dropdown-item>
+    <by-dropdown-item :disabled="disabled">上海</by-dropdown-item>
+    <by-dropdown-item :divided="divided">北京</by-dropdown-item>
     <by-dropdown-item>杭州</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
@@ -26,8 +26,8 @@
   <by-dropdown-menu slot="menu">
     <by-dropdown-item>深圳</by-dropdown-item>
     <by-dropdown-item>广州</by-dropdown-item>
-    <by-dropdown-item disabled>上海</by-dropdown-item>
-    <by-dropdown-item divided>北京</by-dropdown-item>
+    <by-dropdown-item :disabled="disabled">上海</by-dropdown-item>
+    <by-dropdown-item :divided="divided">北京</by-dropdown-item>
     <by-dropdown-item>杭州</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
@@ -41,21 +41,21 @@
 :::demo
 ```html
 <by-dropdown>
-  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></by-button>
+  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></i></by-button>
   <by-dropdown-menu slot="menu">
     <by-dropdown-item name="shenzhen">深圳</by-dropdown-item>
     <by-dropdown-item name="guangzhou">广州</by-dropdown-item>
-    <by-dropdown-item name="shanghai" disabled>上海</by-dropdown-item>
-    <by-dropdown-item name="beijin" divided>北京</by-dropdown-item>
+    <by-dropdown-item name="shanghai" :disabled="disabled">上海</by-dropdown-item>
+    <by-dropdown-item name="beijin" :divided="divided">北京</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
 <by-dropdown trigger="click">
-  <by-button size="small">Click 菜单 <i class="icon icon-chevron-down"></by-button>
-  <by-dropdown-menu slot="menu">
+  <by-button size="small">Click 菜单 <i class="icon icon-chevron-down"></i></by-button>
+  <by-dropdown-menu slot="menu" trigger="click">
     <by-dropdown-item name="shenzhen">深圳</by-dropdown-item>
     <by-dropdown-item name="guangzhou">广州</by-dropdown-item>
-    <by-dropdown-item name="shanghai" disabled>上海</by-dropdown-item>
-    <by-dropdown-item name="beijin" divided>北京</by-dropdown-item>
+    <by-dropdown-item name="shanghai" :disabled="disabled">上海</by-dropdown-item>
+    <by-dropdown-item name="beijin" :divided="divided">北京</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
 ```
@@ -68,12 +68,12 @@
 :::demo
 ```html
 <by-dropdown placement="bottom-right">
-  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></by-button>
+  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></i></by-button>
   <by-dropdown-menu slot="menu">
     <by-dropdown-item name="shenzhen">深圳</by-dropdown-item>
     <by-dropdown-item name="guangzhou">广州</by-dropdown-item>
-    <by-dropdown-item name="shanghai" disabled>上海</by-dropdown-item>
-    <by-dropdown-item name="beijin" divided>北京</by-dropdown-item>
+    <by-dropdown-item name="shanghai" :disabled="disabled">上海</by-dropdown-item>
+    <by-dropdown-item name="beijin" :divided="divided">北京</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
 ```
@@ -86,11 +86,11 @@
 :::demo
 ```html
 <by-dropdown placement="bottom-right" @on-dropdown-command="handleCommand">
-  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></by-button>
+  <by-button size="small">Hover 菜单 <i class="icon icon-chevron-down"></i></by-button>
   <by-dropdown-menu slot="menu">
     <by-dropdown-item name="shenzhen">深圳</by-dropdown-item>
     <by-dropdown-item name="guangzhou">广州</by-dropdown-item>
-    <by-dropdown-item name="shanghai" disabled>上海</by-dropdown-item>
+    <by-dropdown-item name="shanghai" :disabled="disabled">上海</by-dropdown-item>
   </by-dropdown-menu>
 </by-dropdown>
 ```
@@ -135,8 +135,13 @@
 
     @Component
     export default class dropdowmMd extends Vue {
+
+        disabled = true;
+
+        divided = true;
+
         handleCommand (name) {
-            this.$Message(`点击菜单：${name}`)
+            this.$message(`点击菜单：${name}`)
         }
     }
 </script>

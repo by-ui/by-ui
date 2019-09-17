@@ -16,7 +16,7 @@
     </div>
 </template>
 <script lang="ts">
-    import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
+    import { Vue, Component, Prop, Mixins, Watch } from "vue-property-decorator";
 
     import Clickoutside from 'By-UI/directives/clickoutside';
     import PopoverMixin from 'By-UI/mixins/popover';
@@ -26,13 +26,13 @@
             Clickoutside
         }
     })
-    export default class ByDropdowm extends Mixins(PopoverMixin) {
+    export default class ByDropdown extends Mixins(PopoverMixin) {
 
         @Prop({
             default: 'hover',
             validator: val => ['click', 'hover', 'focus'].indexOf(val) > -1
         })
-        tigger!: string;
+        trigger?: string;
 
         @Prop({
             default: 'bottom',
@@ -46,10 +46,12 @@
 
         handleMenuItemClick(name: string) {
             this.show = false;
+            // 触发时间
             this.$emit('on-dropdown-command', name);
         }
 
         mounted() {
+            // 注册事件
             this.$on('menu-item-click', this.handleMenuItemClick);
         }
     }

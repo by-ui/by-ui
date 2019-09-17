@@ -8,5 +8,12 @@
 
     @Component
     export default class ByDropdownMenu extends Vue {
+        mounted(){
+
+            this.$on('test', (name: string) => {
+                console.log(name);
+            });
+
+        }
     }
 </script>

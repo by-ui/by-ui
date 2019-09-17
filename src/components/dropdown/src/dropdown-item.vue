@@ -6,10 +6,11 @@
     </li>
 </template>
 <script lang="ts">
-    import { Vue, Component, Prop } from "vue-property-decorator";
+    import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
+    import Emitter from "mixins/emitter";
 
     @Component
-    export default class ByDropdownItem extends Vue {
+    export default class ByDropdownItem extends Mixins(Emitter) {
 
         @Prop()
         name?: string | number;
@@ -26,7 +27,7 @@
 
         handleClick() {
             if (this.disabled) return;
-            (this as any).dispatch('ByDropdown', 'menu-item-click', this.name);
+            this.dispatch('ByDropdown', 'menu-item-click', this.name);
         }
 
     }
