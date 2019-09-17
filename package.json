@@ -1,7 +1,9 @@
 {
-    "name": "by-ui",
-    "version": "0.0.1",
+    "name": "vue-by-ui",
+    "version": "0.0.3",
     "description": "A UI Component Library with Vue.js",
+    "homepage": "https://by-ui.github.io/docs/",
+    "main": "dist/by.js",
     "scripts": {
         "icon": "node build/iconfont/iconfont-builder.js",
         "start": "npm run dev",
@@ -14,12 +16,12 @@
         "name": "ZhouHengYi, XiaoKangZheng, LianjieXu, LiuCheng",
         "email": "262767665@qq.com"
     },
-    "repository":{
+    "repository": {
         "type": "git",
-        "url":"git@github.com:by-ui/by-ui.git"
+        "url": "git@github.com:by-ui/by-ui.git"
     },
     "bugs": {
-      "url": "https://github.com/by-ui/by-ui/issues"
+        "url": "https://github.com/by-ui/by-ui/issues"
     },
     "license": "MIT",
     "dependencies": {

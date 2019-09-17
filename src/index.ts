@@ -40,7 +40,7 @@ import Breadcrumb from './components/breadcrumb';
 import BreadcrumbItem from './components/breadcrumb-item';
 import Pagination from './components/pagination';
 
-const install = (Vue: any, options: any) => {
+function install(Vue: any, opts = {}) {
     Vue.component('by-button', Button);
     Vue.component('by-button-group', ButtonGroup);
 
@@ -69,9 +69,9 @@ const install = (Vue: any, options: any) => {
     Vue.component('by-time-line', TimeLine);
     Vue.component('by-timeline-item', TimeLineItem);
     Vue.component('by-pagination', Pagination);
-    Vue.component('by-step',Step);
-    Vue.component('by-step-item',StepItem);
-    Vue.component('by-table',Table);
+    Vue.component('by-step', Step);
+    Vue.component('by-step-item', StepItem);
+    Vue.component('by-table', Table);
 
     Vue.component('by-dropdown', Dropdown);
     Vue.component('by-dropdown-menu', DropdownMenu);
@@ -82,5 +82,13 @@ const install = (Vue: any, options: any) => {
     Vue.prototype.$notify = Notification;
 }
 
-const version = '0.0.1';
-export { version, install, Message, Progress, Pagination }
+/**
+ * Global Install
+ */
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue)
+}
+const verion = 'v.0.0.3'
+export { verion, install, Message, Button }
+// export default { verion, install, Message, Button }
+console.log({ verion, install, Message, Button });

@@ -7,9 +7,9 @@
             <div class="by-component__code"
                  v-show="isShow">
                 <slot name="source-code"></slot>
-                <!-- <span class="btn-copy"
+                <span class="btn-copy"
                       v-clipboard="$slots['source-code'][0] && $slots['source-code'][0].elm && $slots['source-code'][0].elm.innerText"
-                      @success="handleCopySuccess"><i class="icon icon-clipboard"></i></span> -->
+                      @success="handleCopySuccess"><i class="icon icon-clipboard"></i></span>
             </div>
         </collapse-transition>
         <a class="by-component__code-toggle"
@@ -31,7 +31,7 @@
         isShow = false;
 
         handleCopySuccess(evt) {
-            // this.$message.success(`Code copied.`)
+            this.$message.success(`Code copied.`)
         }
     }
 </script>
