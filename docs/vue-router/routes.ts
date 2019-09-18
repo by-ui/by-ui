@@ -48,7 +48,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
                         new Route(
                             _name,
                             () => import(/* webpackChunkName: "modules/[request]" */ `../markdown/${_name}.md`),
-                            `${_name}`
+                            `${_name}/`
                         )
                     )
                 })
@@ -60,7 +60,7 @@ Object.keys(NavConfig).forEach((parent: string, index: number) => {
                     new Route(
                         _name,
                         () => import(/* webpackChunkName: "modules/[request]" */ `../markdown/${_name}.md`),
-                        `${_name}`
+                        `${_name}/`
                     )
                 )
             })
