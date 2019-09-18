@@ -1,0 +1,3 @@
+[submodule "src/styles"]
+	path = src/styles
+	url = https://github.com/by-ui/by-ui-style.git
