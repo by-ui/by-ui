@@ -189,12 +189,14 @@
         size?: string;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         stripe?: boolean;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         border?: boolean;
 
@@ -213,12 +215,14 @@
         columns!: Array<any>;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         optional?: boolean;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         pagination?: boolean;
 
@@ -228,17 +232,20 @@
         pageSize?: number;
 
         @Prop({
-            default: true
+            default: true,
+            type: Boolean
         })
         showPageTotal?: boolean;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         showPageSizer?: boolean;
 
         @Prop({
-            default: false
+            default: false,
+            type: Boolean
         })
         showPageQuickjump?: boolean;
 
@@ -427,13 +434,11 @@
 
         handleSelectAll() {
             const status = !this.isSelectAll
-
             for (const data of this.sortData) {
                 this.objData[data.index].isChecked = status
             }
 
             const selection = this.getSelection()
-
             status && this.$emit('on-select-all', selection)
             this.$emit('on-selection-change', selection)
         }

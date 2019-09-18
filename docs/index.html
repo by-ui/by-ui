@@ -7,6 +7,12 @@
     <meta name="renderer" content="webkit">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
     <title>By-Ui</title>
+    <script>
+        function toAnchor(target) {
+            let url = window.location.href.split('#').length === 2 ? window.location.href + "#" + target : window.location.href.split('#')[0] + "#" + window.location.href.split('#')[1] + "#" + target;
+            window.location.href = url;
+        }
+    </script>
 </head>
 
 <body>
