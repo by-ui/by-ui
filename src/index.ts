@@ -34,6 +34,7 @@ import Table from './components/table';
 import Dropdown from './components/dropdown';
 import DropdownMenu from './components/dropdown-menu';
 import DropdownItem from './components/dropdown-item';
+import Drawer from './components/drawer';
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -72,10 +73,10 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-step', Step);
     Vue.component('by-step-item', StepItem);
     Vue.component('by-table', Table);
-
     Vue.component('by-dropdown', Dropdown);
     Vue.component('by-dropdown-menu', DropdownMenu);
     Vue.component('by-dropdown-item', DropdownItem);
+    Vue.component('by-drawer', Drawer);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

@@ -73,6 +73,8 @@ components:
             #             name: Tooltip
                       - title: table
                         name: Table
+                      - title: drawer
+                        name: Drawer
               - title: navComponent
                 items:
                       - title: breadcrumb

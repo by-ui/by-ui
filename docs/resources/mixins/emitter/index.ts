@@ -17,8 +17,6 @@ function broadcast(this: any, componentName: any, eventName: any, params: any) {
 @Component
 export default class TwoWay extends Vue {
 
-
-
     dispatch(this: any, componentName: any, eventName: any, params: any) {
 
         let parent = this.$parent || this.$root

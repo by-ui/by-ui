@@ -64,6 +64,7 @@ export default {
             timeline: 'Timeline 时间轴',
             tooltip: 'Tooltips 文字提示',
             table: 'Table 表格',
+            drawer: 'Drawer 抽屉',
             breadcrumb: 'Breadcrumb 面包屑',
             dropdown: 'Dropdown 下拉菜单',
             menu: 'Menu 导航菜单',
