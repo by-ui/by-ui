@@ -21,7 +21,7 @@
             Scrollbar.use(OverscrollPlugin);
 
             Scrollbar.init(document.body, {
-                // plugins: {1
+                // plugins: {
                 //     overscroll: {
                         // effect: 'glow',
                 //         glowColor: '#6190E8',
