@@ -52,8 +52,9 @@
 
         @Prop({
             default: false,
+            type: Boolean
         })
-        value?: any;
+        value?: boolean;
 
         @Prop()
         label?: string | number | boolean;
@@ -74,6 +75,11 @@
 
         updateModel() {
             this.currentValue = this.value
+        }
+
+        @Watch("value")
+        watchCloses(value: boolean) {
+            this.updateModel()
         }
 
         change(evt: any) {
