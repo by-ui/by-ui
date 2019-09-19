@@ -110,6 +110,7 @@
                 }
             } else {
                 if (!this.closed) this.$emit('close');
+                else{ this.close(); }
             }
         }
 

@@ -23,7 +23,8 @@
   title="我是标题"
   :visible.sync="drawer"
   :direction="direction"
-  :before-close="handleClose"></by-drawer>
+  :before-close="handleClose"
+  @close="close"></by-drawer>
 
 
 <script>
@@ -37,6 +38,9 @@
     methods: {
       handleClose(done) {
         done();
+      },
+      close(){
+          console.log('close);
       }
     }
   };
@@ -60,6 +64,10 @@
             //     done();
             // }).catch(_ => {});
             done();
+        }
+
+        close(){
+            console.log('close');
         }
     }
 

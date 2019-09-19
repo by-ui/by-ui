@@ -70,7 +70,6 @@
         mounted() {
             this.store = this.value
             this.$on("init-data", (data: [string, number]) => {
-                console.log(data)
                 this.store = data;
                 this.isGroup = true;
             });

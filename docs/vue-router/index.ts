@@ -6,18 +6,13 @@ import routes from './routes';
 Vue.use(VueRouter);
 
 const options: RouterOptions = {
-    // mode: 'history',
     routes,
-    scrollBehavior(to, from, savedPosition) {
-        if (to.hash) {
-            return {
-                selector: to.hash
-            };
-        }
-        return { x: 0, y: 0 };
-    }
 };
 
 const router = new VueRouter(options);
+router.beforeEach((to, from, next) => {
+    next();
+    (window as any).scrollbar && (window as any).scrollbar.scrollTo(0, 0, 200)
+})
 
 export default router;

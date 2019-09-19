@@ -10,27 +10,33 @@
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
 
+    /******** scrollBar ********/
+    import Scrollbar from 'smooth-scrollbar';
+    import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+
     @Component
     export default class App extends Vue {
         afterLeave() {
             window.scrollTo(0, 0)
         }
         mounted() {
-            // Scrollbar.use(OverscrollPlugin);
+            Scrollbar.use(OverscrollPlugin);
 
-            // Scrollbar.init(document.body, {
-            //     // plugins: {
-            //     //     overscroll: {
-            //             // effect: 'glow',
-            //     //         glowColor: '#6190E8',
-            //     //     }
-            //     // }
-            // });
+            (window as any).scrollbar = Scrollbar.init(document.body, {
+                // plugins: {
+                //     overscroll: {
+                        // effect: 'glow',
+                //         glowColor: '#6190E8',
+                //     }
+                // }
+            });
             if (window.location.href.split('#').length == 3) {
                 let id = window.location.href.split('#')[2]
                 setTimeout(_ => {
                     let offsetTop = (document.getElementById(id) as HTMLElement).offsetTop
-                    window.scrollTo(0, offsetTop + 120)
+                    // window.scrollTo(0, offsetTop + 120)
+                    scrollbar.scrollTo(0,offsetTop + 120,800)
+
                 }, 300);
             }
         }

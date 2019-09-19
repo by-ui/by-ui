@@ -22,9 +22,6 @@ import './directives'
 /******** UI组件 ********/
 import * as ByUI from 'By-UI/index';
 
-/******** scrollBar ********/
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 
 Vue.use(ByUI)
 
@@ -32,9 +29,5 @@ new Vue({
     el: '#by-ui',
     i18n,
     router,
-    render: h => h(App),
-    mounted: () => {
-        // Scrollbar.use(OverscrollPlugin);
-        // Scrollbar.init(document.body);
-    }
+    render: h => h(App)
 });

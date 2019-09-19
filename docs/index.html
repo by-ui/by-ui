@@ -9,8 +9,10 @@
     <title>By-Ui</title>
     <script>
         function toAnchor(target) {
+            let offsetTop = document.getElementById(target).offsetTop
+            scrollbar.scrollTo(0, offsetTop + 120, 800)
             let url = window.location.href.split('#').length === 2 ? window.location.href + "#" + target : window.location.href.split('#')[0] + "#" + window.location.href.split('#')[1] + "#" + target;
-            window.location.href = url;
+            history.pushState('', '', url);
         }
     </script>
 </head>

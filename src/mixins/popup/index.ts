@@ -70,6 +70,7 @@ export default class Popup extends Vue {
     rendered = false;
 
     open(options?:any) {
+        console.log('open');
         if (!this.rendered) {
             this.rendered = true;
         }
@@ -209,7 +210,7 @@ export default class Popup extends Vue {
 
     @Watch('visible')
     onVisibleChange(val:boolean) {
-        console.log(val);
+        console.log({val});
         if (val) {
             if (this._opening) return;
             if (!this.rendered) {
