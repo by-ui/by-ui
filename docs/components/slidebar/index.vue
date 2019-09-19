@@ -60,7 +60,7 @@
     }
 </script>
 <style lang="scss" scoped>
-    @import "~@docs/styles/src/variables/index.scss";
+    @import "~@/by-ui-style/src/variables/index.scss";
 
     .by-sidebar {
         display: inline-block;

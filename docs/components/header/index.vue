@@ -52,14 +52,14 @@
                 animTimingFunction: Vivus.EASE
             });
         }
-        switchLang(lang) {
+        switchLang(lang:string) {
             this.$i18n.locale = lang;
             this.$i18n.fallbackLocale
         }
     }
 </script>
 <style lang="scss" scoped>
-    @import "~@docs/styles/src/variables/index.scss";
+    @import "~@/by-ui-style/src/variables/index.scss";
 
     $header-height: 80px;
 

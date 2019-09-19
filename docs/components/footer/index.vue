@@ -12,12 +12,16 @@
     </footer>
 </template>
 
-<style lang="scss" scoped>
-    @import "~@docs/styles/src/variables/index.scss";
+<script lang="ts">
+    import { Vue, Component } from "vue-property-decorator";
 
-    /**
-         * Footer
-         */
+    @Component
+    export default class ByFooter extends Vue {
+    }
+</script>
+<style lang="scss" scoped>
+    @import "~@/by-ui-style/src/variables/index.scss";
+
     .footer {
         padding: 30px 0 30px;
         color: #6190e8;

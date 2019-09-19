@@ -13,7 +13,7 @@ import './components'
 /******** 公共UI及样式 ********/
 // import '../_intermediate/iconfonts/by-icon.scss';
 
-import './styles/src/index.scss';
+import '@/by-ui-style/src/index.scss';
 import '@docs/assets/style/docs.scss';
 
 /******** 公共directives ********/
