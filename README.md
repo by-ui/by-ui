@@ -7,6 +7,8 @@
 
 ```
 git submodule update --init --recursive
+
+git submodule foreach git pull https://github.com/by-ui/by-ui-style.git master
 ```
 
 ```
