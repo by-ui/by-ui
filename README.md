@@ -6,6 +6,10 @@
 说明：https://www.yuque.com/okr2gd/ng0vwv/egrrzu
 
 ```
+git submodule update --init --recursive
+```
+
+```
 npm install
 ```
 
