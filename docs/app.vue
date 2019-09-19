@@ -9,8 +9,6 @@
 </template>
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
-    import Scrollbar from 'smooth-scrollbar';
-    import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 
     @Component
     export default class App extends Vue {
