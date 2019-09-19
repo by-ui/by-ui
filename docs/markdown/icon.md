@@ -1,8 +1,6 @@
 # Icon 图标
 ----
 
-[[toc]]
-
 语义化的矢量图形，`BY-UI` 使用开源的 [Feather](https://feathericons.com/) 作为图标库，并制作成了 `icon font`。`Feather` 使用的是 `24x24` 的尺寸，拥有一致的圆角，一致的笔画宽度，确保整个图标系统保持视觉上的统一性。
 
 ## 如何使用

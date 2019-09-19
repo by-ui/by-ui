@@ -4,7 +4,6 @@ import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 import * as MarkdownItContainer from 'markdown-it-container';
 import * as markdownItAnchor from 'markdown-it-anchor';
 const slugify = require('transliteration').slugify;
-const toc = require('markdown-it-table-of-contents');
 
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
@@ -65,9 +64,6 @@ module.exports = {
                                     permalink: true, // 开启标题锚点功能
                                     permalinkBefore: true, // 在标题前创建锚点
                                     permalinkHref: (slug, state) => `javascript:toAnchor('${slug}')`,
-                                }],
-                                [toc, {
-                                    includeLevel: [2, 3]
                                 }],
                                 [MarkdownItContainer, 'demo', {
                                     validate: params => params.trim().match(/^demo\s*(.*)$/),
