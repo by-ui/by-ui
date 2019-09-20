@@ -87,5 +87,5 @@ components:
                         name: Pagination
                       - title: steps
                         name: Steps
-            #           - title: tabs
-            #             name: Tabs
+                      - title: tabs
+                        name: Tabs
