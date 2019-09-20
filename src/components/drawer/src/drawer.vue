@@ -35,7 +35,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
     import Emitter from "mixins/emitter";
-    import Popup from "../../../mixins/popup";
+    import Popup from "mixins/popup";
 
     @Component
     export default class Drawer extends Mixins(Emitter, Popup) {

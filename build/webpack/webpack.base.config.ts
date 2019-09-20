@@ -23,7 +23,7 @@ module.exports = {
         alias: {
             "@": path.resolve("src"),
             "@docs": path.resolve("docs"),
-            "mixins": path.resolve("docs/resources/mixins"),
+            "mixins": path.resolve("src/mixins"),
             "By-UI": path.resolve("src")
         },
         extensions: ['.ts', '.tsx', '.js']

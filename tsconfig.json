@@ -36,7 +36,7 @@
         "paths": {
             "@/*": ["./src/*"],
             "@docs/*": ["./docs/*"],
-            "mixins/*": ["./docs/resources/mixins/*"],
+            "mixins/*": ["./src/mixins/*"],
             "utils/*": ["./src/utils/*"],
             "By-UI/*": ["./src/*"]
         },
