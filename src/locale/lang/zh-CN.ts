@@ -49,6 +49,7 @@ export default {
             rate: 'Rate 评分',
             select: 'Select 选择器',
             switch: 'Switch 开关',
+            form: 'Form 表单',
             slider: 'Slider 滑动输入条',
             textarea: 'Textarea 文本域',
             alert: 'Alert 警告提示',

@@ -6,16 +6,18 @@ import Tag from './components/tag';
 import Icon from './components/icon';
 
 /********** 表单组件 **********/
-import Checkbox from './components/checkbox'
-import CheckboxGroup from './components/checkbox-group'
-import Textarea from './components/textarea'
-import InputNumber from './components/input-number'
-import Rate from './components/rate'
-import Input from './components/input'
+import Checkbox from './components/checkbox';
+import CheckboxGroup from './components/checkbox-group';
+import Textarea from './components/textarea';
+import InputNumber from './components/input-number';
+import Rate from './components/rate';
+import Input from './components/input';
 import Switch from './components/switch';
-import Radio from './components/radio'
-import RadioGroup from './components/radio-group'
-import RadioButton from './components/radio-button'
+import Radio from './components/radio';
+import RadioGroup from './components/radio-group';
+import RadioButton from './components/radio-button';
+import Form from './components/form';
+import FormItem from './components/form-item';
 
 /********** 视图组件 **********/
 import Badge from './components/badge';
@@ -59,6 +61,8 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-radio', Radio);
     Vue.component('by-radio-group', RadioGroup);
     Vue.component('by-radio-button', RadioButton);
+    Vue.component('by-form', Form);
+    Vue.component('by-form-item', FormItem);
 
     Vue.component('by-badge', Badge);
     Vue.component('by-alert', Alert);

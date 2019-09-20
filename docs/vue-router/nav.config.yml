@@ -45,6 +45,8 @@ components:
                         name: Switch
                     #   - title: slider
                     #     name: Slider
+                      - title: form
+                        name: Form
               - title: viewComponent
                 items:
                       - title: alert
