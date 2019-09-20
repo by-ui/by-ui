@@ -42,6 +42,8 @@ import Drawer from './components/drawer';
 import Breadcrumb from './components/breadcrumb';
 import BreadcrumbItem from './components/breadcrumb-item';
 import Pagination from './components/pagination';
+import Tabs from './components/tabs';
+import TabPane from './components/tab-pane'
 
 function install(Vue: any, opts = {}) {
     Vue.component('by-button', Button);
@@ -81,6 +83,8 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-dropdown-menu', DropdownMenu);
     Vue.component('by-dropdown-item', DropdownItem);
     Vue.component('by-drawer', Drawer);
+    Vue.component('by-tabs', Tabs);
+    Vue.component('by-tab-pane', TabPane);
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
