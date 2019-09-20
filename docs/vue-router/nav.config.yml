@@ -81,8 +81,8 @@ components:
                         name: Breadcrumb
                       - title: dropdown
                         name: Dropdown
-            #           - title: menu
-            #             name: Menu
+                      - title: menu
+                        name: Menu
                       - title: pagination
                         name: Pagination
                       - title: steps
