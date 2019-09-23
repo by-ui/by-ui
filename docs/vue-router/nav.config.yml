@@ -65,8 +65,8 @@ components:
                         name: Message
                       - title: notification
                         name: Notification
-            #           - title: popover
-            #             name: Popover
+                      - title: popover
+                        name: Popover
                       - title: progress
                         name: Progress
                       - title: timeline
