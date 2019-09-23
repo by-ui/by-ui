@@ -71,8 +71,8 @@ components:
                         name: Progress
                       - title: timeline
                         name: Timeline
-            #           - title: tooltip
-            #             name: Tooltip
+                      - title: tooltip
+                        name: Tooltip
                       - title: table
                         name: Table
                       - title: drawer
