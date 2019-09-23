@@ -112,10 +112,11 @@
                 popover.style.left = 'initial'
                 popover.style.right = `-${trigger.offsetWidth + 4}px`
                 popover.style.top = '0'
-            } else if (parent && name !== 'BySubmenu') {
+            } else if (parent && name !== 'ByMenuSub') {
                 popover.style.left = '0'
                 popover.style.right = 'initial'
                 popover.style.top = `${trigger.offsetHeight + 2}px`
+                console.log(popover.style);
             } else {
                 popover.style.left = 'initial'
                 popover.style.right = `-${trigger.offsetWidth + 4}px`
@@ -129,7 +130,7 @@
             const opened = this.isOpen
             if (this.inlineCollapsed) {
                 this.parentMenu.$children.forEach((item:any) => {
-                    if (item.$options.name === 'BySubmenu') {
+                    if (item.$options.name === 'ByMenuSub') {
                         item.isOpen = false
                     }
                 })
