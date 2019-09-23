@@ -58,10 +58,10 @@
         @Prop()
         validateStatus?: boolean;
 
-        @Prop({
-            default: false
-        })
-        showMessage?: boolean;
+        // @Prop({
+        //     default: false
+        // })
+        // showMessage?: boolean;
 
         get form() {
             let parent: any = this.$parent
@@ -72,33 +72,39 @@
         }
 
         get labelStyles() {
-            const style = {
-                width: ''
-            };
+            const style:any = new Object();
             const labelWidth = this.labelWidth || (this.form as Form).labelWidth;
 
             if (labelWidth) {
                 style.width = `${labelWidth}px`
             }
+            console.log((this.form as Form).labelWidth);
             return style
         }
 
         get fieldValue() {
-            return ''
+            const model = this.form.model
+            if (!model || !this.prop) return
+
+            let path = this.prop
+            if (path.indexOf(':') !== -1) {
+                path = path.replace(/:/, '.')
+            }
+            return getPropByPath(model, path).v
         }
 
         get contentStyles() {
-            const style = {
-                marginLeft: ''
-            }
+            const style:any = new Object();
             const labelWidth = this.labelWidth || (this.form as Form).labelWidth;
 
-            if (labelWidth) {
+            if (labelWidth && this.label) {
                 style.marginLeft = `${labelWidth}px`
             }
 
             return style
         }
+
+        showMessage = false;
 
         isRequired = false;
 
@@ -110,25 +116,24 @@
 
         validator = new Object();
 
+        initialValue: any = null;
+
         getRules() {
-            let formRules = (this.form as Form).rules;
-            const selfRules = Array.isArray(this.rules) ? this.rules : [];
+            let formRules = this.form.rules
+            const selfRules = this.rules
 
-            formRules = formRules && this.prop ? formRules[this.prop] : [];
+            formRules = formRules && this.prop ? formRules[this.prop] : []
 
-            let temp: any[] = [];
-
-            return temp.concat(selfRules || formRules || [])
+            return [].concat(selfRules || formRules || [])
         }
 
         getFilteredRule(trigger: string) {
             const rules = this.getRules()
-            return rules.filter(rule => !rule.trigger || (rule.trigger.indexOf(trigger) !== -1))
+            return rules.filter((rule: any) => !rule.trigger || (rule.trigger.indexOf(trigger) !== -1))
         }
 
-        validate(trigger: string, callback = function (message?:string) { }) {
+        validate(trigger: string, callback = function (message?: string) { }) {
             const rules = this.getFilteredRule(trigger)
-
             if (!rules || rules.length === 0) {
                 callback()
                 return true
@@ -139,16 +144,78 @@
             const descriptor = {}
             this.prop && (descriptor[this.prop] = rules);
 
-            const validator = new AsyncValidator(descriptor)
+            const validator = new AsyncValidator(descriptor);
             const model = {}
 
             this.prop && (model[this.prop] = this.fieldValue);
-
-            validator.validate(model, { firstFields: true }, (errors: any) => {
+            validator.validate(model, (errors: any, fields: any) => {
                 this.validateState = errors ? 'error' : 'success'
                 this.validateMessage = errors ? errors[0].message : ''
-                callback(this.validateMessage)
+                this.showMessage = true;
+                callback(this.validateMessage);
             })
+        }
+
+        resetField() {
+            this.validateState = ''
+            this.validateMessage = ''
+
+            const model = this.form.model
+            const value = this.fieldValue
+            let path = this.prop || '';
+            if (path.indexOf(':') !== -1) {
+                path = path.replace(/:/, '.')
+            }
+
+            const prop = getPropByPath(model, path)
+
+            if (Array.isArray(value) && value.length > 0) {
+                this.validateDisabled = true
+                prop.o[prop.k] = []
+            } else if (value !== this.initialValue) {
+                this.validateDisabled = true
+                prop.o[prop.k] = this.initialValue
+            }
+        }
+
+        onFieldBlur() {
+            this.validate('blur')
+        }
+
+        onFieldChange() {
+            if (this.validateDisabled) {
+                this.validateDisabled = false
+                return
+            }
+            this.validate('change')
+        }
+
+        mounted() {
+            if (this.prop) {
+                this.dispatch('ByForm', 'on-form-item-add', this)
+
+                Object.defineProperty(this, 'initialValue', {
+                    value: this.fieldValue
+                })
+
+                const rules = this.getRules()
+
+                if (rules.length) {
+                    rules.every((rule: any) => {
+                        if (rule.required) {
+                            this.isRequired = true
+                            return false
+                        }
+                        return true
+                    })
+                    this.$on('on-form-item-blur', this.onFieldBlur)
+                    this.$on('on-form-item-change', this.onFieldChange)
+                }
+            }
+        }
+
+        beforeDestroy() {
+            this.dispatch('AtForm', 'on-form-item-remove', this)
         }
 
         @Watch('error')
@@ -162,4 +229,30 @@
             this.validateState = val;
         }
     }
+
+
+    function getPropByPath(obj: any, path: string) {
+        let tmpObj = obj
+        path = path.replace(/\[(\w+)\]/g, '.$1')
+        path = path.replace(/^\./, '')
+
+        const keyArr = path.split('.')
+        let i = 0
+
+        for (let len = keyArr.length; i < len - 1; i++) {
+            const key = keyArr[i]
+            if (key in tmpObj) {
+                tmpObj = tmpObj[key]
+            } else {
+                throw new Error('Please transfer a valid prop path to form item')
+            }
+        }
+
+        return {
+            o: tmpObj,
+            k: keyArr[i],
+            v: tmpObj[keyArr[i]]
+        }
+    }
+
 </script>

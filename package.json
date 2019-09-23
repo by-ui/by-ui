@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "async-validator": "~1.8.1",
+    "async-validator": "^3.1.0",
     "colors-cli": "^1.0.23",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "smooth-scrollbar": "^8.4.0",

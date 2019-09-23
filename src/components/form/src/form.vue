@@ -1,7 +1,6 @@
 <template>
     <form class="by-form"
-          :class="[ layout ? 'by-form--label-' + layout : '',
-                    inline ? 'by-form--inline' : '']">
+          :class="[ inline ? 'by-form--inline' : '']">
         <slot></slot>
     </form>
 </template>
@@ -12,7 +11,10 @@
     export default class ByForm extends Vue {
 
         @Prop()
-        rules?: Object;
+        model?: object;
+
+        @Prop()
+        rules?: object;
 
         @Prop()
         labelWidth?: number;
@@ -75,7 +77,7 @@
         }
 
         @Watch('rules')
-        onRulesChange() {
+        onRulesChange(val: any) {
             this.validate();
         }
 
