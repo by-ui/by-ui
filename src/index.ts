@@ -38,6 +38,7 @@ import DropdownMenu from './components/dropdown-menu';
 import DropdownItem from './components/dropdown-item';
 import Drawer from './components/drawer';
 import Tooltip from './components/tooltip';
+import Popover from './components/popover';
 
 
 /********** 导航组件 **********/
@@ -96,6 +97,7 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-menu-item-group', MenuItemGroup);
     Vue.component('by-menu-sub', Submenu);
     Vue.component('by-tooltip', Tooltip);
+    Vue.component('by-popover', Popover);
 
 
 
