@@ -37,6 +37,8 @@ import Dropdown from './components/dropdown';
 import DropdownMenu from './components/dropdown-menu';
 import DropdownItem from './components/dropdown-item';
 import Drawer from './components/drawer';
+import Tooltip from './components/tooltip';
+
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
@@ -93,6 +95,9 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-menu-item', MenuItem);
     Vue.component('by-menu-item-group', MenuItemGroup);
     Vue.component('by-menu-sub', Submenu);
+    Vue.component('by-tooltip', Tooltip);
+
+
 
 
     Vue.prototype.$message = Message;
