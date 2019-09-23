@@ -57,8 +57,8 @@
 | model | 表单数据对象	 | object | — | —
 | rules | 表单验证规则	 | object | — | —
 | inline | 行内表单模式	 | Boolean | — | false
-| label | 字段标题 | string | — | —
-| label-width | 表单域标签的宽度，例如 '50'。作为 Form 直接子元素的 form-item 会继承该值。支持 auto。	  | number | — | —
+| label | 表单域标签的内容 | string | — | —
+| label-width | 表单域标签的宽度，例如 '50'。作为 Form 直接子元素的 form-item 会继承该值。支持 auto。 | number | — | —
 
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
