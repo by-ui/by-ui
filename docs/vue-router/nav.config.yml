@@ -59,8 +59,8 @@ components:
                         name: Collapse
                       - title: loadingBar
                         name: LoadingBar
-            #           - title: modal
-            #             name: Modal
+                      - title: modal
+                        name: Modal
                       - title: message
                         name: Message
                       - title: notification
