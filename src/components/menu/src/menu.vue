@@ -1,17 +1,18 @@
 <template>
-    <ul
-    class="by-menu"
-    :class="[
+    <ul class="by-menu"
+        :class="[
       theme ? `by-menu--${theme}` : '',
       mode ? `by-menu--${mode}` : ''
     ]"
-    :style="ulStyle"><slot></slot></ul>
+        :style="ulStyle">
+        <slot></slot>
+    </ul>
 </template>
 
 <script lang="ts">
     import { Vue, Component, Prop, Watch, Mixins } from "vue-property-decorator";
     import Emitter from "mixins/emitter";
-    import { findComponentsDownward } from 'utils/util'
+    import { findComponentsDownward } from 'By-UI/utils/util'
 
     @Component
     export default class ByMenu extends Mixins(Emitter) {
@@ -28,13 +29,13 @@
         mode?: string;
 
         @Prop({
-            type: [String,Number]
+            type: [String, Number]
         })
-        activeName?: [string,number];
+        activeName?: [string, number];
 
         @Prop({
             type: Boolean,
-            default:false
+            default: false
         })
         inlineCollapsed?: boolean;
 
@@ -50,10 +51,10 @@
         })
         router?: boolean;
 
-        currentActiveName:any = '';
+        currentActiveName: any = '';
 
-        get ulStyle () {
-            const style:any = {}
+        get ulStyle() {
+            const style: any = {}
 
             if (this.mode === 'inline' || this.mode === 'vertical') {
                 style.width = this.width
@@ -72,22 +73,22 @@
             this.updateActiveName()
         }
 
-        updateActiveName () {
+        updateActiveName() {
             if (typeof this.currentActiveName === 'undefined') {
-            this.currentActiveName = -1
+                this.currentActiveName = -1
             }
 
-            const submenus = findComponentsDownward(this, 'AtSubmenu')
+            const submenus = findComponentsDownward(this, 'ByMenuSub')
 
             if (submenus && submenus.length) {
-            submenus.forEach(submenu => {
-                submenu.$emit('on-update-active', false)
-            })
+                submenus.forEach(submenu => {
+                    submenu.$emit('on-update-active', false)
+                })
             }
-            this.broadcast('AtMenuItem', 'on-update-active', this.currentActiveName)
+            this.broadcast('ByMenuItem', 'on-update-active', this.currentActiveName)
         }
 
-        routeToMenuItem (item:any) {
+        routeToMenuItem(item: any) {
             const route = item.to || {}
             item.replace ? this.$router.replace(route) : this.$router.push(route)
         }
@@ -95,12 +96,12 @@
         mounted() {
             this.currentActiveName = this.activeName
             this.updateActiveName()
-            this.$on('on-menu-item-select', (item:any) => {
+            this.$on('on-menu-item-select', (item: any) => {
                 this.currentActiveName = item.name
                 this.$emit('on-select', item.name)
 
                 if (this.router) {
-                this.routeToMenuItem(item)
+                    this.routeToMenuItem(item)
                 }
             })
         }

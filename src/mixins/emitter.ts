@@ -2,8 +2,7 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 function broadcast(this: any, componentName: any, eventName: any, params: any) {
     this.$children.forEach((child: any) => {
-        const name = child.$options.name && child.$options._componentTag
-
+        const name = child.$options.name
         if (name === componentName) {
             child.$emit.apply(child, [eventName].concat(params))
         } else {
