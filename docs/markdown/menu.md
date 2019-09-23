@@ -14,7 +14,7 @@
 <by-menu mode="horizontal" active-name="1">
   <by-menu-item name="1"><i class="icon icon-home"></i>导航菜单一</by-menu-item>
   <by-menu-item name="2" disabled><i class="icon icon-layers"></i>导航菜单二</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三 - 子菜单</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="3-1">子菜单一</by-menu-item>
@@ -24,31 +24,31 @@
       <by-menu-item name="3-3">子菜单三</by-menu-item>
       <by-menu-item name="3-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
+  </by-menu-sub>
   <by-menu-item name="4"><i class="icon icon-settings"></i>导航菜单四</by-menu-item>
-</by-menu>
+</by-menu-sub>
 ```
 :::
 
 ## 顶部导航（多级菜单）
 
-可以在 `AtSubmenu` 中嵌套 `AtSubmenu` 组合成多级菜单
+可以在 `by-menu-sub` 中嵌套 `by-menu-sub` 组合成多级菜单
 
 :::demo
 ```html
 <by-menu mode="horizontal" active-name="1">
   <by-menu-item name="1"><i class="icon icon-home"></i>导航菜单一</by-menu-item>
   <by-menu-item name="2"><i class="icon icon-layers"></i>导航菜单二</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三</template>
     <by-menu-item name="3-1"><i class="icon icon-settings"></i>导航菜单四</by-menu-item>
     <by-menu-item name="3-2"><i class="icon icon-settings"></i>导航菜单五</by-menu-item>
-    <by-submenu>
+    <by-menu-sub>
       <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单六</template>
       <by-menu-item name="3-3-1"><i class="icon icon-settings"></i>导航菜单七</by-menu-item>
       <by-menu-item name="3-3-2"><i class="icon icon-settings"></i>导航菜单八</by-menu-item>
-    </by-submenu>
-  </by-submenu>
+    </by-menu-sub>
+  </by-menu-sub>
   <by-menu-item name="4"><i class="icon icon-settings"></i>导航菜单四</by-menu-item>
 </by-menu>
 ```
@@ -63,7 +63,7 @@
 <by-menu mode="vertical" active-name="1">
   <by-menu-item name="1"><i class="icon icon-home"></i>导航菜单一</by-menu-item>
   <by-menu-item name="2" disabled><i class="icon icon-layers"></i>导航菜单二</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三 - 子菜单</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="3-1">子菜单一</by-menu-item>
@@ -73,7 +73,7 @@
       <by-menu-item name="3-3">子菜单三</by-menu-item>
       <by-menu-item name="3-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
+  </by-menu-sub>
   <by-menu-item name="4"><i class="icon icon-settings"></i>导航菜单四</by-menu-item>
 </by-menu>
 ```
@@ -86,7 +86,7 @@
 <by-menu mode="vertical" active-name="1">
   <by-menu-item name="1"><i class="icon icon-home"></i>导航菜单一</by-menu-item>
   <by-menu-item name="2"><i class="icon icon-layers"></i>导航菜单二</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三 - 子菜单</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="3-1">子菜单一</by-menu-item>
@@ -96,17 +96,17 @@
       <by-menu-item name="3-3">子菜单三</by-menu-item>
       <by-menu-item name="3-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单四</template>
     <by-menu-item name="4-1"><i class="icon icon-settings"></i>导航菜单五</by-menu-item>
     <by-menu-item name="4-2"><i class="icon icon-settings"></i>导航菜单六</by-menu-item>
-    <by-submenu>
+    <by-menu-sub>
       <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单七</template>
       <by-menu-item name="4-3-1"><i class="icon icon-settings"></i>导航菜单八</by-menu-item>
       <by-menu-item name="4-3-2"><i class="icon icon-settings"></i>导航菜单九</by-menu-item>
-    </by-submenu>
-  </by-submenu>
+    </by-menu-sub>
+  </by-menu-sub>
 </by-menu>
 ```
 :::
@@ -120,7 +120,7 @@
 <by-menu active-name="1">
   <by-menu-item name="1"><i class="icon icon-home"></i>导航菜单一</by-menu-item>
   <by-menu-item name="2" disabled><i class="icon icon-layers"></i>导航菜单二</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三 - 子菜单</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="3-1">子菜单一</by-menu-item>
@@ -130,25 +130,25 @@
       <by-menu-item name="3-3">子菜单三</by-menu-item>
       <by-menu-item name="3-4" disabled>子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
+  </by-menu-sub>
   <by-menu-item name="4"><i class="icon icon-settings"></i>导航菜单四</by-menu-item>
-  <by-submenu disabled>
+  <by-menu-sub disabled>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三 - 子菜单</template>
     <by-menu-item name="5-1">子菜单一</by-menu-item>
     <by-menu-item name="5-2">子菜单二</by-menu-item>
-  </by-submenu>
+  </by-menu-sub>
 </by-menu>
 ```
 :::
 
 ## 每次只展开一个子菜单
 
-设置属性 `inline-collapsed`，可开启 `手风琴模式`，即每次只能有一个子菜单被打开。同时 `AtSubmenu` 组件可使用参数 `opened` 配置子菜单默认展开
+设置属性 `inline-collapsed`，可开启 `手风琴模式`，即每次只能有一个子菜单被打开。同时 `by-menu-sub` 组件可使用参数 `opened` 配置子菜单默认展开
 
 :::demo
 ```html
 <by-menu active-name="1-1" inline-collapsed>
-  <by-submenu opened>
+  <by-menu-sub opened>
     <template slot="title"><i class="icon icon-home"></i>导航菜单一</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="1-1">子菜单一</by-menu-item>
@@ -158,26 +158,26 @@
       <by-menu-item name="1-3">子菜单三</by-menu-item>
       <by-menu-item name="1-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单二</template>
     <by-menu-item name="2-1">子菜单一</by-menu-item>
     <by-menu-item name="2-2">子菜单二</by-menu-item>
     <by-menu-item name="2-3">子菜单三</by-menu-item>
     <by-menu-item name="2-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三</template>
     <by-menu-item name="3-1">子菜单一</by-menu-item>
     <by-menu-item name="3-2">子菜单二</by-menu-item>
     <by-menu-item name="3-3">子菜单三</by-menu-item>
     <by-menu-item name="3-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单四</template>
     <by-menu-item name="4-1">子菜单一</by-menu-item>
     <by-menu-item name="4-2">子菜单二</by-menu-item>
-  </by-submenu>
+  </by-menu-sub>
 </by-menu>
 ```
 :::
@@ -201,7 +201,7 @@
 </div>
 <by-menu :theme="theme" :mode="mode" active-name="0" >
   <by-menu-item name="0" disabled><i class="icon icon-box"></i>子菜单</by-menu-item>
-  <by-submenu>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-home"></i>导航菜单一</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="1-1">子菜单一</by-menu-item>
@@ -211,38 +211,38 @@
       <by-menu-item name="1-3">子菜单三</by-menu-item>
       <by-menu-item name="1-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单二</template>
     <by-menu-item name="2-1">子菜单一</by-menu-item>
     <by-menu-item name="2-2">子菜单二</by-menu-item>
     <by-menu-item name="2-3" disabled>子菜单三</by-menu-item>
     <by-menu-item name="2-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-command"></i>导航菜单三</template>
     <by-menu-item name="3-1">子菜单一</by-menu-item>
     <by-menu-item name="3-2">子菜单二</by-menu-item>
     <by-menu-item name="3-3">子菜单三</by-menu-item>
     <by-menu-item name="3-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu disabled>
+  </by-menu-sub>
+  <by-menu-sub disabled>
     <template slot="title"><i class="icon icon-inbox"></i>导航菜单四</template>
     <by-menu-item name="4-1">子菜单一</by-menu-item>
     <by-menu-item name="4-2">子菜单二</by-menu-item>
-  </by-submenu>
+  </by-menu-sub>
 </by-menu>
 ```
 :::
 
 ## 每次只展开一个子菜单
 
-设置属性 `inline-collapsed`，可开启 `手风琴模式`，即每次只能有一个子菜单被打开。同时 `AtSubmenu` 组件可使用参数 `opened` 配置子菜单默认展开
+设置属性 `inline-collapsed`，可开启 `手风琴模式`，即每次只能有一个子菜单被打开。同时 `by-menu-sub` 组件可使用参数 `opened` 配置子菜单默认展开
 
 :::demo
 ```html
 <by-menu active-name="1-1" inline-collapsed>
-  <by-submenu opened>
+  <by-menu-sub opened>
     <template slot="title"><i class="icon icon-home"></i>导航菜单一</template>
     <by-menu-item-group title="分组一">
       <by-menu-item name="1-1">子菜单一</by-menu-item>
@@ -252,26 +252,26 @@
       <by-menu-item name="1-3">子菜单三</by-menu-item>
       <by-menu-item name="1-4">子菜单四</by-menu-item>
     </by-menu-item-group>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单二</template>
     <by-menu-item name="2-1">子菜单一</by-menu-item>
     <by-menu-item name="2-2">子菜单二</by-menu-item>
     <by-menu-item name="2-3">子菜单三</by-menu-item>
     <by-menu-item name="2-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单三</template>
     <by-menu-item name="3-1">子菜单一</by-menu-item>
     <by-menu-item name="3-2">子菜单二</by-menu-item>
     <by-menu-item name="3-3">子菜单三</by-menu-item>
     <by-menu-item name="3-4">子菜单四</by-menu-item>
-  </by-submenu>
-  <by-submenu>
+  </by-menu-sub>
+  <by-menu-sub>
     <template slot="title"><i class="icon icon-life-buoy"></i>导航菜单四</template>
     <by-menu-item name="4-1">子菜单一</by-menu-item>
     <by-menu-item name="4-2">子菜单二</by-menu-item>
-  </by-submenu>
+  </by-menu-sub>
 </by-menu>
 ```
 :::
@@ -283,10 +283,10 @@
 :::demo
 ```html
 <by-menu router>
-  <by-menu-item :to="{ name: 'Breadcrumb-zh' }">Breadcrumb</by-menu-item>
-  <by-menu-item :to="{ name: 'Dropdown-zh' }">Dropdown</by-menu-item>
-  <by-menu-item :to="{ name: 'Menu-zh' }">Menu</by-menu-item>
-  <by-menu-item :to="{ name: 'Pagination-zh' }">Pagination</by-menu-item>
+  <by-menu-item :to="{ name: 'breadcrumb' }">Breadcrumb</by-menu-item>
+  <by-menu-item :to="{ name: 'dropdown' }">Dropdown</by-menu-item>
+  <by-menu-item :to="{ name: 'menu' }">Menu</by-menu-item>
+  <by-menu-item :to="{ name: 'pagination' }">Pagination</by-menu-item>
 </by-menu>
 ```
 :::
@@ -314,7 +314,7 @@
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | title | 分组菜单的组名 | String | - | - |
 
-## Submenu 参数
+## menu-sub 参数
 
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |

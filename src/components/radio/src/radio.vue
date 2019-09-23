@@ -1,6 +1,5 @@
 <template>
     <label class="by-radio">
-        {{}}
         <span class="by-radio__input">
             <span class="by-radio__inner"
                   :class="{
