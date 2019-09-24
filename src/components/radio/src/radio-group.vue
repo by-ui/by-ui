@@ -5,24 +5,15 @@
 </template>
 
 <script lang="ts">
-import {
-    Vue,
-    Component,
-    Prop,
-    PropSync,
-    Watch,
-    Mixins
-} from "vue-property-decorator";
-
+import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
 import Emitter from "mixins/emitter";
-
 @Component
 export default class ByRadioGroup extends Mixins(Emitter) {
     @Prop()
     value?: [string, number];
 
     @Prop({
-        default:'normal'
+        default: 'normal'
     })
     size?: string;
 
@@ -39,7 +30,7 @@ export default class ByRadioGroup extends Mixins(Emitter) {
         this.broadcast("by-radio", "init-data", value);
     }
 
-    mounted(){
+    mounted() {
         this.broadcast("by-radio", "init-data", this.value);
     }
 }

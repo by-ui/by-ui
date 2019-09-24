@@ -43,8 +43,8 @@ components:
                     #     name: Select
                       - title: switch
                         name: Switch
-                    #   - title: slider
-                    #     name: Slider
+                      - title: slider
+                        name: Slider
                       - title: form
                         name: Form
               - title: viewComponent

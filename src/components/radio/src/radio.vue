@@ -24,55 +24,46 @@
 </template>
 
 <script lang="ts">
-    import {
-        Vue,
-        Component,
-        Prop,
-        PropSync,
-        Watch,
-        Mixins
-    } from "vue-property-decorator";
+import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
+import Emitter from "mixins/emitter";
+@Component
+export default class ByRadio extends Mixins(Emitter) {
+    @Prop()
+    value?: [string, number];
 
-    import Emitter from "mixins/emitter";
+    @Prop()
+    name?: string;
 
-    @Component
-    export default class ByRadio extends Mixins(Emitter) {
-        @Prop()
-        value?: [string, number];
+    @Prop()
+    label!: [string, number];
 
-        @Prop()
-        name?: string;
+    @Prop({
+        default: false
+    })
+    disabled?: boolean;
+    store: any = '';
+    focus = false;
+    isGroup = false;
 
-        @Prop()
-        label!: [string, number];
-
-        @Prop({
-            default: false
-        })
-        disabled?: boolean;
-        store = '';
-        focus = false;
-        isGroup = false;
-
-        @Watch("store")
-        watchStore(store: string | number) {
-            this.$emit("input", store);
-            if (this.isGroup) {
-                this.dispatch("ByRadioGroup", "input", store);
-            }
-        }
-
-        @Watch("value")
-        watchValue(val: [string , number]) {
-            this.store = val;
-        }
-
-        mounted() {
-            this.store = this.value
-            this.$on("init-data", (data: [string, number]) => {
-                this.store = data;
-                this.isGroup = true;
-            });
+    @Watch("store")
+    watchStore(store: [string, number]) {
+        this.$emit("input", store);
+        if (this.isGroup) {
+            this.dispatch("ByRadioGroup", "input", store);
         }
     }
+
+    @Watch("value")
+    watchValue(val: [string, number]) {
+        this.store = val;
+    }
+
+    mounted() {
+        this.store = this.value
+        this.$on("init-data", (data: [string, number]) => {
+            this.store = data;
+            this.isGroup = true;
+        });
+    }
+}
 </script>

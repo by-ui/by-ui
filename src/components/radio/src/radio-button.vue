@@ -18,58 +18,49 @@
 </template>
 
 <script lang="ts">
-    import {
-        Vue,
-        Component,
-        Prop,
-        PropSync,
-        Watch,
-        Mixins
-    } from "vue-property-decorator";
+import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
+import Emitter from "mixins/emitter";
+@Component
+export default class ByRadioButton extends Mixins(Emitter) {
+    @Prop()
+    name?: string;
 
-    import Emitter from "mixins/emitter";
+    @Prop()
+    label!: string | number;
 
-    @Component
-    export default class ByRadioButton extends Mixins(Emitter) {
-        @Prop()
-        name?: string;
+    @Prop({
+        default: false
+    })
+    disabled?: boolean;
 
-        @Prop()
-        label!: string | number;
+    size = (this.$parent as any).size;
 
-        @Prop({
-            default: false
-        })
-        disabled?: boolean;
-
-        size = (this.$parent as any).size;
-
-        get store() {
-            return (this.$parent as any).value;
-        }
-        set store(newValue) {
-            this.$parent.$emit("input", newValue);
-        }
-
-        get activeStyle() {
-            const styles = {
-                backgroundColor: "",
-                borderColor: "",
-                color: ""
-            };
-
-            if ((this.$parent as any).fill) {
-                styles.backgroundColor = (this.$parent as any).fill;
-                styles.borderColor = (this.$parent as any).fill;
-            }
-            if ((this.$parent as any).textColor) {
-                styles.color = (this.$parent as any).textColor;
-            }
-
-            return styles;
-        }
-        mounted() {
-
-        }
+    get store() {
+        return (this.$parent as any).value;
     }
+    set store(newValue) {
+        this.$parent.$emit("input", newValue);
+    }
+
+    get activeStyle() {
+        const styles = {
+            backgroundColor: "",
+            borderColor: "",
+            color: ""
+        };
+
+        if ((this.$parent as any).fill) {
+            styles.backgroundColor = (this.$parent as any).fill;
+            styles.borderColor = (this.$parent as any).fill;
+        }
+        if ((this.$parent as any).textColor) {
+            styles.color = (this.$parent as any).textColor;
+        }
+
+        return styles;
+    }
+    mounted() {
+
+    }
+}
 </script>
