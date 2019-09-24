@@ -37,13 +37,20 @@ import Dropdown from './components/dropdown';
 import DropdownMenu from './components/dropdown-menu';
 import DropdownItem from './components/dropdown-item';
 import Drawer from './components/drawer';
+import Tooltip from './components/tooltip';
+import Popover from './components/popover';
+
 
 /********** 导航组件 **********/
 import Breadcrumb from './components/breadcrumb';
 import BreadcrumbItem from './components/breadcrumb-item';
 import Pagination from './components/pagination';
 import Tabs from './components/tabs';
-import TabPane from './components/tab-pane'
+import TabPane from './components/tab-pane';
+import Menu from './components/menu';
+import MenuItem from './components/menu-item';
+import MenuItemGroup from './components/menu-item-group';
+import Submenu from './components/menu-sub';
 
 function install(Vue: any, opts = {}) {
     Vue.component('by-button', Button);
@@ -85,6 +92,15 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-drawer', Drawer);
     Vue.component('by-tabs', Tabs);
     Vue.component('by-tab-pane', TabPane);
+    Vue.component('by-menu', Menu);
+    Vue.component('by-menu-item', MenuItem);
+    Vue.component('by-menu-item-group', MenuItemGroup);
+    Vue.component('by-menu-sub', Submenu);
+    Vue.component('by-tooltip', Tooltip);
+    Vue.component('by-popover', Popover);
+
+
+
 
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;

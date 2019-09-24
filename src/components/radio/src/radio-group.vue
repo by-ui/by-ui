@@ -26,8 +26,7 @@ export default class ByRadioGroup extends Mixins(Emitter) {
     @Watch("value")
     wathcValue(value: [string, number]) {
         this.$emit("radio-group-change", value);
-        console.log('wathcValue')
-        this.broadcast("by-radio", "init-data", value);
+        this.broadcast("ByRadio", "init-data", value);
     }
 
     mounted() {
