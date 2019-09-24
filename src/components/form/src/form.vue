@@ -1,6 +1,7 @@
 <template>
     <form class="by-form"
-          :class="[ inline ? 'by-form--inline' : '']">
+          :class="[ inline ? 'by-form--inline' : '',
+                    labelPosition ? 'by-form--label-' + labelPosition : '',]">
         <slot></slot>
     </form>
 </template>
@@ -23,6 +24,12 @@
             validator: val => ['horizontal', 'vertical', 'inline'].indexOf(val) > -1
         })
         layout?: string;
+
+        @Prop({
+            default: 'right',
+            validator: val => ['right', 'left', 'top'].indexOf(val) > -1
+        })
+        labelPosition?: string;
 
         @Prop({
             default: true

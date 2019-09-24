@@ -96,8 +96,9 @@
         get contentStyles() {
             const style:any = new Object();
             const labelWidth = this.labelWidth || (this.form as Form).labelWidth;
+            const labelPosition = (this.form as Form).labelPosition || '';
 
-            if (labelWidth && this.label) {
+            if (labelWidth && this.label && labelPosition != 'top') {
                 style.marginLeft = `${labelWidth}px`
             }
 
