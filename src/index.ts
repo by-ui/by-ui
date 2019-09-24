@@ -13,6 +13,7 @@ import InputNumber from './components/input-number';
 import Rate from './components/rate';
 import Input from './components/input';
 import Switch from './components/switch';
+import Slider from './components/slider'
 import Radio from './components/radio';
 import RadioGroup from './components/radio-group';
 import RadioButton from './components/radio-button';
@@ -70,6 +71,7 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-radio', Radio);
     Vue.component('by-radio-group', RadioGroup);
     Vue.component('by-radio-button', RadioButton);
+    Vue.component('by-slider', Slider);
     Vue.component('by-form', Form);
     Vue.component('by-form-item', FormItem);
 
