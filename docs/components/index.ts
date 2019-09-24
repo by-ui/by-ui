@@ -11,7 +11,7 @@ const Components: PluginObject<never> = {
     install(Vue) {
         Vue.component('by-header', ByHeader);
         Vue.component('by-footer', ByFooter);
-        Vue.component('by-slider', BySlider);
+        Vue.component('by-slider-bar', BySlider);
         Vue.component('icon-list', IconList);
         Vue.component('demo-box', DemoBox);
     }
