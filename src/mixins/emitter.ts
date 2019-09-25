@@ -1,6 +1,6 @@
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
-function broadcast(this: any, componentName: any, eventName: any, params: any) {
+function broadcast(this: any, componentName: any, eventName: any, params?: any) {
     this.$children.forEach((child: any) => {
         const name = child.$options.name
         if (name === componentName) {
@@ -31,7 +31,7 @@ export default class Emitter extends Vue {
             parent.$emit.apply(parent, [eventName].concat(params))
         }
     }
-    broadcast(componentName: string, eventName: string, params: any) {
+    broadcast(componentName: string, eventName: string, params?: any) {
         broadcast.call(this, componentName, eventName, params)
     }
 }

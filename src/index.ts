@@ -19,6 +19,9 @@ import RadioGroup from './components/radio-group';
 import RadioButton from './components/radio-button';
 import Form from './components/form';
 import FormItem from './components/form-item';
+import Select from './components/select'
+import Option from './components/option'
+import OptionGroup from './components/option-group'
 
 /********** 视图组件 **********/
 import Badge from './components/badge';
@@ -66,6 +69,9 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-input-number', InputNumber);
     Vue.component('by-rate', Rate);
     Vue.component('by-switch', Switch);
+    Vue.component('by-Select', Select)
+    Vue.component('by-option', Option)
+    Vue.component('by-option-group', OptionGroup)
 
     Vue.component('by-input', Input);
     Vue.component('by-radio', Radio);

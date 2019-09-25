@@ -39,8 +39,8 @@ components:
                         name: Radio
                       - title: rate
                         name: Rate
-                    #   - title: select
-                    #     name: Select
+                      - title: select
+                        name: Select
                       - title: switch
                         name: Switch
                       - title: slider

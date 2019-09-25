@@ -23,7 +23,7 @@
 :::demo
 
 ```html
-<by-slider v-model="value2" disabled></by-slider>
+<by-slider v-model="value2" disabled="true"></by-slider>
 ```
 
 :::
