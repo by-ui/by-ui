@@ -71,7 +71,7 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-input-number', InputNumber);
     Vue.component('by-rate', Rate);
     Vue.component('by-switch', Switch);
-    Vue.component('by-Select', Select)
+    Vue.component('by-select', Select)
     Vue.component('by-option', Option)
     Vue.component('by-option-group', OptionGroup)
 

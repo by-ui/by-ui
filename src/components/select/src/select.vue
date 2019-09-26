@@ -15,11 +15,11 @@
         <div class="by-select__selection"
              ref="trigger"
              @click="toggleMenu">
-            <span class="at-tag"
+            <span class="by-tag"
                   v-for="(item, index) in selectedMultiple"
                   :key="index">
-                <span class="at-tag__text">{{ item.label }}</span>
-                <i class="icon icon-x at-tag__close"
+                <span class="by-tag__text">{{ item.label }}</span>
+                <i class="icon icon-x by-tag__close"
                    @click.stop="removeTag(index)"></i>
             </span>
             <span class="by-select__placeholder"
@@ -215,12 +215,12 @@
 
         @Watch('query')
         watchQuery(val: any) {
-            this.broadcast('AtOption', 'on-query-change', val)
+            this.broadcast('ByOption', 'on-query-change', val)
 
             let isHidden = true
 
             this.$nextTick(() => {
-                const options = findComponentsDownward(this, 'AtOption')
+                const options = findComponentsDownward(this, 'ByOption')
                 options.forEach(option => {
                     if (!option.hidden) {
                         isHidden = false
@@ -229,7 +229,7 @@
                 this.notFound = isHidden
             })
 
-            this.broadcast('Dropdown', 'on-update-popper')
+            this.broadcast('ByDropdown', 'on-update-popper')
         }
         toggleMenu() {
             if (this.disabled) return
@@ -238,7 +238,7 @@
         hideMenu() {
             this.visible = false
             this.focusIndex = 0
-            this.broadcast('AtOption', 'on-select-close')
+            this.broadcast('ByOption', 'on-select-close')
         }
         handleClose() {
             this.hideMenu()
@@ -261,7 +261,7 @@
 
                     let hasFocus = false
 
-                    const options = findComponentsDownward(this, 'AtOption')
+                    const options = findComponentsDownward(this, 'ByOption')
                     options.forEach(option => {
                         if (option.isFocus) {
                             hasFocus = true
@@ -278,7 +278,7 @@
         selectFirstOption() {
             let firstOption: any = null;
 
-            const options = findComponentsDownward(this, 'AtOption')
+            const options = findComponentsDownward(this, 'ByOption')
             options.forEach(option => {
                 if (!firstOption && !option.hidden) {
                     firstOption = option
@@ -289,7 +289,7 @@
         updateOptions() {
             const options: any = [];
 
-            const optionsEle = findComponentsDownward(this, 'AtOption')
+            const optionsEle = findComponentsDownward(this, 'ByOption')
             optionsEle.forEach((option: any) => {
                 options.push({
                     value: option.value,
@@ -348,7 +348,7 @@
         }
         clearSingleSelect() {
             if (this.showCloseIcon) {
-                const options = findComponentsDownward(this, 'AtOption')
+                const options = findComponentsDownward(this, 'ByOption')
                 options.forEach(option => {
                     option.selected = false
                 })
@@ -368,14 +368,14 @@
                 (this.$refs.input as HTMLInputElement).focus()
             }
 
-            this.broadcast('Dropdown', 'on-update-popper')
+            this.broadcast('ByDropdown', 'on-update-popper')
         }
         toggleSingleSelected(value: any, init = false) {
             if (this.multiple) return
 
             let label = ''
 
-            const options = findComponentsDownward(this, 'AtOption')
+            const options = findComponentsDownward(this, 'ByOption')
             options.forEach(option => {
                 if (option.value === value) {
                     option.selected = true
@@ -409,7 +409,7 @@
                 })
             }
 
-            const options = findComponentsDownward(this, 'AtOption')
+            const options = findComponentsDownward(this, 'ByOption')
 
             options.forEach(option => {
                 const index = values.indexOf(option.value)
@@ -442,7 +442,7 @@
             let isValid = false
             let hasValidOption = false // avoid infinite loops
 
-            const options = findComponentsDownward(this, 'AtOption')
+            const options = findComponentsDownward(this, 'ByOption')
 
             options.forEach((option, idx) => {
                 if ((idx + 1) === this.focusIndex) {
@@ -480,7 +480,7 @@
         handleBlur() {
             setTimeout(() => {
                 if (!this.multiple && this.model !== '') {
-                    const options = findComponentsDownward(this, 'AtOption')
+                    const options = findComponentsDownward(this, 'ByOption')
                     options.forEach(option => {
                         if (option.value === this.model) {
                             this.query = (typeof option.label === 'undefined') ? option.searchLabel : option.label
@@ -498,7 +498,7 @@
         }
         modelToQuery() {
             if (!this.multiple && this.filterable && typeof this.model !== 'undefined') {
-                const options = findComponentsDownward(this, 'AtOption')
+                const options = findComponentsDownward(this, 'ByOption')
                 options.forEach(option => {
                     if (this.model === option.value) {
                         this.query = option.label || option.searchLabel || option.value
@@ -507,7 +507,7 @@
             }
         }
         broadcastQuery(val: any) {
-            this.broadcast('AtOption', 'on-query-change', val)
+            this.broadcast('ByOption', 'on-query-change', val)
         }
 
         mounted() {
@@ -526,7 +526,7 @@
                         this.removeTag(index)
                     } else {
                         this.model.push(value)
-                        this.broadcast('Dropdown', 'on-update-popper')
+                        this.broadcast('ByDropdown', 'on-update-popper')
                     }
 
                     if (this.filterable) {
@@ -537,7 +537,7 @@
                     this.model = value
 
                     if (this.filterable) {
-                        const options = findComponentsDownward(this, 'AtOption')
+                        const options = findComponentsDownward(this, 'ByOption')
                         options.forEach(option => {
                             if (option.value === value) {
                                 this.query = (typeof option.label === 'undefined') ? option.searchLabel : option.label

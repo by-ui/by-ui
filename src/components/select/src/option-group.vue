@@ -7,19 +7,13 @@
     </ul>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
-@Component
-export default class ByOptionGroup extends Vue {
-    @Prop()
-    label!: string
-}
-  // export default {
-  //   name: 'AtOptionGroup',
-  //   props: {
-  //     label: {
-  //       type: String,
-  //       required: true
-  //     }
-  //   }
-  // }
+    import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
+    @Component
+    export default class ByOptionGroup extends Vue {
+        @Prop({
+            type: String,
+            required: true
+        })
+        label!: string
+    }
 </script>
