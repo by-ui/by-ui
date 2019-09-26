@@ -43,6 +43,8 @@ import DropdownItem from './components/dropdown-item';
 import Drawer from './components/drawer';
 import Tooltip from './components/tooltip';
 import Popover from './components/popover';
+import Modal from './components/modal';
+import Card from './components/card';
 
 
 /********** 导航组件 **********/
@@ -106,6 +108,8 @@ function install(Vue: any, opts = {}) {
     Vue.component('by-menu-sub', Submenu);
     Vue.component('by-tooltip', Tooltip);
     Vue.component('by-popover', Popover);
+    Vue.component('by-modal', Modal);
+    Vue.component('by-card', Card);
 
 
 
@@ -113,6 +117,7 @@ function install(Vue: any, opts = {}) {
     Vue.prototype.$message = Message;
     Vue.prototype.$loadingBar = LoadingBar;
     Vue.prototype.$notify = Notification;
+    Vue.prototype.$modal = Modal;
 }
 
 /**
@@ -122,6 +127,5 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue)
 }
 const verion = 'v.0.0.3'
-export { verion, install, Message, Button }
+export { verion, install, Message, Button, Modal }
 // export default { verion, install, Message, Button }
-console.log({ verion, install, Message, Button });

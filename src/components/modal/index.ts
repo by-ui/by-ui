@@ -1,4 +1,5 @@
-import Model from './src/model.vue'
+import Model from './src/modal.vue';
+import Dialog from './src/dialog';
 
 Object.defineProperty(Model, 'install', {
     writable: false,
@@ -6,5 +7,7 @@ Object.defineProperty(Model, 'install', {
         Vue.component('by-model', Model);
     }
 })
+
+Object.assign(Model,Dialog)
 
 export default Model

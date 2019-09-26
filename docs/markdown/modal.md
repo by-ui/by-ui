@@ -5,18 +5,18 @@
 
 模态对话框，当需要询问用户处理事务，又不希望跳转页面时，可以使用模态框 `Modal` 在当前页面打开一个浮层并承载相应的操作。
 
-当需要弹出一个简洁的确认框时，也可以使用默认的精简版模态框。`BY-UI` 在 `Vue.prototype` 中添加了全局对象 `$Modal`，可以直接通过 `this.$Modal` 对象操作实例方法
+当需要弹出一个简洁的确认框时，也可以使用默认的精简版模态框。`BY-UI` 在 `Vue.prototype` 中添加了全局对象 `$modal`，可以直接通过 `this.$modal` 对象操作实例方法
 
 ## Modal 实例方法
 
-通过调用 `this.$Modal` 的方法来使用：
-- `this.$Modal.alert(config)`
-- `this.$Modal.confirm(config)`
-- `this.$Modal.prompt(config)`
-- `this.$Modal.info(config)`
-- `this.$Modal.success(config)`
-- `this.$Modal.warning(config)`
-- `this.$Modal.error(config)`
+通过调用 `this.$modal` 的方法来使用：
+- `this.$modal.alert(config)`
+- `this.$modal.confirm(config)`
+- `this.$modal.prompt(config)`
+- `this.$modal.info(config)`
+- `this.$modal.success(config)`
+- `this.$modal.warning(config)`
+- `this.$modal.error(config)`
 
 ## 消息提醒
 
@@ -26,18 +26,18 @@
 
 :::demo
 ```html
-<p class="demo-desc">this.$Modal.alert()</p>
+<p class="demo-desc">this.$modal.alert()</p>
 <by-button @click="modalAlert">Alert</by-button>
 
 <script>
   export default {
     methods: {
       modalAlert () {
-        this.$Modal.alert({
+        this.$modal.alert({
           title: '这里是标题名称',
           content: '这里是文本内容',
           callback: function (action) {
-            this.$Message(action)
+            this.$message(action)
           }
         })
       }
@@ -53,20 +53,20 @@
 
 :::demo
 ```html
-<p class="demo-desc">this.$Modal.confirm()</p>
+<p class="demo-desc">this.$modal.confirm()</p>
 <by-button @click="modalConfirm">Confirm</by-button>
 
 <script>
   export default {
     methods: {
       modalConfirm () {
-        this.$Modal.confirm({
+        this.$modal.confirm({
           title: '提示',
           content: '此操作需要非常谨慎，您确定要这么做吗？'
         }).then(() => {
-          this.$Message('点击了「确认」按钮')
+          this.$message('点击了「确认」按钮')
         }).catch(() => {
-          this.$Message('点击了「取消」按钮')
+          this.$message('点击了「取消」按钮')
         })
       }
     }
@@ -81,20 +81,20 @@
 
 :::demo
 ```html
-<p class="demo-desc">this.$Modal.prompt({ title: '提示', content: '请输入邮件地址：' })</p>
+<p class="demo-desc">this.$modal.prompt({ title: '提示', content: '请输入邮件地址：' })</p>
 <by-button @click="modalPrompt">Prompt</by-button>
 
 <script>
   export default {
     methods: {
       modalPrompt () {
-        this.$Modal.prompt({
+        this.$modal.prompt({
           title: '提示',
           content: '请输入邮件地址：'
         }).then((data) => {
-          this.$Message(`点击了「确认」按钮，输入框的值为 ${data.value}`)
+          this.$message(`点击了「确认」按钮，输入框的值为 ${data.value}`)
         }).catch(() => {
-          this.$Message('点击了「取消」按钮')
+          this.$message('点击了「取消」按钮')
         })
       }
     }
@@ -109,7 +109,7 @@
 
 :::demo
 ```html
-<p class="demo-desc">this.$Modal.success()</p>
+<p class="demo-desc">this.$modal.success()</p>
 <by-button @click="handleClick('success')">成功</by-button>
 <by-button @click="handleClick('error')">错误</by-button>
 <by-button @click="handleClick('warning')">警告</by-button>
@@ -120,19 +120,19 @@
     methods: {
       handleClick (type) {
         if (type === 'info') {
-          this.$Modal.info({
+          this.$modal.info({
             content: '这里是提示的消息'
           })
         } else if (type === 'success') {
-          this.$Modal.success({
+          this.$modal.success({
             content: '这里是成功的消息'
           })
         } else if (type === 'warning') {
-          this.$Modal.warning({
+          this.$modal.warning({
             content: '这里是警告的消息'
           })
         } else if (type === 'error') {
-          this.$Modal.error({
+          this.$modal.error({
             content: '这里是错误的消息'
           })
         }
@@ -145,7 +145,7 @@
 
 ## 组件化方式调用
 
-前面提到的是通过 `this.$Modal` 的方法来使用，如果要自定义对话框，可使用组件化的方式
+前面提到的是通过 `this.$modal` 的方法来使用，如果要自定义对话框，可使用组件化的方式
 
 :::demo
 ```html
@@ -159,10 +159,10 @@
   export default {
     methods: {
       handleConfirm () {
-        this.$Message('Confirm')
+        this.$message('Confirm')
       },
       handleCancel () {
-        this.$Message('Cancel')
+        this.$message('Cancel')
       }
     }
   }
@@ -278,57 +278,57 @@
     methods: {
       handleClick (type) {
         if (type === 'info') {
-          this.$Modal.info({
+          this.$modal.info({
             content: '这里是提示的消息'
           })
         } else if (type === 'success') {
-          this.$Modal.success({
+          this.$modal.success({
             content: '这里是成功的消息'
           })
         } else if (type === 'warning') {
-          this.$Modal.warning({
+          this.$modal.warning({
             content: '这里是警告的消息'
           })
         } else if (type === 'error') {
-          this.$Modal.error({
+          this.$modal.error({
             content: '这里是错误的消息'
           })
         }
       },
       modalAlert () {
-        this.$Modal.alert({
+        this.$modal.alert({
           title: '这里是标题名称',
           content: '这里是文本内容',
           callback: action => {
-            this.$Message(action)
+            this.$message(action)
           }
         })
       },
       modalConfirm () {
-        this.$Modal.confirm({
+        this.$modal.confirm({
           title: '提示',
           content: '此操作需要非常谨慎，您确定要这么做吗？'
         }).then(() => {
-          this.$Message('点击了「确认」按钮')
+          this.$message('点击了「确认」按钮')
         }).catch(() => {
-          this.$Message('点击了「取消」按钮')
+          this.$message('点击了「取消」按钮')
         })
       },
       modalPrompt () {
-        this.$Modal.prompt({
+        this.$modal.prompt({
           title: '提示',
           content: '请输入邮件地址：'
         }).then((data) => {
-          this.$Message(`点击了「确认」按钮，输入框的值为 ${data.value}`)
+          this.$message(`点击了「确认」按钮，输入框的值为 ${data.value}`)
         }).catch(() => {
-          this.$Message('点击了「取消」按钮')
+          this.$message('点击了「取消」按钮')
         })
       },
       handleConfirm () {
-        this.$Message('Confirm')
+        this.$message('Confirm')
       },
       handleCancel () {
-        this.$Message('Cancel')
+        this.$message('Cancel')
       },
       closeModal2 () {
         this.modal2 = false
