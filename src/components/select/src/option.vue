@@ -58,7 +58,8 @@
 
         doSelect() {
             if (this.disabled) return false
-            this.dispatch('BySelect', 'on-select-selected', this.value)
+            console.log(this.value)
+            this.dispatch(this.select.$options.name, 'on-select-selected', this.value)
         }
 
         blur() {
@@ -71,6 +72,7 @@
         }
 
         mounted() {
+            console.log(this.select.$options.name)
             this.select.optionInstances.push(this)
             this.select.options.push({
                 _instance: this,

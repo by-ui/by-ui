@@ -95,17 +95,20 @@
         trigger?: string
 
         @Prop({
+            type: Boolean,
             default: false
         })
         multiple?: boolean
 
 
         @Prop({
+            type: Boolean,
             default: false
         })
         disabled?: boolean
 
         @Prop({
+            type: Boolean,
             default: false
         })
         clearable?: boolean
@@ -114,6 +117,7 @@
         placeholder?: string
 
         @Prop({
+            type: Boolean,
             default: false
         })
         filterable?: boolean
@@ -125,11 +129,13 @@
         size?: string
 
         @Prop({
+            type: Boolean,
             default: false
         })
         valueWithLabel?: boolean
 
         @Prop({
+            type: Boolean,
             default: false
         })
         notFoundText?: boolean
@@ -183,6 +189,7 @@
         }
         @Watch('model')
         watchModel() {
+            console.log("@Watch('model')")
             this.$emit('input', this.model)
             this.modelToQuery()
 
@@ -298,7 +305,7 @@
 
                 this.optionInstances.push(option)
             })
-
+            console.log(options)
             this.options = options
 
             this.updateSingleSelected(true)
@@ -309,6 +316,7 @@
             this.optionInstances.splice(index, 1)
         }
         updateSingleSelected(init = false) {
+            console.log('updateSingleSelected')
             const type = typeof this.model
 
             if (type === 'string' || type === 'number') {
@@ -511,12 +519,14 @@
         }
 
         mounted() {
+            console.log(this.$options.name)
             this.modelToQuery()
             this.updateOptions()
 
             document.addEventListener('keydown', this.handleKeydown)
 
             this.$on('on-select-selected', (value: any) => {
+                console.log('on-select-selected',value)
                 if (this.model === value) {
                     this.hideMenu()
                 } else if (this.multiple) {

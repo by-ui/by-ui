@@ -196,7 +196,7 @@ export function findComponentDownward (context, componentName) {
 
 export function findComponentsDownward (context, componentName, components = []) {
   const childrens = context.$children
-
+  console.log(childrens)
   if (childrens.length) {
     childrens.forEach(child => {
       const subChildren = child.$children

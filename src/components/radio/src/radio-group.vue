@@ -30,7 +30,7 @@ export default class ByRadioGroup extends Mixins(Emitter) {
     }
 
     mounted() {
-        this.broadcast("by-radio", "init-data", this.value);
+        this.broadcast("ByRadio", "init-data", this.value);
     }
 }
 </script>
