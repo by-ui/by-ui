@@ -72,7 +72,7 @@
     import Clickoutside from 'By-UI/directives/clickoutside'
     import Emitter from 'By-UI/mixins/emitter'
     // import Locale from 'By-UI/mixins/locale'
-    import { findComponentsDownward } from 'By-UI/utils/util'
+    import { findComponentsDownwardByComponentTag } from 'By-UI/utils/util'
     import { watch } from "fs";
 
     @Component({
@@ -222,12 +222,12 @@
 
         @Watch('query')
         watchQuery(val: any) {
-            this.broadcast('ByOption', 'on-query-change', val)
+            this.broadcast('by-option', 'on-query-change', val)
 
             let isHidden = true
 
             this.$nextTick(() => {
-                const options = findComponentsDownward(this, 'ByOption')
+                const options = findComponentsDownwardByComponentTag(this, 'by-option')
                 options.forEach(option => {
                     if (!option.hidden) {
                         isHidden = false
@@ -245,7 +245,7 @@
         hideMenu() {
             this.visible = false
             this.focusIndex = 0
-            this.broadcast('ByOption', 'on-select-close')
+            this.broadcast('by-option', 'on-select-close')
         }
         handleClose() {
             this.hideMenu()
@@ -268,7 +268,7 @@
 
                     let hasFocus = false
 
-                    const options = findComponentsDownward(this, 'ByOption')
+                    const options = findComponentsDownwardByComponentTag(this, 'by-option')
                     options.forEach(option => {
                         if (option.isFocus) {
                             hasFocus = true
@@ -285,7 +285,7 @@
         selectFirstOption() {
             let firstOption: any = null;
 
-            const options = findComponentsDownward(this, 'ByOption')
+            const options = findComponentsDownwardByComponentTag(this, 'by-option')
             options.forEach(option => {
                 if (!firstOption && !option.hidden) {
                     firstOption = option
@@ -295,8 +295,8 @@
         }
         updateOptions() {
             const options: any = [];
-
-            const optionsEle = findComponentsDownward(this, 'ByOption')
+            console.log(this.$children)
+            const optionsEle = findComponentsDownwardByComponentTag(this, 'by-option')
             optionsEle.forEach((option: any) => {
                 options.push({
                     value: option.value,
@@ -356,7 +356,7 @@
         }
         clearSingleSelect() {
             if (this.showCloseIcon) {
-                const options = findComponentsDownward(this, 'ByOption')
+                const options = findComponentsDownwardByComponentTag(this, 'by-option')
                 options.forEach(option => {
                     option.selected = false
                 })
@@ -383,7 +383,7 @@
 
             let label = ''
 
-            const options = findComponentsDownward(this, 'ByOption')
+            const options = findComponentsDownwardByComponentTag(this, 'by-option')
             options.forEach(option => {
                 if (option.value === value) {
                     option.selected = true
@@ -417,7 +417,7 @@
                 })
             }
 
-            const options = findComponentsDownward(this, 'ByOption')
+            const options = findComponentsDownwardByComponentTag(this, 'by-option')
 
             options.forEach(option => {
                 const index = values.indexOf(option.value)
@@ -450,7 +450,7 @@
             let isValid = false
             let hasValidOption = false // avoid infinite loops
 
-            const options = findComponentsDownward(this, 'ByOption')
+            const options = findComponentsDownwardByComponentTag(this, 'by-option')
 
             options.forEach((option, idx) => {
                 if ((idx + 1) === this.focusIndex) {
@@ -488,7 +488,7 @@
         handleBlur() {
             setTimeout(() => {
                 if (!this.multiple && this.model !== '') {
-                    const options = findComponentsDownward(this, 'ByOption')
+                    const options = findComponentsDownwardByComponentTag(this, 'by-option')
                     options.forEach(option => {
                         if (option.value === this.model) {
                             this.query = (typeof option.label === 'undefined') ? option.searchLabel : option.label
@@ -506,7 +506,7 @@
         }
         modelToQuery() {
             if (!this.multiple && this.filterable && typeof this.model !== 'undefined') {
-                const options = findComponentsDownward(this, 'ByOption')
+                const options = findComponentsDownwardByComponentTag(this, 'by-option')
                 options.forEach(option => {
                     if (this.model === option.value) {
                         this.query = option.label || option.searchLabel || option.value
@@ -515,7 +515,7 @@
             }
         }
         broadcastQuery(val: any) {
-            this.broadcast('ByOption', 'on-query-change', val)
+            this.broadcast('by-option', 'on-query-change', val)
         }
 
         mounted() {
@@ -547,7 +547,7 @@
                     this.model = value
 
                     if (this.filterable) {
-                        const options = findComponentsDownward(this, 'ByOption')
+                        const options = findComponentsDownwardByComponentTag(this, 'by-option')
                         options.forEach(option => {
                             if (option.value === value) {
                                 this.query = (typeof option.label === 'undefined') ? option.searchLabel : option.label

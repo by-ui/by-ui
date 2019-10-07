@@ -20,8 +20,8 @@ import RadioButton from './components/radio-button';
 import Form from './components/form';
 import FormItem from './components/form-item';
 import Select from './components/select'
-import Option from './components/option'
-import OptionGroup from './components/option-group'
+import Option from './components/select-option'
+import OptionGroup from './components/select-option-group'
 
 /********** 视图组件 **********/
 import Badge from './components/badge';
