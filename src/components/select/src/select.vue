@@ -75,12 +75,13 @@
     import { findComponentsDownward } from 'By-UI/utils/util'
     import { watch } from "fs";
 
-    @Component({
-        name:"BySelect",
-        directives: {
-            Clickoutside
-        }
-    })
+    @Component(
+        {
+            name: "BySelect",
+            directives: {
+                Clickoutside
+            }
+        })
     export default class BySelect extends Mixins(Emitter, PopoverMixin) {
         @Provide('select')
         select = this
@@ -190,7 +191,6 @@
         }
         @Watch('model')
         watchModel() {
-            console.log("@Watch('model')")
             this.$emit('input', this.model)
             this.modelToQuery()
 
@@ -296,7 +296,6 @@
         }
         updateOptions() {
             const options: any = [];
-
             const optionsEle = findComponentsDownward(this, 'ByOption')
             optionsEle.forEach((option: any) => {
                 options.push({
@@ -306,7 +305,6 @@
 
                 this.optionInstances.push(option)
             })
-            console.log(options)
             this.options = options
 
             this.updateSingleSelected(true)
@@ -317,7 +315,6 @@
             this.optionInstances.splice(index, 1)
         }
         updateSingleSelected(init = false) {
-            console.log('updateSingleSelected')
             const type = typeof this.model
 
             if (type === 'string' || type === 'number') {
@@ -520,14 +517,12 @@
         }
 
         mounted() {
-            console.log(this.$options.name)
             this.modelToQuery()
             this.updateOptions()
 
             document.addEventListener('keydown', this.handleKeydown)
 
             this.$on('on-select-selected', (value: any) => {
-                console.log('on-select-selected',value)
                 if (this.model === value) {
                     this.hideMenu()
                 } else if (this.multiple) {

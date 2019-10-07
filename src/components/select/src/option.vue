@@ -16,16 +16,17 @@
 <script lang="ts">
     import { Vue, Component, Prop, PropSync, Watch, Mixins, Provide, Inject } from "vue-property-decorator";
     import Emitter from "mixins/emitter";
-    @Component({
-        name:"ByOption",
-        beforeDestroy() {
-            (this as ByOption).select.options.forEach((option: any, idx: any) => {
-                if (option._instance === this) {
-                    (this as ByOption).select.onOptionDestroy(idx)
-                }
-            })
-        }
-    })
+    @Component(
+        {
+            name: "ByOption",
+            beforeDestroy() {
+                (this as ByOption).select.options.forEach((option: any, idx: any) => {
+                    if (option._instance === this) {
+                        (this as ByOption).select.onOptionDestroy(idx)
+                    }
+                })
+            }
+        })
     export default class ByOption extends Mixins(Emitter) {
         @Inject('select')
         select: any;
@@ -59,7 +60,6 @@
 
         doSelect() {
             if (this.disabled) return false
-            console.log(this.value)
             this.dispatch(this.select.$options.name, 'on-select-selected', this.value)
         }
 
@@ -73,7 +73,6 @@
         }
 
         mounted() {
-            console.log(this.select.$options.name)
             this.select.optionInstances.push(this)
             this.select.options.push({
                 _instance: this,
