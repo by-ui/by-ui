@@ -196,7 +196,6 @@ export function findComponentDownward (context, componentName) {
 
 export function findComponentsDownward (context, componentName, components = []) {
   const childrens = context.$children
-  console.log(childrens)
   if (childrens.length) {
     childrens.forEach(child => {
       const subChildren = child.$children
@@ -216,26 +215,3 @@ export function findComponentsDownward (context, componentName, components = [])
 
   return components
 }
-
-export function findComponentsDownwardByComponentTag (context, componentName, components = []) {
-    const childrens = context.$children
-    console.log(childrens)
-    if (childrens.length) {
-      childrens.forEach(child => {
-        const subChildren = child.$children
-        const name = child.$options._componentTag
-
-        if (name === componentName) {
-          components.push(child)
-        }
-        if (subChildren.length) {
-          const findChildren = findComponentsDownwardByComponentTag(child, componentName, components)
-          if (findChildren) {
-            components.concat(findChildren)
-          }
-        }
-      })
-    }
-
-    return components
-  }

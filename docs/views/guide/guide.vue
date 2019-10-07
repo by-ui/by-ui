@@ -2,7 +2,7 @@
     <div class="guide">
         <by-header></by-header>
         <div class="by-container row">
-            <by-slider :tree-data="navs"></by-slider>
+            <by-slider-bar :tree-data="navs"></by-slider-bar>
             <div class="by-markdown col-sm-24 col-md-18 col-lg-20">
                 <transition name="fade"
                             mode="out-in">

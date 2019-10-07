@@ -18,7 +18,6 @@ export default class Emitter extends Vue {
     dispatch(this: any, componentName: any, eventName: any, params: any) {
         let parent = this.$parent || this.$root
         let name = parent.$options.name
-        console.log(name)
 
         while (parent && (!name || name !== componentName)) {
             parent = parent.$parent
