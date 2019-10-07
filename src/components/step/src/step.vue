@@ -7,7 +7,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'BySteps',
+    })
     export default class BySteps extends Vue {
         @Prop({
             default: 0,

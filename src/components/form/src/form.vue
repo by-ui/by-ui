@@ -8,7 +8,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'ByForm'
+    })
     export default class ByForm extends Vue {
 
         @Prop()

@@ -38,7 +38,9 @@
     import { findComponentUpward } from '@docs/utils/util';
     import ByCheckboxGroup from './by-checkbox-group.vue';
 
-    @Component
+    @Component({
+        name: 'ByCheckbox'
+    })
     export default class ByCheckbox extends Vue {
 
         @Prop({
@@ -99,6 +101,7 @@
         }
 
         mounted() {
+            console.log(this);
             const parent = findComponentUpward(this, 'ByCheckboxGroup');
 
             if (parent) {

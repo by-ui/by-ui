@@ -32,7 +32,9 @@
 <script lang="ts">
     import { Vue, Component, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'Notification'
+    })
     export default class Notification extends Vue {
 
         type = '';

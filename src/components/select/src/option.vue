@@ -17,6 +17,7 @@
     import { Vue, Component, Prop, PropSync, Watch, Mixins, Provide, Inject } from "vue-property-decorator";
     import Emitter from "mixins/emitter";
     @Component({
+        name:"ByOption",
         beforeDestroy() {
             (this as ByOption).select.options.forEach((option: any, idx: any) => {
                 if (option._instance === this) {

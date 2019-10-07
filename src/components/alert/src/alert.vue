@@ -28,62 +28,64 @@
     </transition>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+    import { Vue, Component, Prop } from "vue-property-decorator";
 
-@Component
-export default class Alert extends Vue {
-    @Prop({
-        default: "info"
+    @Component({
+        name: "ByAlert",
     })
-    type!: string;
+    export default class ByAlert extends Vue {
+        @Prop({
+            default: "info"
+        })
+        type!: string;
 
-    @Prop({
-        default: ""
-    })
-    message!: string;
+        @Prop({
+            default: ""
+        })
+        message!: string;
 
-    @Prop({
-        default: ""
-    })
-    description?: string;
+        @Prop({
+            default: ""
+        })
+        description?: string;
 
-    @Prop({
-        default: false,
-        type: Boolean
-    })
-    closable?: boolean;
+        @Prop({
+            default: false,
+            type: Boolean
+        })
+        closable?: boolean;
 
-    @Prop({
-        default: false,
-        type: Boolean
-    })
-    showIcon?: boolean;
+        @Prop({
+            default: false,
+            type: Boolean
+        })
+        showIcon?: boolean;
 
-    @Prop({
-        default: "info"
-    })
-    icon?: string;
+        @Prop({
+            default: "info"
+        })
+        icon?: string;
 
-    @Prop({
-        default: ""
-    })
-    closeText?: string;
+        @Prop({
+            default: ""
+        })
+        closeText?: string;
 
-    isShow = true;
+        isShow = true;
 
-    get iconClass() {
-        const classArr = {
-            success: "icon-check-circle",
-            error: "icon-x-circle",
-            warning: "icon-alert-circle",
-            info: "icon-info"
-        };
-        return classArr[this.type] || this.icon;
+        get iconClass() {
+            const classArr = {
+                success: "icon-check-circle",
+                error: "icon-x-circle",
+                warning: "icon-alert-circle",
+                info: "icon-info"
+            };
+            return classArr[this.type] || this.icon;
+        }
+
+        handleClose() {
+            this.isShow = false
+            this.$emit('on-close')
+        }
     }
-
-    handleClose () {
-      this.isShow = false
-      this.$emit('on-close')
-    }
-}
 </script>

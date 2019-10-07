@@ -17,8 +17,10 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
-    export default class BreadcrumbItem extends Vue {
+    @Component({
+        name: "ByBreadcrumbItem",
+    })
+    export default class ByBreadcrumbItem extends Vue {
         @Prop()
         href?: string;
 

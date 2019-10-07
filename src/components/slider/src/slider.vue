@@ -56,6 +56,7 @@ import ByInputNumber from 'By-UI/components/input-number'
 import { getStyle } from 'By-UI/utils/utils'
 
 @Component({
+    name: 'BySlider',
     components: {
         ByInputNumber,
         ByTooltip

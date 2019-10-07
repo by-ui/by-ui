@@ -126,8 +126,10 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
-    export default class Pagination extends Vue {
+    @Component({
+        name: 'ByPagination'
+    })
+    export default class ByPagination extends Vue {
         @Prop({
             default: 1
         })

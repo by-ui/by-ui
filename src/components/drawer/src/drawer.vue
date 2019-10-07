@@ -37,8 +37,10 @@
     import Emitter from "mixins/emitter";
     import Popup from "mixins/popup";
 
-    @Component
-    export default class Drawer extends Mixins(Emitter, Popup) {
+    @Component({
+        name: 'ByDrawer'
+    })
+    export default class ByDrawer extends Mixins(Emitter, Popup) {
         @Prop({
             default: true
         })

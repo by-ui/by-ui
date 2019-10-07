@@ -30,6 +30,7 @@
     import Clickoutside from 'By-UI/directives/clickoutside'
 
     @Component({
+        name: 'ByPopover',
         directives:{
             Clickoutside
         }

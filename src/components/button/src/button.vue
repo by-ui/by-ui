@@ -23,7 +23,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, PropSync, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: "ByButton",
+    })
     export default class ByButton extends Vue {
         /**
          * 类型

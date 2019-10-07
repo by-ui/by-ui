@@ -79,7 +79,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'ByTabs'
+    })
     export default class ByTabs extends Vue {
         @Prop()
         value?: string;

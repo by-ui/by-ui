@@ -76,6 +76,7 @@
     import { watch } from "fs";
 
     @Component({
+        name:"BySelect",
         directives: {
             Clickoutside
         }

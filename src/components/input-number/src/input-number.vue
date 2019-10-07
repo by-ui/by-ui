@@ -35,7 +35,9 @@
     import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
     import TwoWay from "mixins/two-way";
 
-    @Component
+    @Component({
+        name: 'InputNumber'
+    })
     export default class InputNumber extends Mixins(TwoWay) {
         @Prop()
         name?: string;

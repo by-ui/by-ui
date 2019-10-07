@@ -7,7 +7,9 @@
 <script lang="ts">
 import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
 import Emitter from "mixins/emitter";
-@Component
+@Component({
+    name: 'ByRadioGroup'
+})
 export default class ByRadioGroup extends Mixins(Emitter) {
     @Prop()
     value?: [string, number];

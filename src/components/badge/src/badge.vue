@@ -11,8 +11,10 @@
 <script lang="ts">
     import { Vue, Component, Prop } from "vue-property-decorator";
 
-    @Component
-    export default class Badge extends Vue {
+    @Component({
+        name: "ByBadge",
+    })
+    export default class ByBadge extends Vue {
         @Prop({
             default: ''
         })

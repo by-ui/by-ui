@@ -14,7 +14,9 @@
     import Emitter from "mixins/emitter";
     import { findComponentsDownward } from 'By-UI/utils/util'
 
-    @Component
+    @Component({
+        name: 'ByMenu',
+    })
     export default class ByMenu extends Mixins(Emitter) {
         @Prop({
             default: 'light',

@@ -8,7 +8,9 @@
 </template>
 <script lang="ts">
     import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
-    @Component
+    @Component({
+        name:"ByOptionGroup",
+    })
     export default class ByOptionGroup extends Vue {
         @Prop({
             type: String,

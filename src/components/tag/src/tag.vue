@@ -20,7 +20,9 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 const colorArr = ["default", "primary", "success", "error", "warning", "info"];
 
-@Component
+@Component({
+    name: 'ByTag'
+})
 export default class ByTag extends Vue {
     @Prop()
     name!: string;

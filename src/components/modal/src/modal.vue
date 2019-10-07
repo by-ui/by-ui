@@ -65,7 +65,9 @@
     import Emitter from "mixins/emitter";
     import { findComponentsUpward } from 'By-UI/utils/util';
 
-    @Component
+    @Component({
+        name: 'ByModal'
+    })
     export default class ByModal extends Mixins(Emitter) {
         @Prop()
         title?: string;

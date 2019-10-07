@@ -9,7 +9,9 @@
 
     import { findComponentsDownward } from '@docs/utils/util'
 
-    @Component
+    @Component({
+        name: 'ByCheckboxGroup'
+    })
     export default class ByCheckboxGroup extends Vue {
 
         @Prop({

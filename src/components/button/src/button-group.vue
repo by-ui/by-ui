@@ -7,8 +7,10 @@
 <script lang="ts">
     import { Vue, Component, Prop } from "vue-property-decorator";
 
-    @Component
-    export default class MyComponent extends Vue {
+    @Component({
+        name: "ByButtonGroup",
+    })
+    export default class ByButtonGroup extends Vue {
 
         @Prop()
         size?: string;

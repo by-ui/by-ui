@@ -50,7 +50,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'ByCard'
+    })
     export default class ByCard extends Vue {
         @Prop({
             type: Boolean,

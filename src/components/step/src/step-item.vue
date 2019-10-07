@@ -35,8 +35,10 @@
     import { Vue, Component, Prop } from "vue-property-decorator";
     import Step from './step.vue';
 
-    @Component
-    export default class StepItem extends Vue {
+    @Component({
+        name: 'ByStepItem',
+    })
+    export default class ByStepItem extends Vue {
 
         @Prop()
         title?: string;

@@ -20,7 +20,9 @@
 <script lang="ts">
 import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
 import Emitter from "mixins/emitter";
-@Component
+@Component({
+    name: 'ByRadioButton'
+})
 export default class ByRadioButton extends Mixins(Emitter) {
     @Prop()
     name?: string;

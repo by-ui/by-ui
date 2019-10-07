@@ -9,7 +9,9 @@
     import { Vue, Component, Prop, Mixins } from "vue-property-decorator";
     import Emitter from "mixins/emitter";
 
-    @Component
+    @Component({
+        name: 'ByDropdownItem'
+    })
     export default class ByDropdownItem extends Mixins(Emitter) {
 
         @Prop()

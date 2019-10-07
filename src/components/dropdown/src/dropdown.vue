@@ -22,6 +22,7 @@
     import PopoverMixin from 'By-UI/mixins/popover';
 
     @Component({
+        name: 'ByDropdown',
         directives: {
             Clickoutside
         }

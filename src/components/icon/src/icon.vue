@@ -4,7 +4,9 @@
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'ByIcon'
+    })
     export default class ByIcon extends Vue {
     }
 </script>

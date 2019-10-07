@@ -25,7 +25,9 @@
 <script lang="ts">
 import { Vue, Component, Prop, PropSync, Watch, Mixins } from "vue-property-decorator";
 import Emitter from "mixins/emitter";
-@Component
+@Component({
+    name: 'ByRadio'
+})
 export default class ByRadio extends Mixins(Emitter) {
     @Prop()
     value?: [string, number];

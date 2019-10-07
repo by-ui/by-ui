@@ -10,7 +10,9 @@
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'LoadingBar'
+    })
     export default class LoadingBar extends Vue {
 
         show = false;

@@ -28,7 +28,9 @@
     import { Vue, Component, Prop, Watch, Mixins } from "vue-property-decorator";
     import PopoverMixin from 'mixins/popover'
 
-    @Component
+    @Component({
+        name: 'ByTooltip'
+    })
     export default class ByTooltip extends Mixins(PopoverMixin) {
         @Prop({
             type: String,

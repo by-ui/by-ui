@@ -31,8 +31,10 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-    @Component
-    export default class Progress extends Vue {
+    @Component({
+        name: 'ByProgress',
+    })
+    export default class ByProgress extends Vue {
         @Prop()
         type?: string;
 

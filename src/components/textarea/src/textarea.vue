@@ -25,7 +25,9 @@
 import { Vue, Component, Prop, Mixins, Watch } from "vue-property-decorator";
 import { calcTextareaHeight } from "./utils";
 
-@Component
+@Component({
+    name: 'ByTextarea'
+})
 export default class ByTextarea extends Vue {
     @Prop()
     value?: string;

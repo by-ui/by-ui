@@ -176,6 +176,7 @@
     import { getStyle, deepCopy } from 'By-UI/utils/util'
 
     @Component({
+        name: 'Table',
         components: {
             Checkbox,
             Pagination,

@@ -21,7 +21,9 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-@Component
+@Component({
+    name: 'Message'
+})
 export default class Message extends Vue {
     message = "";
     duration = 3000;

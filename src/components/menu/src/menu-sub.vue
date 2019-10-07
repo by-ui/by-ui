@@ -43,6 +43,7 @@
     import PopoverMixin from 'mixins/popover';
 
     @Component({
+        name: 'ByMenuSub',
         components: {
             CollapseTransition
         }

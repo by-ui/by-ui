@@ -17,8 +17,10 @@
 <script lang="ts">
     import { Vue, Component, Prop } from "vue-property-decorator";
 
-    @Component
-    export default class MyComponent extends Vue {
+    @Component({
+        name: 'ByTimeLineItem'
+    })
+    export default class ByTimeLineItem extends Vue {
 
         @Prop({
             type: String,

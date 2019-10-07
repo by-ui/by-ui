@@ -23,7 +23,9 @@
     import Emitter from "mixins/emitter";
     import { findComponentsUpward } from 'By-UI/utils/util';
 
-    @Component
+    @Component({
+        name: 'ByMenuItem'
+    })
     export default class ByMenuItem extends Mixins(Emitter) {
         @Prop()
         name?: [string, number];

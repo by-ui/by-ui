@@ -10,7 +10,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, PropSync, Watch } from "vue-property-decorator";
 
-    @Component
+    @Component({
+        name: 'ByMenuItemGroup'
+    })
     export default class ByMenuItemGroup extends Vue {
         @Prop({
             default: ''

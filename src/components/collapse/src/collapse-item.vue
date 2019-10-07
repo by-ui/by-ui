@@ -26,11 +26,12 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import CollapseTransition from "@/utils/collapse-transition";
 
 @Component({
+    name: 'ByCollapseItem',
     components: {
         CollapseTransition
     }
 })
-export default class CollapseItem extends Vue {
+export default class ByCollapseItem extends Vue {
     @Prop({
         default: ""
     })

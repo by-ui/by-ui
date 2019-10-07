@@ -30,7 +30,9 @@
 
     import Form from './form.vue'
 
-    @Component
+    @Component({
+        name: 'ByFormItem'
+    })
     export default class ByFormItem extends Mixins(Emitter) {
 
         @Prop({
