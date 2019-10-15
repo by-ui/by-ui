@@ -21,8 +21,7 @@
                                      v-text="$t('by.header.component')"></router-link>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"
-                        @click="$message.warning('To be developed, Comming Soon......')"
+                        <a href="https://by-ui.github.io/admin/" target="_blank"
                            v-text="$t('by.header.adminSystem')"></a>
                     </li>
                 </ul>
