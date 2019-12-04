@@ -20,3 +20,4 @@ dist/
 .vscode/
 _intermediate/
 src/by-ui-style
+/.DS_Store
